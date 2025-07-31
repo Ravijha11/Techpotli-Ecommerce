@@ -66,7 +66,7 @@ const dailyProducts = [
   },
 ]
 
-export default function DailyDiscover() {
+export default function DailyDeals() {
   return (
     <section className="py-8 bg-white">
       <div className="container mx-auto px-4">
@@ -122,7 +122,7 @@ export default function DailyDiscover() {
                   )}
                   <span className="text-lg font-bold text-gray-800">${product.price}</span>
                   {product.discount && (
-                    <span className="text-sm text-purple-600 font-medium">-{product.discount}%</span>
+                    <span className="text-xs text-purple-600 font-medium">-{product.discount}%</span>
                   )}
                 </div>
               </div>
@@ -132,4 +132,4 @@ export default function DailyDiscover() {
       </div>
     </section>
   )
-}
+} 

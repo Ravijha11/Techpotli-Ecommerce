@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import BrandCard from "./BrandCard"
 
 const brands = [
   { name: "Adidas", logo: "https://placehold.co/120x80/FFF/333?text=adidas" },
@@ -35,19 +36,7 @@ export default function FeaturedBrands() {
         <div className="flex justify-between">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 flex-1 max-w-md">
             {brands.map((brand, index) => (
-              <div
-                key={index}
-                className="bg-white border border-gray-200 rounded-lg p-6 flex flex-col items-center justify-center hover:shadow-md transition-shadow h-24"
-              >
-                <Image
-                  src={brand.logo || "/placeholder.svg"}
-                  alt={brand.name}
-                  width={80}
-                  height={40}
-                  className="object-contain mb-2"
-                />
-                <span className="text-sm font-medium text-gray-700">{brand.name}</span>
-              </div>
+              <BrandCard key={index} brand={brand} />
             ))}
           </div>
 
@@ -82,4 +71,4 @@ export default function FeaturedBrands() {
       </div>
     </section>
   )
-}
+} 
