@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Header from "@/components/layout/Header"
-import HeroCarousel from "@/components/hero/HeroCarousel"
+import { HeroSection } from "@/components/hero"
 import ServiceFeatures from "@/components/common/ServiceFeatures"
 import ProductGrid from "@/components/products/ProductGrid"
 import TopSellingProducts from "@/components/products/ProductGrid/TopSellingProducts"
@@ -98,7 +98,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       <main>
-        <HeroCarousel />
+        <HeroSection />
         <ServiceFeatures />
         <ProductGrid 
           title="Featured products"
