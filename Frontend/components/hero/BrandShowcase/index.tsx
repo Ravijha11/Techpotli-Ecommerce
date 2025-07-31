@@ -16,7 +16,7 @@ const brands = [
   { name: "JBL", logo: "https://placehold.co/120x60/333/FFF?text=JBL" },
 ]
 
-export default function BrandsCarousel() {
+export default function BrandShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
@@ -58,4 +58,4 @@ export default function BrandsCarousel() {
       </div>
     </section>
   )
-}
+} 
