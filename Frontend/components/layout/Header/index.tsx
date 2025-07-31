@@ -6,7 +6,7 @@ import { ShoppingCart, Phone, Mail } from "lucide-react"
 import SearchBar from "./SearchBar"
 import UserMenu from "./UserMenu"
 import CartIcon from "./CartIcon"
-import Navigation from "./Navigation"
+import BottomNavigation from "../BottomNavigation"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -76,8 +76,8 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Navigation Menu */}
-      <Navigation />
+      {/* Bottom Navigation */}
+      <BottomNavigation />
     </header>
   )
 } 
