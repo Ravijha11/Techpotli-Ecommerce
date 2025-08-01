@@ -8,13 +8,16 @@ interface SearchBarProps {
 
 export default function SearchBar({ className = "" }: SearchBarProps) {
   return (
-    <div className={`relative w-full ${className}`}>
+    <div className={`flex w-full ${className}`}>
       <input
         type="text"
-        placeholder="Search for products..."
-        className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+        placeholder="Search Here"
+        className="flex-1 px-4 py-3 bg-gray-200 rounded-l-lg border-0 focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-700 placeholder-gray-500"
       />
-      <button className="absolute right-0 top-0 h-full px-4 bg-orange-500 text-white rounded-r-lg hover:bg-orange-600 transition-colors">
+      <button 
+        className="px-6 py-3 bg-purple-600 text-white rounded-r-lg hover:bg-purple-700 transition-colors"
+        aria-label="Search"
+      >
         <Search className="w-5 h-5" />
       </button>
     </div>
