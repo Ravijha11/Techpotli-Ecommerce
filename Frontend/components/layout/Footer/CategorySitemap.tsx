@@ -157,7 +157,7 @@ const categoryData = {
 export default function CategorySitemap() {
   return (
     <section className="category-sitemap-section">
-      <div className="container">
+      <div className="w-full px-4 md:px-6 lg:px-8">
         {/* Header */}
         <div className="sitemap-header">
           <h2 className="sitemap-title">Shop by Category</h2>

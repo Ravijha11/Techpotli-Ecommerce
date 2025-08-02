@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="modern-footer">
       <div className="bottom-area section pb-0">
-        <div className="container">
+        <div className="w-full px-4 md:px-6 lg:px-8">
           {/* Logo and Brand Section */}
           <div className="footer-brand-section">
             <div className="logo-container">

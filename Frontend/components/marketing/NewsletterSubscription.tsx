@@ -79,8 +79,8 @@ export default function NewsletterSubscription() {
   }
 
   return (
-    <section className="bg-gradient-to-r from-purple-50 to-indigo-50 py-16">
-      <div className="container mx-auto px-4">
+    <section className="w-full bg-gradient-to-r from-purple-50 to-indigo-50 py-16">
+      <div className="w-full px-4 md:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Left side - Text content */}
           <div className="flex-1 text-center md:text-left">
