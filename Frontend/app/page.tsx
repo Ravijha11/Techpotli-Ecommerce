@@ -8,6 +8,7 @@ import FlashSale from "@/components/marketing/FlashSale"
 import FeaturedBrands from "@/components/marketing/FeaturedBrands"
 import DailyDeals from "@/components/marketing/DailyDeals"
 import ProductBanner from "@/components/marketing/ProductBanner"
+import FeaturedCategories from "@/components/categories/FeaturedCategories"
 import BrandShowcase from "@/components/hero/BrandShowcase"
 import Newsletter from "@/components/layout/Footer/Newsletter"
 import Footer from "@/components/layout/Footer"
@@ -62,6 +63,11 @@ export default function HomePage() {
             products={featuredProducts}
             viewAllLink="/products"
           />
+        </section>
+
+        {/* Featured Categories - Enhanced section */}
+        <section className="py-16 bg-white">
+          <FeaturedCategories />
         </section>
 
         {/* Top Selling Products - Premium spacing */}
