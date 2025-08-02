@@ -36,7 +36,7 @@ export default function ServiceFeatures() {
       
       {/* Subtle Glow Effect - Removed */}
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full px-4 md:px-6 lg:px-8 relative z-10">
         <div className="flex flex-wrap mb-20 mb-sm-15">
           {features.map((feature, index) => (
             <div 
