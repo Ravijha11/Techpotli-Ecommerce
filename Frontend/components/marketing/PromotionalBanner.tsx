@@ -6,71 +6,98 @@ import { getActiveBanner } from "@/data/promotionalBanners"
 
 interface PromotionalBannerProps {
   title?: string
-  description?: string
   imageUrl?: string
   linkUrl?: string
   altText?: string
   height?: number
   width?: number
   useConfig?: boolean
+  bannerId?: string
 }
 
 /**
  * PromotionalBanner Component
  * 
- * A flexible promotional banner component that can be easily updated for different seasons and offers.
+ * A flexible promotional banner component designed for large e-commerce websites.
  * Features:
+ * - Configuration-based banner management
+ * - Date-based activation/deactivation
+ * - Priority-based display logic
+ * - Category and tag-based filtering
+ * - Easy campaign management
  * - Responsive design
- * - Easy customization for different campaigns
- * - SEO-friendly with proper alt text
- * - Clickable banner with link
- * - Configurable through data file
  * 
  * @example
  * ```tsx
+ * // Use configuration system (recommended)
  * <PromotionalBanner useConfig={true} />
+ * 
+ * // Use specific banner
+ * <PromotionalBanner bannerId="summer-fashion-2024" />
+ * 
+ * // Use custom props
+ * <PromotionalBanner 
+ *   title="Custom Banner"
+ *   imageUrl="https://example.com/banner.jpg"
+ *   linkUrl="/custom-page"
+ *   altText="Custom banner"
+ * />
  * ```
  */
 export default function PromotionalBanner({
   title,
-  description,
   imageUrl,
   linkUrl,
   altText,
   height = 100,
   width = 500,
-  useConfig = true
+  useConfig = true,
+  bannerId
 }: PromotionalBannerProps) {
-  // Use configuration if enabled, otherwise use props
-  const config = useConfig ? getActiveBanner() : null
+  // Get banner data from configuration if enabled
+  let bannerData = null
   
-  const bannerData = config || {
-    title: title || "Autumn Offer",
-    description: description || "Special deals and offers",
-    imageUrl: imageUrl || "https://cdn.ishop.cholobangla.com/uploads/banner-6.webp",
-    linkUrl: linkUrl || "/autumn-offer/products?banner=6",
-    altText: altText || "Autumn Offer"
+  if (useConfig) {
+    if (bannerId) {
+      // Import the banners array to find specific banner
+      const { promotionalBanners } = require("@/data/promotionalBanners")
+      bannerData = promotionalBanners.find((b: any) => b.id === bannerId && b.isActive)
+    } else {
+      bannerData = getActiveBanner()
+    }
   }
+
+  // Use configuration data or fall back to props
+  const displayData = bannerData || {
+    title: title || "Summer Fashion",
+    imageUrl: imageUrl || "https://cdn.ishop.cholobangla.com/uploads/banner-5.webp",
+    linkUrl: linkUrl || "/summer-fashion/products?banner=5",
+    altText: altText || "Summer fashion",
+    height,
+    width
+  }
+
+  // Don't render if no banner data is available
+  if (!displayData) {
+    return null
+  }
+
   return (
-    <section className="w-full bg-transparent overflow-hidden">
+    <section className="w-full bg-white py-4">
       <div className="w-full px-4 md:px-6 lg:px-8">
         <Link 
-          href={bannerData.linkUrl} 
-          className="block banner-wrapper br-primary flow-hidden hover:opacity-95 transition-opacity duration-200"
-          aria-label={bannerData.title}
+          href={displayData.linkUrl} 
+          className="block banner-wrapper home-section mb-0 br-primary flow-hidden"
+          aria-label={displayData.title}
         >
-          <div className="relative w-full overflow-hidden rounded-lg shadow-lg">
-            <Image
-              src={bannerData.imageUrl}
-              alt={bannerData.altText}
-              width={width}
-              height={height}
-              className="w-full h-auto object-cover"
-              priority
-            />
-            {/* Optional overlay for text */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent pointer-events-none"></div>
-          </div>
+          <Image
+            src={displayData.imageUrl}
+            alt={displayData.altText}
+            height={displayData.height}
+            width={displayData.width}
+            className="w-full h-auto object-cover rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+            priority
+          />
         </Link>
       </div>
     </section>
