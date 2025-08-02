@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ShoppingCart } from "lucide-react"
+import Image from "next/image"
 import SearchBar from "./SearchBar"
 import AccountDropdown from "./AccountDropdown"
 import LoginButton from "./LoginButton"
@@ -48,10 +48,14 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-[#470096] rounded-lg flex items-center justify-center">
-              <ShoppingCart className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-3xl font-bold text-[#470096]">ishop</span>
+            <Image
+              src="/New_Techpotli_Logo.png"
+              alt="Techpotli Logo"
+              width={180}
+              height={60}
+              className="h-16 w-auto"
+              priority
+            />
           </Link>
 
           {/* Search Bar - Desktop */}

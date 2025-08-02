@@ -4,9 +4,17 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'Techpotli - Your Tech Shopping Destination',
+  description: 'Discover the latest tech products at amazing prices',
+  generator: 'Techpotli',
+  icons: {
+    icon: [
+      { url: '/New Techpotli_favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/New Techpotli_favicon.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/New Techpotli_favicon.png',
+    shortcut: '/New Techpotli_favicon.png',
+  },
 }
 
 export default function RootLayout({
