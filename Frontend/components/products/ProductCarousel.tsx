@@ -105,127 +105,125 @@ export default function ProductCarousel({
   }, [showCountdown])
 
   return (
-    <section className="py-8 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center space-x-4">
-            <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
-            {showCountdown && (
-              <div className="text-lg font-mono text-gray-600">
-                {timeLeft.days.toString().padStart(3, "0")}:{timeLeft.hours.toString().padStart(2, "0")}:
-                {timeLeft.minutes.toString().padStart(2, "0")}:{timeLeft.seconds.toString().padStart(2, "0")}
-              </div>
-            )}
-          </div>
-          {viewAllLink && (
-            <Link href={viewAllLink} className="text-gray-600 hover:text-purple-600 font-medium underline">
-              Show all
-            </Link>
+    <div>
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center space-x-4">
+          <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
+          {showCountdown && (
+            <div className="text-lg font-mono text-gray-600">
+              {timeLeft.days.toString().padStart(3, "0")}:{timeLeft.hours.toString().padStart(2, "0")}:
+              {timeLeft.minutes.toString().padStart(2, "0")}:{timeLeft.seconds.toString().padStart(2, "0")}
+            </div>
           )}
         </div>
+        {viewAllLink && (
+          <Link href={viewAllLink} className="text-gray-600 hover:text-purple-600 font-medium underline">
+            Show all
+          </Link>
+        )}
+      </div>
 
-        {/* Product Carousel */}
-        <div className="relative mb-8">
-          {loading ? (
-            <div className="flex items-center justify-center h-48">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
-            </div>
-          ) : (
-            <Carousel
-              opts={{
-                align: "start",
-                loop: false,
-                slidesToScroll: 1,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {products.map((product) => (
-                  <CarouselItem key={product.id} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
-                    <Link href={`/${product.slug || product.id}/product/${product.id}`} className="block group">
-                      <div className="relative bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 overflow-hidden group-hover:border-purple-200">
-                        {/* Badge */}
-                        {product.badge && (
-                          <div className="absolute top-3 left-3 bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-medium z-10 shadow-sm">
-                            {product.badge}
+      {/* Product Carousel */}
+      <div className="relative mb-8">
+        {loading ? (
+          <div className="flex items-center justify-center h-48">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
+          </div>
+        ) : (
+          <Carousel
+            opts={{
+              align: "start",
+              loop: false,
+              slidesToScroll: 1,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {products.map((product) => (
+                <CarouselItem key={product.id} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+                  <Link href={`/${product.slug || product.id}/product/${product.id}`} className="block group">
+                    <div className="relative bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 overflow-hidden group-hover:border-purple-200">
+                      {/* Badge */}
+                      {product.badge && (
+                        <div className="absolute top-3 left-3 bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-medium z-10 shadow-sm">
+                          {product.badge}
+                        </div>
+                      )}
+
+                      {/* Product Image */}
+                      <div className="relative h-40 bg-gray-50 overflow-hidden">
+                        <Image
+                          src={product.image || "/placeholder.jpg"}
+                          alt={product.name}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = "/placeholder.jpg";
+                          }}
+                          priority={false}
+                        />
+                        {/* Subtle gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        {/* Quick Action Button */}
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <button className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:bg-purple-700 transition-colors duration-200">
+                            Quick View
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Product Info */}
+                      <div className="p-4 space-y-3">
+                        {/* Product Name */}
+                        <div className="min-h-[3rem]">
+                          <h3 className="text-sm font-medium text-gray-800 line-clamp-2 leading-tight group-hover:text-purple-600 transition-colors duration-200">
+                            {product.name}
+                          </h3>
+                        </div>
+
+                        {/* Reviews Section */}
+                        {product.rating && (
+                          <div className="flex items-center justify-center space-x-2">
+                            <StarRating rating={product.rating} size="sm" />
+                            <span className="text-xs text-gray-600">({product.reviewCount || 0})</span>
                           </div>
                         )}
 
-                        {/* Product Image */}
-                        <div className="relative h-40 bg-gray-50 overflow-hidden">
-                          <Image
-                            src={product.image || "/placeholder.jpg"}
-                            alt={product.name}
-                            fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-110"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.src = "/placeholder.jpg";
-                            }}
-                            priority={false}
-                          />
-                          {/* Subtle gradient overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                          
-                          {/* Quick Action Button */}
-                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:bg-purple-700 transition-colors duration-200">
-                              Quick View
-                            </button>
-                          </div>
-                        </div>
-
-                        {/* Product Info */}
-                        <div className="p-4 space-y-3">
-                          {/* Product Name */}
-                          <div className="min-h-[3rem]">
-                            <h3 className="text-sm font-medium text-gray-800 line-clamp-2 leading-tight group-hover:text-purple-600 transition-colors duration-200">
-                              {product.name}
-                            </h3>
-                          </div>
-
-                          {/* Reviews Section */}
-                          {product.rating && (
-                            <div className="flex items-center justify-center space-x-2">
-                              <StarRating rating={product.rating} size="sm" />
-                              <span className="text-xs text-gray-600">({product.reviewCount || 0})</span>
-                            </div>
-                          )}
-
-                          {/* Price Section */}
-                          <div className="space-y-1">
-                            <div className="flex items-center justify-center space-x-2">
-                              <span className="text-lg font-bold text-gray-800">${product.price}</span>
-                              {product.originalPrice && (
-                                <span className="text-sm text-gray-500 line-through">${product.originalPrice}</span>
-                              )}
-                            </div>
-                            {product.discount && (
-                              <div className="text-sm text-purple-600 font-medium text-center">-{product.discount}%</div>
+                        {/* Price Section */}
+                        <div className="space-y-1">
+                          <div className="flex items-center justify-center space-x-2">
+                            <span className="text-lg font-bold text-gray-800">${product.price}</span>
+                            {product.originalPrice && (
+                              <span className="text-sm text-gray-500 line-through">${product.originalPrice}</span>
                             )}
                           </div>
-
-                          {/* Review Preview */}
-                          {product.reviews && product.reviews.length > 0 && (
-                            <div className="text-xs text-gray-500 text-center italic">
-                              "{product.reviews[0].comment}"
-                            </div>
+                          {product.discount && (
+                            <div className="text-sm text-purple-600 font-medium text-center">-{product.discount}%</div>
                           )}
                         </div>
+
+                        {/* Review Preview */}
+                        {product.reviews && product.reviews.length > 0 && (
+                          <div className="text-xs text-gray-500 text-center italic">
+                            "{product.reviews[0].comment}"
+                          </div>
+                        )}
                       </div>
-                    </Link>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              
-              {/* Navigation Buttons */}
-              <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 bg-white border-gray-200 hover:bg-gray-50 shadow-md hover:shadow-lg transition-shadow" />
-              <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 bg-white border-gray-200 hover:bg-gray-50 shadow-md hover:shadow-lg transition-shadow" />
-            </Carousel>
-          )}
-        </div>
+                    </div>
+                  </Link>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            {/* Navigation Buttons */}
+            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 bg-white border-gray-200 hover:bg-gray-50 shadow-md hover:shadow-lg transition-shadow" />
+            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 bg-white border-gray-200 hover:bg-gray-50 shadow-md hover:shadow-lg transition-shadow" />
+          </Carousel>
+        )}
       </div>
-    </section>
+    </div>
   )
 } 

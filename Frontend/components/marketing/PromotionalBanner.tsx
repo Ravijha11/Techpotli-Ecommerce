@@ -1,8 +1,8 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
-import { getActiveBanner } from "@/data/promotionalBanners"
+import Link from "next/link"
+import { getActiveBanner, promotionalBanners } from "@/data/promotionalBanners"
 
 interface PromotionalBannerProps {
   title?: string
@@ -59,8 +59,7 @@ export default function PromotionalBanner({
   
   if (useConfig) {
     if (bannerId) {
-      // Import the banners array to find specific banner
-      const { promotionalBanners } = require("@/data/promotionalBanners")
+      // Find specific banner by ID
       bannerData = promotionalBanners.find((b: any) => b.id === bannerId && b.isActive)
     } else {
       bannerData = getActiveBanner()

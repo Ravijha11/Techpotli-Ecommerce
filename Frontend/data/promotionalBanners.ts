@@ -25,8 +25,6 @@ export const promotionalBanners: PromotionalBannerConfig[] = [
     width: 500,
     isActive: true,
     priority: 1,
-    startDate: "2024-06-01",
-    endDate: "2024-08-31",
     category: "fashion",
     tags: ["summer", "fashion", "clothing"]
   },
@@ -38,7 +36,7 @@ export const promotionalBanners: PromotionalBannerConfig[] = [
     altText: "Autumn special deals and discounts",
     height: 100,
     width: 500,
-    isActive: false,
+    isActive: true,
     priority: 2,
     startDate: "2024-09-01",
     endDate: "2024-11-30",
@@ -121,6 +119,7 @@ export function getActiveBanner(): PromotionalBannerConfig | null {
       return currentDate >= banner.startDate && currentDate <= banner.endDate
     }
     
+    // If no date range specified, show if active
     return true
   })
 
