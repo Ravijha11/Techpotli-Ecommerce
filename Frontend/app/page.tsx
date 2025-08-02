@@ -9,7 +9,7 @@ import PromoBanner from "@/components/marketing/PromotionalBanners"
 import FeaturedBrands from "@/components/marketing/FeaturedBrands"
 import DailyDeals from "@/components/marketing/DailyDeals"
 import BrandShowcase from "@/components/hero/BrandShowcase"
-import Newsletter from "@/components/layout/Footer/Newsletter"
+import NewsletterSubscription from "@/components/marketing/NewsletterSubscription"
 import Footer from "@/components/layout/Footer"
 import CategorySitemap from "@/components/layout/Footer/CategorySitemap"
 
@@ -112,7 +112,7 @@ export default function HomePage() {
         <FeaturedBrands />
         <DailyDeals />
         <BrandShowcase />
-        <Newsletter />
+        <NewsletterSubscription />
       </main>
       <CategorySitemap />
       <Footer />

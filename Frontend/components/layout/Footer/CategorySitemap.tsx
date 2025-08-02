@@ -1,152 +1,196 @@
 import Link from "next/link"
+import { ChevronRight, Grid3X3, ShoppingBag, Users, Home, Heart, Utensils, Plane, Gem, Briefcase } from "lucide-react"
 
-export default function CategorySitemap() {
-  const categories = [
+// Separate data layer for easy backend integration
+const categoryData = {
+  categories: [
     {
+      id: "toys-kids",
       name: "Toys, Kids & Babies",
       href: "/all/toys-kids-babies",
+      icon: "👶",
+      color: "bg-blue-50 border-blue-200",
       subcategories: [
-        { name: "Bath & Baby Care", href: "/all/bath--baby-care" },
-        { name: "Maternity Care", href: "/all/maternity-care" },
-        { name: "Kid's Furniture", href: "/all/kids-furniture" },
+        { id: "bath-baby", name: "Bath & Baby Care", href: "/all/bath--baby-care" },
+        { id: "maternity", name: "Maternity Care", href: "/all/maternity-care" },
+        { id: "kids-furniture", name: "Kid's Furniture", href: "/all/kids-furniture" },
       ]
     },
     {
+      id: "mens-shoes",
       name: "Men's Shoes",
       href: "/all/mens-shoes",
+      icon: "👞",
+      color: "bg-gray-50 border-gray-200",
       subcategories: [
-        { name: "Formal Shoes", href: "/all/formal-shoes" },
-        { name: "Sandals & Flip-Flops", href: "/all/sandals--flip-flops" },
-        { name: "Sneakers", href: "/all/sneakers" },
+        { id: "formal-shoes", name: "Formal Shoes", href: "/all/formal-shoes" },
+        { id: "sandals", name: "Sandals & Flip-Flops", href: "/all/sandals--flip-flops" },
+        { id: "sneakers", name: "Sneakers", href: "/all/sneakers" },
       ]
     },
     {
+      id: "home-appliances",
       name: "Home Appliances",
       href: "/all/home-appliances",
+      icon: "🏠",
+      color: "bg-green-50 border-green-200",
       subcategories: [
-        { name: "Housekeeping", href: "/all/housekeeping" },
-        { name: "TV Accessories", href: "/all/tv-accessories" },
-        { name: "Small Kitchen Appliances", href: "/all/small-kitchen-appliances" },
+        { id: "housekeeping", name: "Housekeeping", href: "/all/housekeeping" },
+        { id: "tv-accessories", name: "TV Accessories", href: "/all/tv-accessories" },
+        { id: "kitchen-appliances", name: "Small Kitchen Appliances", href: "/all/small-kitchen-appliances" },
       ]
     },
     {
+      id: "mens-wear",
       name: "Men's Wear",
       href: "/all/mens-wear",
+      icon: "👔",
+      color: "bg-indigo-50 border-indigo-200",
       subcategories: [
-        { name: "Pants", href: "/all/pants" },
-        { name: "Crossbody & Shoulder Bags", href: "/all/crossbody--shoulder-bags" },
-        { name: "Shirts", href: "/all/shirts" },
-        { name: "Jackets & Coats", href: "/all/jackets--coats" },
-        { name: "Men's Wallet", href: "/all/mens-wallet" },
-        { name: "Backpacks", href: "/all/backpacks" },
+        { id: "pants", name: "Pants", href: "/all/pants" },
+        { id: "crossbody-bags", name: "Crossbody & Shoulder Bags", href: "/all/crossbody--shoulder-bags" },
+        { id: "shirts", name: "Shirts", href: "/all/shirts" },
+        { id: "jackets", name: "Jackets & Coats", href: "/all/jackets--coats" },
+        { id: "mens-wallet", name: "Men's Wallet", href: "/all/mens-wallet" },
+        { id: "backpacks", name: "Backpacks", href: "/all/backpacks" },
       ]
     },
     {
+      id: "mens-bags",
       name: "Men's Bags",
       href: "/all/mens-bags",
+      icon: "💼",
+      color: "bg-amber-50 border-amber-200",
       subcategories: [
-        { name: "Totes", href: "/all/totes" },
-        { name: "Briefcases", href: "/all/briefcases" },
-        { name: "Suit Carriers", href: "/all/suit-carriers" },
+        { id: "totes", name: "Totes", href: "/all/totes" },
+        { id: "briefcases", name: "Briefcases", href: "/all/briefcases" },
+        { id: "suit-carriers", name: "Suit Carriers", href: "/all/suit-carriers" },
       ]
     },
     {
+      id: "women-apparel",
       name: "Women Apparel",
       href: "/all/women-apparel",
+      icon: "👗",
+      color: "bg-pink-50 border-pink-200",
       subcategories: [
-        { name: "Tops", href: "/all/tops" },
-        { name: "Dresses", href: "/all/dresses" },
-        { name: "Socks & Tights", href: "/all/socks--tights" },
-        { name: "Pants & Leggings", href: "/all/pants--leggings" },
+        { id: "tops", name: "Tops", href: "/all/tops" },
+        { id: "dresses", name: "Dresses", href: "/all/dresses" },
+        { id: "socks-tights", name: "Socks & Tights", href: "/all/socks--tights" },
+        { id: "pants-leggings", name: "Pants & Leggings", href: "/all/pants--leggings" },
       ]
     },
     {
+      id: "beauty-care",
       name: "Beauty & Personal Care",
       href: "/all/beauty-personal-care",
+      icon: "💄",
+      color: "bg-purple-50 border-purple-200",
       subcategories: [
-        { name: "Women's Hair Care", href: "/all/womens-hair-care" },
-        { name: "Feminine Care", href: "/all/feminine-care" },
-        { name: "Skincare", href: "/all/skincare" },
+        { id: "womens-hair", name: "Women's Hair Care", href: "/all/womens-hair-care" },
+        { id: "feminine-care", name: "Feminine Care", href: "/all/feminine-care" },
+        { id: "skincare", name: "Skincare", href: "/all/skincare" },
       ]
     },
     {
+      id: "home-living",
       name: "Home & Living",
       href: "/all/home-living",
+      icon: "🏡",
+      color: "bg-emerald-50 border-emerald-200",
       subcategories: [
-        { name: "Home Decor", href: "/all/home-decor" },
-        { name: "Tools, DIY & Outdoors", href: "/all/tools-diy--outdoors" },
-        { name: "Kitchen & Dining", href: "/all/kitchen--dining" },
+        { id: "home-decor", name: "Home Decor", href: "/all/home-decor" },
+        { id: "tools-diy", name: "Tools, DIY & Outdoors", href: "/all/tools-diy--outdoors" },
+        { id: "kitchen-dining", name: "Kitchen & Dining", href: "/all/kitchen--dining" },
       ]
     },
     {
+      id: "food-beverages",
       name: "Food & Beverages",
       href: "/all/food-beverages",
+      icon: "🍽️",
+      color: "bg-orange-50 border-orange-200",
       subcategories: [
-        { name: "Snacks & Sweets", href: "/all/snacks--sweets" },
-        { name: "Meat & Seafood", href: "/all/meat--seafood" },
+        { id: "snacks-sweets", name: "Snacks & Sweets", href: "/all/snacks--sweets" },
+        { id: "meat-seafood", name: "Meat & Seafood", href: "/all/meat--seafood" },
       ]
     },
     {
+      id: "travel-luggage",
       name: "Travel & Luggage",
       href: "/all/travel-luggage",
+      icon: "✈️",
+      color: "bg-cyan-50 border-cyan-200",
       subcategories: [
-        { name: "Luggage", href: "/all/luggage" },
-        { name: "Travel Bags & Backpacks", href: "/all/travel-bags--backpacks" },
-        { name: "Travel Accessories", href: "/all/travel-accessories" },
+        { id: "luggage", name: "Luggage", href: "/all/luggage" },
+        { id: "travel-bags", name: "Travel Bags & Backpacks", href: "/all/travel-bags--backpacks" },
+        { id: "travel-accessories", name: "Travel Accessories", href: "/all/travel-accessories" },
       ]
     },
     {
+      id: "jewellery-accessories",
       name: "Jewellery & Accessories",
       href: "/all/jewellery-ccessories",
+      icon: "💎",
+      color: "bg-rose-50 border-rose-200",
       subcategories: [
-        { name: "Hats & Caps", href: "/all/hats--caps" },
-        { name: "Key Chains", href: "/all/key-chains" },
-        { name: "Eyewear", href: "/all/eyewear" },
+        { id: "hats-caps", name: "Hats & Caps", href: "/all/hats--caps" },
+        { id: "key-chains", name: "Key Chains", href: "/all/key-chains" },
+        { id: "eyewear", name: "Eyewear", href: "/all/eyewear" },
       ]
     },
     {
+      id: "womens-bags",
       name: "Women's Bags",
       href: "/all/womens-bags",
+      icon: "👜",
+      color: "bg-violet-50 border-violet-200",
       subcategories: [
-        { name: "Sling Bags", href: "/all/sling-bags" },
-        { name: "Clutches & Mini Bags", href: "/all/clutches--mini-bags" },
-        { name: "Handbags", href: "/all/handbags" },
+        { id: "sling-bags", name: "Sling Bags", href: "/all/sling-bags" },
+        { id: "clutches-mini", name: "Clutches & Mini Bags", href: "/all/clutches--mini-bags" },
+        { id: "handbags", name: "Handbags", href: "/all/handbags" },
       ]
     },
   ]
+}
 
+export default function CategorySitemap() {
   return (
-    <div className="category-sitemap-section">
+    <section className="category-sitemap-section">
       <div className="container">
-        <ul className="table-tree">
-          {categories.map((category) => (
-            <li key={category.href} className="tree-node">
-              <span className="node-data">
-                <Link href={category.href} className="category-link" title={category.name}>
+        {/* Header */}
+        <div className="sitemap-header">
+          <h2 className="sitemap-title">Shop by Category</h2>
+          <p className="sitemap-subtitle">Discover our comprehensive range of products</p>
+        </div>
+
+        {/* Categories Grid */}
+        <div className="categories-grid">
+          {categoryData.categories.map((category) => (
+            <div key={category.id} className={`category-card ${category.color}`}>
+              <div className="category-header">
+                <span className="category-icon">{category.icon}</span>
+                <Link href={category.href} className="category-title">
                   {category.name}
+                  <ChevronRight className="chevron-icon" />
                 </Link>
-              </span>
-              <ul>
+              </div>
+              
+              <div className="subcategories-list">
                 {category.subcategories.map((subcategory) => (
-                  <li key={subcategory.href} className="tree-node">
-                    <span className="node-data">
-                      <Link href={subcategory.href} className="subcategory-link" title={subcategory.name}>
-                        {subcategory.name}
-                      </Link>
-                    </span>
-                    <ul></ul>
-                  </li>
+                  <Link
+                    key={subcategory.id}
+                    href={subcategory.href}
+                    className="subcategory-item"
+                  >
+                    {subcategory.name}
+                  </Link>
                 ))}
-              </ul>
-            </li>
+              </div>
+            </div>
           ))}
-        </ul>
-        <div className="ptb-15 mt-20 mt-sm-15 b-t center-text">
-          <Link href="/" className="router-link-active router-link-exact-active logo">
-            <img src="https://cdn.ishop.cholobangla.com/uploads/footer-logo.svg" alt="Site Logo" height="50" width="50" />
-          </Link>
         </div>
       </div>
-    </div>
+    </section>
   )
 } 
