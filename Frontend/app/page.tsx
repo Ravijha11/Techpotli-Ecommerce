@@ -2,22 +2,20 @@ import type { Metadata } from "next"
 import Header from "@/components/layout/Header"
 import { HeroSection } from "@/components/hero"
 import ServiceFeatures from "@/components/common/ServiceFeatures"
-import ProductCarousel from "@/components/products/ProductCarousel"
+import ProductGrid from "@/components/products/ProductGrid"
 import TopSellingProducts from "@/components/products/ProductGrid/TopSellingProducts"
 import FlashSale from "@/components/marketing/FlashSale"
+import PromoBanner from "@/components/marketing/PromotionalBanners"
 import FeaturedBrands from "@/components/marketing/FeaturedBrands"
 import DailyDeals from "@/components/marketing/DailyDeals"
-import ProductBanner from "@/components/marketing/ProductBanner"
-import FeaturedCategories from "@/components/categories/FeaturedCategories"
 import BrandShowcase from "@/components/hero/BrandShowcase"
 import Newsletter from "@/components/layout/Footer/Newsletter"
 import Footer from "@/components/layout/Footer"
+import CategorySitemap from "@/components/layout/Footer/CategorySitemap"
 
 // Keep page-specific components in app/components
 import NewYearSale from "./components/NewYearSale"
-
-// Import data
-import { featuredProducts } from "@/data/featuredProducts"
+import PromoBanners from "./components/PromoBanners"
 
 export const metadata: Metadata = {
   title: "Techpotli - Best Online Shopping Store in India | Electronics, Fashion & More",
@@ -31,70 +29,92 @@ export const metadata: Metadata = {
   },
 }
 
+const featuredProducts = [
+  {
+    id: "1",
+    name: "Women's Casual Long Sleeve Lapel Zipper...",
+    price: 76,
+    originalPrice: 130,
+    discount: 42,
+    rating: 5,
+    reviews: 5,
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-v7eM14304Y2qz5NAjQJRkhm68kPTNZ.png",
+    badge: "New",
+  },
+  {
+    id: "2",
+    name: "Self Retractable ID Badge Holder Key Reel, Heavy Du...",
+    price: 105,
+    originalPrice: 200,
+    discount: 48,
+    rating: 4,
+    reviews: 2,
+    image: "https://placehold.co/300x300/333/FFF?text=Nintendo+Switch",
+    badge: "New",
+  },
+  {
+    id: "3",
+    name: "Nutrafol Women Hair Growth For Thicker, Stronger Hair ...",
+    price: 91,
+    originalPrice: 100,
+    discount: 9,
+    rating: 5,
+    reviews: 2,
+    image: "https://placehold.co/300x300/333/FFF?text=Water+Bottle",
+  },
+  {
+    id: "4",
+    name: "Andongnywelll Women's Casual Tops Leopard Print...",
+    price: 82,
+    originalPrice: 100,
+    discount: 18,
+    rating: 4,
+    reviews: 2,
+    image: "https://placehold.co/300x300/333/FFF?text=Casual+Tops",
+  },
+  {
+    id: "5",
+    name: "Sling Bag Canvas Crossbody Backpack...",
+    price: 102,
+    originalPrice: null,
+    discount: null,
+    rating: 5,
+    reviews: 2,
+    image: "https://placehold.co/300x300/333/FFF?text=Backpack",
+  },
+  {
+    id: "6",
+    name: "3 Pairs Triple Stripe Over the Knee Socks Extra Long...",
+    price: 88,
+    originalPrice: 100,
+    discount: 12,
+    rating: 4,
+    reviews: 2,
+    image: "https://placehold.co/300x300/333/FFF?text=Sneakers",
+  },
+]
+
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="min-h-screen bg-gray-50">
       <Header />
-      <main className="space-y-0">
-        {/* Hero Section - No top margin needed */}
-        <section className="relative">
-          <HeroSection />
-        </section>
-
-        {/* Service Features - Compact spacing */}
-        <section className="py-8 bg-white shadow-sm">
-          <ServiceFeatures />
-        </section>
-
-        {/* New Year Sale - Enhanced spacing */}
-        <section className="py-12 bg-gradient-to-r from-red-50 to-orange-50">
-          <NewYearSale />
-        </section>
-
-        {/* Product Banner - Premium spacing */}
-        <section className="py-16 bg-white">
-          <ProductBanner />
-        </section>
-
-        {/* Featured Products - Enhanced section */}
-        <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
-          <ProductCarousel 
-            title="Featured products"
-            products={featuredProducts}
-            viewAllLink="/products"
-          />
-        </section>
-
-        {/* Featured Categories - Enhanced section */}
-        <section className="py-16 bg-white">
-          <FeaturedCategories />
-        </section>
-
-        {/* Top Selling Products - Premium spacing */}
-        <section className="py-16 bg-white">
-          <TopSellingProducts />
-        </section>
-
-        {/* Featured Brands - Enhanced spacing */}
-        <section className="py-16 bg-gradient-to-r from-gray-50 to-white">
-          <FeaturedBrands />
-        </section>
-
-        {/* Daily Deals - Premium spacing */}
-        <section className="py-16 bg-white">
-          <DailyDeals />
-        </section>
-
-        {/* Brand Showcase - Enhanced spacing */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
-          <BrandShowcase />
-        </section>
-
-        {/* Newsletter - Compact spacing */}
-        <section className="py-12 bg-gradient-to-r from-gray-900 to-gray-800">
-          <Newsletter />
-        </section>
+      <main>
+        <HeroSection />
+        <ServiceFeatures />
+        <ProductGrid 
+          title="Featured products"
+          products={featuredProducts}
+          viewAllLink="/products"
+        />
+        <NewYearSale />
+        <TopSellingProducts />
+        <PromoBanner />
+        <FeaturedBrands />
+        <DailyDeals />
+        <BrandShowcase />
+        <Newsletter />
       </main>
+      <CategorySitemap />
       <Footer />
     </div>
   )
