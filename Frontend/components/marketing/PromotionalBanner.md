@@ -1,153 +1,236 @@
-# Promotional Banner Component
+# Promotional Banner Management System
 
 ## Overview
 
-The `PromotionalBanner` component is a flexible promotional banner that can be easily updated for different seasons and campaigns. It's positioned above the newsletter subscription section.
+The Promotional Banner Management System is designed for large e-commerce websites that need flexible, scalable banner management. It provides configuration-based banner control with date-based activation, priority management, and category filtering.
 
 ## Features
 
-- ✅ **Responsive Design**: Works on all screen sizes
-- ✅ **Easy Configuration**: Update banners through data file
-- ✅ **SEO Friendly**: Proper alt text and semantic HTML
-- ✅ **Clickable**: Links to promotional pages
-- ✅ **Hover Effects**: Subtle opacity change on hover
-- ✅ **Image Optimization**: Uses Next.js Image component
+### 🎯 **Core Features**
+- **Configuration-Based**: All banners managed through a central configuration file
+- **Date-Based Activation**: Automatic activation/deactivation based on start/end dates
+- **Priority System**: Multiple banners can be configured with priority levels
+- **Category & Tag Filtering**: Organize banners by categories and tags
+- **Easy Updates**: Simple configuration changes without code deployment
 
-## Current Banner
+### 📅 **Date Management**
+- Set start and end dates for each banner
+- Automatic activation based on current date
+- Fallback to priority system when no date-specific banner is active
 
-The current banner shows the **Autumn Offer** with the image from your CDN.
+### 🏷️ **Organization**
+- **Categories**: fashion, seasonal, festival, electronics, education
+- **Tags**: summer, autumn, christmas, diwali, sale, discounts
+- **Priority**: 1 (highest) to 10 (lowest)
 
-## How to Update for Different Seasons
+## Configuration
 
-### 1. Update the Configuration File
+### Banner Configuration Structure
 
-Edit `Frontend/data/promotionalBanners.ts`:
-
-```tsx
-// To activate Diwali Sale
-updateBannerStatus("diwali-sale", true)
-updateBannerStatus("autumn-offer", false)
-
-// To activate Christmas Offer
-updateBannerStatus("christmas-offer", true)
-updateBannerStatus("autumn-offer", false)
-```
-
-### 2. Add New Banner Configuration
-
-```tsx
-{
-  id: "holi-sale",
-  title: "Holi Sale",
-  description: "Festive colors, amazing deals",
-  imageUrl: "https://cdn.ishop.cholobangla.com/uploads/banner-holi.webp",
-  linkUrl: "/holi-sale/products?banner=holi",
-  altText: "Holi Sale - Festive colors, amazing deals",
-  height: 100,
-  width: 500,
-  isActive: false,
-  season: "holi"
+```typescript
+interface PromotionalBannerConfig {
+  id: string                    // Unique identifier
+  title: string                 // Banner title
+  imageUrl: string              // Banner image URL
+  linkUrl: string               // Click destination
+  altText: string               // Accessibility text
+  height: number                // Image height
+  width: number                 // Image width
+  isActive: boolean             // Manual activation flag
+  priority: number              // Display priority (1-10)
+  startDate?: string            // Activation date (YYYY-MM-DD)
+  endDate?: string              // Deactivation date (YYYY-MM-DD)
+  category?: string             // Banner category
+  tags?: string[]               // Searchable tags
 }
 ```
 
-### 3. Update Image URLs
+### Example Banner Configuration
 
-Replace the `imageUrl` in the configuration with your new banner image:
-
-```tsx
-imageUrl: "https://cdn.ishop.cholobangla.com/uploads/banner-new-season.webp"
-```
-
-## Available Seasons
-
-- **autumn**: Autumn Offer (currently active)
-- **diwali**: Diwali Sale
-- **christmas**: Christmas Offer
-- **newyear**: New Year Sale
-- **summer**: Summer Sale
-
-## Quick Update Examples
-
-### For Diwali Season:
-```tsx
-// In promotionalBanners.ts
+```typescript
 {
-  id: "diwali-sale",
-  title: "Diwali Sale",
-  description: "Festive season offers and discounts",
-  imageUrl: "https://cdn.ishop.cholobangla.com/uploads/banner-diwali.webp",
-  linkUrl: "/diwali-sale/products?banner=diwali",
-  altText: "Diwali Sale - Festive season offers",
+  id: "summer-fashion-2024",
+  title: "Summer Fashion Collection",
+  imageUrl: "https://cdn.ishop.cholobangla.com/uploads/banner-5.webp",
+  linkUrl: "/summer-fashion/products?banner=5",
+  altText: "Summer fashion collection with trendy styles",
   height: 100,
   width: 500,
-  isActive: true, // Set to true
-  season: "diwali"
-}
-```
-
-### For Christmas Season:
-```tsx
-{
-  id: "christmas-offer",
-  title: "Christmas Offer",
-  description: "Holiday season special deals",
-  imageUrl: "https://cdn.ishop.cholobangla.com/uploads/banner-christmas.webp",
-  linkUrl: "/christmas-offer/products?banner=christmas",
-  altText: "Christmas Offer - Holiday season deals",
-  height: 100,
-  width: 500,
-  isActive: true, // Set to true
-  season: "christmas"
+  isActive: true,
+  priority: 1,
+  startDate: "2024-06-01",
+  endDate: "2024-08-31",
+  category: "fashion",
+  tags: ["summer", "fashion", "clothing"]
 }
 ```
 
 ## Usage
 
-### Using Configuration (Recommended):
-```tsx
-<PromotionalBanner useConfig={true} />
-```
+### Basic Usage
 
-### Using Props:
 ```tsx
+// Use configuration system (recommended)
+<PromotionalBanner useConfig={true} />
+
+// Use specific banner
+<PromotionalBanner bannerId="summer-fashion-2024" />
+
+// Use custom props
 <PromotionalBanner 
-  title="Custom Offer"
+  title="Custom Banner"
   imageUrl="https://example.com/banner.jpg"
-  linkUrl="/custom-offer"
-  altText="Custom Offer"
-  useConfig={false}
+  linkUrl="/custom-page"
+  altText="Custom banner"
 />
 ```
 
-## Banner Specifications
+### Advanced Usage
 
-- **Height**: 100px (default)
-- **Width**: 500px (default)
-- **Format**: WebP recommended for better performance
-- **Aspect Ratio**: 5:1 (horizontal banner)
-- **File Size**: Keep under 200KB for fast loading
+```tsx
+// Multiple banners with different priorities
+<PromotionalBanner useConfig={true} />
+<PromotionalBanner bannerId="electronics-sale" />
+<PromotionalBanner bannerId="back-to-school" />
+```
+
+## Management Functions
+
+### Get Active Banner
+```typescript
+import { getActiveBanner } from "@/data/promotionalBanners"
+
+const activeBanner = getActiveBanner()
+```
+
+### Category-Based Filtering
+```typescript
+import { getBannersByCategory } from "@/data/promotionalBanners"
+
+const fashionBanners = getBannersByCategory("fashion")
+```
+
+### Tag-Based Filtering
+```typescript
+import { getBannersByTags } from "@/data/promotionalBanners"
+
+const saleBanners = getBannersByTags(["sale", "discounts"])
+```
+
+### Banner Management
+```typescript
+import { 
+  activateBanner, 
+  deactivateBanner, 
+  addBanner, 
+  updateBanner, 
+  removeBanner 
+} from "@/data/promotionalBanners"
+
+// Activate a banner
+activateBanner("summer-fashion-2024")
+
+// Deactivate a banner
+deactivateBanner("autumn-offer-2024")
+
+// Add new banner
+addBanner({
+  id: "new-campaign",
+  title: "New Campaign",
+  // ... other properties
+})
+
+// Update existing banner
+updateBanner("summer-fashion-2024", {
+  isActive: false,
+  priority: 5
+})
+
+// Remove banner
+removeBanner("old-campaign")
+```
+
+## Campaign Management
+
+### Seasonal Campaigns
+1. **Summer Fashion** (June - August)
+2. **Autumn Offers** (September - November)
+3. **Diwali Festival** (October - November)
+4. **Christmas & New Year** (December - January)
+5. **Back to School** (July - September)
+
+### Category-Based Campaigns
+- **Fashion**: Clothing, accessories, seasonal styles
+- **Electronics**: Gadgets, devices, tech accessories
+- **Education**: School supplies, books, learning materials
+- **Festival**: Holiday-specific promotions
+- **Seasonal**: Weather-based campaigns
 
 ## Best Practices
 
-1. **Image Optimization**: Use WebP format for better compression
-2. **Alt Text**: Always provide descriptive alt text for accessibility
-3. **Link URLs**: Use tracking parameters for analytics
-4. **Seasonal Updates**: Plan banner updates well in advance
-5. **Mobile Responsive**: Test on different screen sizes
+### 🎨 **Design Guidelines**
+- Use consistent aspect ratios (recommended: 5:1)
+- Optimize images for web (WebP format preferred)
+- Ensure text is readable on all backgrounds
+- Test on different screen sizes
 
-## Analytics Tracking
+### 📊 **Performance**
+- Use `priority` prop for above-the-fold banners
+- Implement lazy loading for multiple banners
+- Optimize image sizes for different devices
+- Use CDN for banner images
 
-The banner includes tracking parameters in the URL:
-- `?banner=6` for autumn offer
-- `?banner=diwali` for Diwali sale
-- `?banner=christmas` for Christmas offer
+### 🔧 **Maintenance**
+- Regular review of active banners
+- Archive old campaigns
+- Update dates for recurring campaigns
+- Monitor banner performance
 
-This helps track which banners are performing best.
+### 🎯 **A/B Testing**
+- Create multiple banner variations
+- Use different priorities for testing
+- Track click-through rates
+- Optimize based on performance data
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Banner Not Displaying**
+   - Check `isActive` status
+   - Verify date range is current
+   - Ensure priority is set correctly
+
+2. **Wrong Banner Showing**
+   - Check priority order
+   - Verify date ranges don't overlap
+   - Review `isActive` flags
+
+3. **Image Not Loading**
+   - Verify image URL is accessible
+   - Check image format compatibility
+   - Ensure proper CDN configuration
 
 ## Future Enhancements
 
-- [ ] A/B testing support
-- [ ] Dynamic banner rotation
-- [ ] Personalized banners based on user behavior
-- [ ] Countdown timer for limited-time offers
-- [ ] Animated banner transitions 
+### Planned Features
+- **Analytics Integration**: Track banner performance
+- **A/B Testing**: Built-in testing framework
+- **Dynamic Content**: Personalized banner content
+- **Multi-Language**: International banner support
+- **Advanced Scheduling**: More complex date rules
+- **Banner Rotation**: Multiple banners in sequence
+
+### API Integration
+- **CMS Integration**: Manage banners through CMS
+- **Real-time Updates**: Live banner management
+- **Performance Metrics**: Click-through and conversion tracking
+- **User Segmentation**: Targeted banner display
+
+## Support
+
+For questions or issues with the banner management system:
+1. Check the configuration file for syntax errors
+2. Verify date formats (YYYY-MM-DD)
+3. Ensure all required fields are provided
+4. Test with different date scenarios 
