@@ -2,8 +2,10 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { useTranslation } from "../../../hooks/useTranslation"
 
 export default function AccountDropdown() {
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClick = () => {
@@ -16,7 +18,7 @@ export default function AccountDropdown() {
         className="flex items-center space-x-2 cursor-pointer hover:text-purple-600 transition-colors"
         onClick={handleClick}
       >
-        <span className="font-bold text-gray-900">My Account</span>
+        <span className="font-bold text-gray-900">{t('header.account')}</span>
         <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </div>
       
@@ -27,16 +29,16 @@ export default function AccountDropdown() {
           <div className="absolute -top-2 right-8 w-4 h-4 bg-white border-t border-l border-gray-200 transform rotate-45"></div>
           
           <div className="py-2 px-4 text-gray-900 hover:bg-gray-50 cursor-pointer text-sm">
-            Orders
+            {t('header.orders')}
           </div>
           <div className="py-2 px-4 text-gray-900 hover:bg-gray-50 cursor-pointer text-sm">
-            Wish List
+            {t('header.wishList')}
           </div>
           <div className="py-2 px-4 text-gray-900 hover:bg-gray-50 cursor-pointer text-sm">
-            Compared List
+            {t('header.comparedList')}
           </div>
           <div className="py-2 px-4 text-gray-900 hover:bg-gray-50 cursor-pointer text-sm">
-            Vouchers
+            {t('header.vouchers')}
           </div>
         </div>
       )}

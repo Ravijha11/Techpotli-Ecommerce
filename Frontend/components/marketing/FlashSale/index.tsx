@@ -2,6 +2,7 @@
 
 import SaleTimer from "./SaleTimer"
 import SaleProducts from "./SaleProducts"
+import { useTranslation } from "../../../hooks/useTranslation"
 
 const flashSaleProducts = [
   {
@@ -61,13 +62,15 @@ const flashSaleProducts = [
 ]
 
 export default function FlashSale() {
+  const { t } = useTranslation()
+  
   return (
     <section className="py-12 bg-gradient-to-r from-red-50 to-orange-50">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between mb-8">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">⚡ Flash Sale</h2>
-            <p className="text-gray-600">Limited time offers - Grab them fast!</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">⚡ {t('home.flashSale.title')}</h2>
+            <p className="text-gray-600">{t('home.flashSale.endingSoon')}</p>
           </div>
           <SaleTimer className="mt-4 md:mt-0" />
         </div>

@@ -1,0 +1,82 @@
+{
+  "navigation": {
+    "discoverProducts": "پيداوارون ڳوليو",
+    "categories": "قسمون",
+    "brands": "برانڊون",
+    "hotDeals": "گرم ڊيلون",
+    "trackOrder": "آرڊر ٽريڪ ڪريو",
+    "faq": "عام پڇڻ وارا سوال",
+    "help": "مدد",
+    "contactUs": "اسان سان رابطو ڪريو"
+  },
+  "header": {
+    "searchPlaceholder": "پيداوارون ڳوليو...",
+    "login": "لاگ ان",
+    "register": "رجسٽر",
+    "seller": "وڪرو ڪندڙ بڻيو",
+    "account": "اڪائونٽ",
+    "cart": "ڪارٽ"
+  },
+  "footer": {
+    "about": "اسان بابت",
+    "services": "خدمتون",
+    "payment": "ادائيگي جا طريقا",
+    "social": "اسان کي فالو ڪريو",
+    "newsletter": "نيوز ليٽر جي رڪنيت",
+    "newsletterPlaceholder": "پنهنجو ايميل داخل ڪريو",
+    "newsletterButton": "رڪنيت"
+  },
+  "home": {
+    "hero": {
+      "title": "ٽيڪپوٽلي ۾ توهان جو خيرمقدم آهي",
+      "subtitle": "سڀني ٽيڪ پيداوارن لاءِ توهان جو واحد دڪان",
+      "cta": "هاڻي خريداري ڪريو"
+    },
+    "categories": {
+      "title": "قسم مطابق شاپنگ ڪريو",
+      "viewAll": "سڀ ڏسو"
+    },
+    "featuredProducts": {
+      "title": "خاص پيداوارون",
+      "viewAll": "سڀ ڏسو"
+    },
+    "flashSale": {
+      "title": "فليش سيل",
+      "endingSoon": "جلدي ختم ٿيڻ وارو",
+      "viewAll": "سڀ ڏسو"
+    },
+    "dailyDeals": {
+      "title": "روزانه ڊيلون",
+      "viewAll": "سڀ ڏسو"
+    },
+    "topSelling": {
+      "title": "سڀ کان وڌيڪ وڪرو ٿيندڙ پيداوارون",
+      "viewAll": "سڀ ڏسو"
+    }
+  },
+  "product": {
+    "addToCart": "ڪارٽ ۾ شامل ڪريو",
+    "buyNow": "هاڻي خريداري ڪريو",
+    "outOfStock": "اسٽاڪ ۾ ناهي",
+    "inStock": "اسٽاڪ ۾ موجود آهي",
+    "freeShipping": "مفت شپنگ",
+    "fastDelivery": "تيز ڊليوري",
+    "securePayment": "محفوظ ادائيگي"
+  },
+  "common": {
+    "loading": "لوڊ ٿي رهيو آهي...",
+    "error": "ڪجهه غلط ٿيو",
+    "noResults": "ڪو نتيجو نه مليو",
+    "viewMore": "وڌيڪ ڏسو",
+    "viewLess": "گهٽ ڏسو",
+    "close": "بند ڪريو",
+    "save": "محفوظ ڪريو",
+    "cancel": "منسوخ ڪريو",
+    "delete": "مٽايو",
+    "edit": "ترميم ڪريو",
+    "submit": "پيش ڪريو",
+    "back": "پوئتي",
+    "next": "اڳيون",
+    "previous": "پوئين"
+  }
+} 

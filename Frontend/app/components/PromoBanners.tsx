@@ -1,21 +1,23 @@
 import Image from "next/image"
 import Link from "next/link"
+import { useTranslation } from "../../hooks/useTranslation"
 
 export default function PromoBanners() {
+  const { t } = useTranslation()
   return (
     <section className="py-12 bg-gray-50">
       <div className="container mx-auto px-4 space-y-6">
         <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 text-white relative overflow-hidden">
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold mb-2">Free Shipping on Orders Over ₹500</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-2">{t('product.freeShipping')}</h3>
             <p className="text-blue-100 mb-4">
-              Shop now and get your favorite products delivered to your doorstep at no extra cost!
+              {t('common.shopNowMessage')}
             </p>
             <Link
               href="/products"
               className="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
-              Shop Now
+              {t('home.hero.cta')}
             </Link>
           </div>
           <div className="absolute right-0 top-0 w-64 h-full opacity-20">

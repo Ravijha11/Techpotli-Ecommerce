@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Star, Heart, ShoppingCart } from "lucide-react"
+import { useTranslation } from "../../hooks/useTranslation"
 
 interface Product {
   id: string
@@ -20,6 +21,8 @@ interface ProductSectionProps {
 }
 
 export default function ProductSection({ title, subtitle, products }: ProductSectionProps) {
+  const { t } = useTranslation()
+  
   return (
     <section className="py-12 bg-white">
       <div className="container mx-auto px-4">
@@ -32,7 +35,7 @@ export default function ProductSection({ title, subtitle, products }: ProductSec
             href="/products"
             className="text-orange-500 hover:text-orange-600 font-medium flex items-center space-x-1"
           >
-            <span>View All</span>
+            <span>{t('home.featuredProducts.viewAll')}</span>
             <span>→</span>
           </Link>
         </div>
@@ -66,7 +69,10 @@ function ProductCard({ product }: { product: Product }) {
           className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-50 transition-colors">
+          <button 
+            className="bg-white p-2 rounded-full shadow-md hover:bg-gray-50 transition-colors"
+            aria-label="Add to wishlist"
+          >
             <Heart className="w-4 h-4 text-gray-600" />
           </button>
         </div>
@@ -105,7 +111,7 @@ function ProductCard({ product }: { product: Product }) {
 
         <button className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors font-medium flex items-center justify-center space-x-2">
           <ShoppingCart className="w-4 h-4" />
-          <span>Add to Cart</span>
+          <span>{t('product.addToCart')}</span>
         </button>
       </div>
     </div>

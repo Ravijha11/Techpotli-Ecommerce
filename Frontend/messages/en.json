@@ -1,0 +1,88 @@
+{
+  "navigation": {
+    "discoverProducts": "DISCOVER PRODUCTS",
+    "categories": "CATEGORIES",
+    "brands": "BRANDS",
+    "hotDeals": "HOT DEALS",
+    "trackOrder": "TRACK ORDER",
+    "faq": "FAQ",
+    "help": "HELP",
+    "contactUs": "CONTACT US"
+  },
+  "header": {
+    "searchPlaceholder": "Search for products...",
+    "login": "Login",
+    "register": "Register",
+    "seller": "Become a Seller",
+    "account": "My Account",
+    "cart": "Cart",
+    "orders": "Orders",
+    "wishList": "Wish List",
+    "comparedList": "Compared List",
+    "vouchers": "Vouchers"
+  },
+  "footer": {
+    "about": "About Us",
+    "services": "Services",
+    "payment": "Payment Methods",
+    "social": "Follow Us",
+    "newsletter": "Subscribe to Newsletter",
+    "newsletterPlaceholder": "Enter your email",
+    "newsletterButton": "Subscribe",
+    "description": "Your trusted online shopping destination for electronics, fashion, and more. Quality products at unbeatable prices with fast delivery and excellent customer support."
+  },
+  "home": {
+    "hero": {
+      "title": "Welcome to Techpotli",
+      "subtitle": "Your one-stop shop for all things tech",
+      "cta": "Shop Now"
+    },
+    "categories": {
+      "title": "Shop by Category",
+      "viewAll": "View All"
+    },
+    "featuredProducts": {
+      "title": "Featured Products",
+      "viewAll": "View All"
+    },
+    "flashSale": {
+      "title": "Flash Sale",
+      "endingSoon": "Ending Soon",
+      "viewAll": "View All"
+    },
+    "dailyDeals": {
+      "title": "Daily Deals",
+      "viewAll": "View All"
+    },
+    "topSelling": {
+      "title": "Top Selling Products",
+      "viewAll": "View All"
+    }
+  },
+  "product": {
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "outOfStock": "Out of Stock",
+    "inStock": "In Stock",
+    "freeShipping": "Free Shipping",
+    "fastDelivery": "Fast Delivery",
+    "securePayment": "Secure Payment"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "noResults": "No results found",
+    "viewMore": "View More",
+    "viewLess": "View Less",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "submit": "Submit",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "shopNowMessage": "Shop now and get your favorite products delivered to your doorstep at no extra cost!"
+  }
+} 

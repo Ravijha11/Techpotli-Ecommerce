@@ -2,38 +2,41 @@
 
 import Link from "next/link"
 import styles from "./BottomNavigation.module.css"
+import { useTranslation } from "../../hooks/useTranslation"
 
 export default function BottomNavigation() {
+  const { t } = useTranslation()
+
   return (
     <div className={styles.bottomArea}>
       <div className={styles.containerFluid}>
         <div className={styles.flexSided}>
           <div className={styles.leftLinks}>
             <Link href="/discover/products" className={styles.link}>
-              <span>DISCOVER PRODUCTS</span>
+              <span>{t('navigation.discoverProducts')}</span>
             </Link>
             <Link href="/categories" className={styles.link}>
-              <span>CATEGORIES</span>
+              <span>{t('navigation.categories')}</span>
             </Link>
             <Link href="/brands" className={styles.link}>
-              <span>BRANDS</span>
+              <span>{t('navigation.brands')}</span>
             </Link>
             <Link href="/flash-sale" className={styles.link}>
-              <span>HOT DEALS</span>
+              <span>{t('navigation.hotDeals')}</span>
             </Link>
           </div>
           <div className={styles.rightLinks}>
             <Link href="/track-order" className={styles.link}>
-              <span>TRACK ORDER</span>
+              <span>{t('navigation.trackOrder')}</span>
             </Link>
             <Link href="/page/faq" className={styles.link}>
-              <span>FAQ</span>
+              <span>{t('navigation.faq')}</span>
             </Link>
             <Link href="/page/help" className={styles.link}>
-              <span>HELP</span>
+              <span>{t('navigation.help')}</span>
             </Link>
             <Link href="/page/contact" className={styles.link}>
-              <span>CONTACT US</span>
+              <span>{t('navigation.contactUs')}</span>
             </Link>
           </div>
         </div>
