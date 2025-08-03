@@ -1,13 +1,14 @@
 "use client"
 
+import Link from "next/link"
 import { useTranslation } from "../../../hooks/useTranslation"
 
 export default function SellerButton() {
   const { t } = useTranslation()
   
   return (
-    <div className="cursor-pointer hover:text-purple-600 transition-colors">
+    <Link href="/seller-registration" className="cursor-pointer hover:text-purple-600 transition-colors">
       <span className="font-medium">{t('header.seller')}</span>
-    </div>
+    </Link>
   )
 } 
