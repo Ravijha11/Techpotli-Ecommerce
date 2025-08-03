@@ -10,11 +10,14 @@ interface TranslationData {
 const translationCache: { [key: string]: TranslationData } = {}
 
 export function useTranslation() {
-  const { currentLanguage } = useLanguage()
+  const { currentLanguage, isHydrated } = useLanguage()
   const [translations, setTranslations] = useState<TranslationData>({})
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    // Only load translations after hydration to prevent mismatches
+    if (!isHydrated) return
+
     const loadTranslations = async () => {
       setIsLoading(true)
       try {
@@ -44,10 +47,11 @@ export function useTranslation() {
     }
 
     loadTranslations()
-  }, [currentLanguage.code])
+  }, [currentLanguage.code, isHydrated])
 
   const t = (key: string, params?: { [key: string]: string | number }): string => {
-    if (isLoading) return key
+    // Return key during server-side rendering or before hydration
+    if (!isHydrated || isLoading) return key
 
     const keys = key.split('.')
     let value: any = translations
@@ -74,5 +78,5 @@ export function useTranslation() {
     return value
   }
 
-  return { t, isLoading, currentLanguage }
+  return { t, isLoading, currentLanguage, isHydrated }
 } 

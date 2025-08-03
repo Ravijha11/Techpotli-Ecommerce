@@ -15,8 +15,13 @@ import BottomNavigation from "../BottomNavigation"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isHydrated, setIsHydrated] = useState(false)
 
   useEffect(() => {
+    // Set initial scroll state after hydration
+    setIsScrolled(window.scrollY > 0)
+    setIsHydrated(true)
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0)
     }
@@ -25,7 +30,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}>
+    <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${isHydrated && isScrolled ? "shadow-md" : ""}`}>
       {/* Top Bar */}
       <div className="bg-purple-100 text-gray-700 py-2 px-4 text-sm">
         <div className="container mx-auto flex justify-between items-center">
