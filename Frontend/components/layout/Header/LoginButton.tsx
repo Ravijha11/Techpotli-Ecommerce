@@ -2,9 +2,11 @@
 
 import { useState } from "react"
 import { ArrowRight, ChevronDown, User, Star, Package, Heart, Gift, CreditCard } from "lucide-react"
+import { useTranslation } from "../../../hooks/useTranslation"
 
 export default function LoginButton() {
   const [isOpen, setIsOpen] = useState(false)
+  const { t } = useTranslation()
 
   const handleClick = () => {
     setIsOpen(!isOpen)
@@ -17,7 +19,7 @@ export default function LoginButton() {
         onClick={handleClick}
       >
         <ArrowRight className="w-4 h-4" />
-        <span>LOGIN</span>
+        <span>{t('header.login')}</span>
         <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </div>
       

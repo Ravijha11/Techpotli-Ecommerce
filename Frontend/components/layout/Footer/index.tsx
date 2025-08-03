@@ -1,11 +1,15 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import FooterServices from "./FooterServices"
 import FooterAbout from "./FooterAbout"
 import FooterPayment from "./FooterPayment"
 import FooterSocial from "./FooterSocial"
+import { useTranslation } from "../../../hooks/useTranslation"
 
 export default function Footer() {
+  const { t } = useTranslation()
   return (
     <footer className="modern-footer">
       <div className="bottom-area section pb-0">
@@ -23,8 +27,7 @@ export default function Footer() {
               />
             </div>
             <p className="footer-description">
-              Your trusted online shopping destination for electronics, fashion, and more. 
-              Quality products at unbeatable prices with fast delivery and excellent customer support.
+              {t('footer.description')}
             </p>
           </div>
 

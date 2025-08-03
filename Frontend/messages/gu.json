@@ -1,0 +1,82 @@
+{
+  "navigation": {
+    "discoverProducts": "ઉત્પાદો શોધો",
+    "categories": "શ્રેણીઓ",
+    "brands": "બ્રાન્ડ્સ",
+    "hotDeals": "હોટ ડીલ્સ",
+    "trackOrder": "ઓર્ડર ટ્રૅક કરો",
+    "faq": "વારંવાર પૂછાતા પ્રશ્નો",
+    "help": "સહાય",
+    "contactUs": "અમારો સંપર્ક કરો"
+  },
+  "header": {
+    "searchPlaceholder": "ઉત્પાદો શોધો...",
+    "login": "લૉગિન",
+    "register": "રજિસ્ટર",
+    "seller": "વેચાણકાર બનો",
+    "account": "ખાતું",
+    "cart": "કાર્ટ"
+  },
+  "footer": {
+    "about": "અમારા વિશે",
+    "services": "સેવાઓ",
+    "payment": "ચુકવણી પદ્ધતિઓ",
+    "social": "અમને ફોલો કરો",
+    "newsletter": "ન્યૂઝલેટર સબ્સ્ક્રાઇબ કરો",
+    "newsletterPlaceholder": "તમારો ઇમેઇલ દાખલ કરો",
+    "newsletterButton": "સબ્સ્ક્રાઇબ"
+  },
+  "home": {
+    "hero": {
+      "title": "ટેકપોતલીમાં સ્વાગત છે",
+      "subtitle": "બધા ટેક ઉત્પાદો માટે તમારી એકમાત્ર દુકાન",
+      "cta": "હવે ખરીદો"
+    },
+    "categories": {
+      "title": "શ્રેણી પ્રમાણે શોપિંગ કરો",
+      "viewAll": "બધું જુઓ"
+    },
+    "featuredProducts": {
+      "title": "વિશેષ ઉત્પાદો",
+      "viewAll": "બધું જુઓ"
+    },
+    "flashSale": {
+      "title": "ફ્લેશ સેલ",
+      "endingSoon": "ઝડપથી સમાપ્ત",
+      "viewAll": "બધું જુઓ"
+    },
+    "dailyDeals": {
+      "title": "દૈનિક ડીલ્સ",
+      "viewAll": "બધું જુઓ"
+    },
+    "topSelling": {
+      "title": "સૌથી વધુ વેચાતા ઉત્પાદો",
+      "viewAll": "બધું જુઓ"
+    }
+  },
+  "product": {
+    "addToCart": "કાર્ટમાં ઉમેરો",
+    "buyNow": "હવે ખરીદો",
+    "outOfStock": "સ્ટોકમાં નથી",
+    "inStock": "સ્ટોકમાં છે",
+    "freeShipping": "મફત શિપિંગ",
+    "fastDelivery": "ઝડપી ડેલિવરી",
+    "securePayment": "સુરક્ષિત ચુકવણી"
+  },
+  "common": {
+    "loading": "લોડ થઈ રહ્યું છે...",
+    "error": "કંઈક ખોટું થયું",
+    "noResults": "કોઈ પરિણામ મળ્યું નથી",
+    "viewMore": "વધુ જુઓ",
+    "viewLess": "ઓછું જુઓ",
+    "close": "બંધ કરો",
+    "save": "સેવ કરો",
+    "cancel": "રદ કરો",
+    "delete": "કાઢી નાખો",
+    "edit": "સંપાદિત કરો",
+    "submit": "સબમિટ કરો",
+    "back": "પાછળ",
+    "next": "આગળ",
+    "previous": "પહેલાનું"
+  }
+} 

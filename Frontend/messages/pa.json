@@ -1,0 +1,82 @@
+{
+  "navigation": {
+    "discoverProducts": "ਉਤਪਾਦ ਲੱਭੋ",
+    "categories": "ਸ਼੍ਰੇਣੀਆਂ",
+    "brands": "ਬ੍ਰਾਂਡਾਂ",
+    "hotDeals": "ਹਾਟ ਡੀਲਾਂ",
+    "trackOrder": "ਆਰਡਰ ਟ੍ਰੈਕ ਕਰੋ",
+    "faq": "ਆਮ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ",
+    "help": "ਮਦਦ",
+    "contactUs": "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ"
+  },
+  "header": {
+    "searchPlaceholder": "ਉਤਪਾਦ ਖੋਜੋ...",
+    "login": "ਲੌਗਿਨ",
+    "register": "ਰਜਿਸਟਰ",
+    "seller": "ਵਿਕਰੇਤਾ ਬਣੋ",
+    "account": "ਖਾਤਾ",
+    "cart": "ਕਾਰਟ"
+  },
+  "footer": {
+    "about": "ਸਾਡੇ ਬਾਰੇ",
+    "services": "ਸੇਵਾਵਾਂ",
+    "payment": "ਭੁਗਤਾਨ ਦੇ ਤਰੀਕੇ",
+    "social": "ਸਾਨੂੰ ਫਾਲੋ ਕਰੋ",
+    "newsletter": "ਨਿਊਜ਼ਲੈਟਰ ਗਾਹਕ ਬਣੋ",
+    "newsletterPlaceholder": "ਆਪਣਾ ਈਮੇਲ ਦਰਜ ਕਰੋ",
+    "newsletterButton": "ਗਾਹਕ"
+  },
+  "home": {
+    "hero": {
+      "title": "ਟੈਕਪੋਟਲੀ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ",
+      "subtitle": "ਸਾਰੇ ਟੈਕ ਉਤਪਾਦਾਂ ਲਈ ਤੁਹਾਡੀ ਇਕੋ ਦੁਕਾਨ",
+      "cta": "ਹੁਣ ਖਰੀਦੋ"
+    },
+    "categories": {
+      "title": "ਸ਼੍ਰੇਣੀ ਅਨੁਸਾਰ ਸ਼ਾਪਿੰਗ ਕਰੋ",
+      "viewAll": "ਸਭ ਦੇਖੋ"
+    },
+    "featuredProducts": {
+      "title": "ਵਿਸ਼ੇਸ਼ ਉਤਪਾਦ",
+      "viewAll": "ਸਭ ਦੇਖੋ"
+    },
+    "flashSale": {
+      "title": "ਫਲੈਸ਼ ਸੇਲ",
+      "endingSoon": "ਜਲਦੀ ਖਤਮ",
+      "viewAll": "ਸਭ ਦੇਖੋ"
+    },
+    "dailyDeals": {
+      "title": "ਰੋਜ਼ਾਨਾ ਡੀਲਾਂ",
+      "viewAll": "ਸਭ ਦੇਖੋ"
+    },
+    "topSelling": {
+      "title": "ਸਭ ਤੋਂ ਵੱਧ ਵਿਕਣ ਵਾਲੇ ਉਤਪਾਦ",
+      "viewAll": "ਸਭ ਦੇਖੋ"
+    }
+  },
+  "product": {
+    "addToCart": "ਕਾਰਟ ਵਿੱਚ ਜੋੜੋ",
+    "buyNow": "ਹੁਣ ਖਰੀਦੋ",
+    "outOfStock": "ਸਟਾਕ ਵਿੱਚ ਨਹੀਂ",
+    "inStock": "ਸਟਾਕ ਵਿੱਚ ਉਪਲਬਧ",
+    "freeShipping": "ਮੁਫਤ ਸ਼ਿਪਿੰਗ",
+    "fastDelivery": "ਤੇਜ਼ ਡਿਲਿਵਰੀ",
+    "securePayment": "ਸੁਰੱਖਿਅਤ ਭੁਗਤਾਨ"
+  },
+  "common": {
+    "loading": "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",
+    "error": "ਕੁਝ ਗਲਤ ਹੋਇਆ",
+    "noResults": "ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਮਿਲੇ",
+    "viewMore": "ਹੋਰ ਦੇਖੋ",
+    "viewLess": "ਕਮ ਦੇਖੋ",
+    "close": "ਬੰਦ ਕਰੋ",
+    "save": "ਸੇਵ ਕਰੋ",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "delete": "ਮਿਟਾਓ",
+    "edit": "ਸੰਪਾਦਿਤ ਕਰੋ",
+    "submit": "ਜਮ੍ਹਾਂ ਕਰੋ",
+    "back": "ਪਿੱਛੇ",
+    "next": "ਅਗਲਾ",
+    "previous": "ਪਿਛਲਾ"
+  }
+} 

@@ -1,0 +1,82 @@
+{
+  "navigation": {
+    "discoverProducts": "پروڈکٹس دریافت کریں",
+    "categories": "زمرے",
+    "brands": "برانڈز",
+    "hotDeals": "ہاٹ ڈیلز",
+    "trackOrder": "آرڈر ٹریک کریں",
+    "faq": "اکثر پوچھے جانے والے سوالات",
+    "help": "مدد",
+    "contactUs": "ہم سے رابطہ کریں"
+  },
+  "header": {
+    "searchPlaceholder": "پروڈکٹس تلاش کریں...",
+    "login": "لاگ ان",
+    "register": "رجسٹر",
+    "seller": "فروش بنیں",
+    "account": "اکاؤنٹ",
+    "cart": "کارٹ"
+  },
+  "footer": {
+    "about": "ہمارے بارے میں",
+    "services": "خدمات",
+    "payment": "ادائیگی کے طریقے",
+    "social": "ہمیں فالو کریں",
+    "newsletter": "نیوز لیٹر سبسکرائب کریں",
+    "newsletterPlaceholder": "اپنا ای میل درج کریں",
+    "newsletterButton": "سبسکرائب"
+  },
+  "home": {
+    "hero": {
+      "title": "ٹیک پوٹلی میں خوش آمدید",
+      "subtitle": "تمام ٹیک پروڈکٹس کے لیے آپ کی واحد دکان",
+      "cta": "ابھی خریدیں"
+    },
+    "categories": {
+      "title": "زمرہ کے مطابق شاپنگ کریں",
+      "viewAll": "سب دیکھیں"
+    },
+    "featuredProducts": {
+      "title": "نمایاں پروڈکٹس",
+      "viewAll": "سب دیکھیں"
+    },
+    "flashSale": {
+      "title": "فلیش سیل",
+      "endingSoon": "جلد ختم ہونے والا",
+      "viewAll": "سب دیکھیں"
+    },
+    "dailyDeals": {
+      "title": "روزانہ ڈیلز",
+      "viewAll": "سب دیکھیں"
+    },
+    "topSelling": {
+      "title": "سب سے زیادہ فروخت ہونے والی پروڈکٹس",
+      "viewAll": "سب دیکھیں"
+    }
+  },
+  "product": {
+    "addToCart": "کارٹ میں شامل کریں",
+    "buyNow": "ابھی خریدیں",
+    "outOfStock": "اسٹاک میں نہیں",
+    "inStock": "اسٹاک میں دستیاب",
+    "freeShipping": "مفت شپنگ",
+    "fastDelivery": "تیز ڈیلیوری",
+    "securePayment": "محفوظ ادائیگی"
+  },
+  "common": {
+    "loading": "لوڈ ہو رہا ہے...",
+    "error": "کچھ غلط ہوا",
+    "noResults": "کوئی نتائج نہیں ملے",
+    "viewMore": "مزید دیکھیں",
+    "viewLess": "کم دیکھیں",
+    "close": "بند کریں",
+    "save": "محفوظ کریں",
+    "cancel": "منسوخ کریں",
+    "delete": "حذف کریں",
+    "edit": "ترمیم کریں",
+    "submit": "جمع کریں",
+    "back": "پیچھے",
+    "next": "اگلا",
+    "previous": "پچھلا"
+  }
+} 

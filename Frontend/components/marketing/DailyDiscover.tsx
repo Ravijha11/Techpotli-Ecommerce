@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { RefreshCw, Star, Sparkles, TrendingUp, Zap } from "lucide-react"
 import { Product, dailyDiscoverProducts } from "@/data/dailyDiscoverProducts"
+import { useTranslation } from "../../hooks/useTranslation"
 
 interface DailyDiscoverProps {
   title?: string
@@ -40,6 +41,7 @@ export default function DailyDiscover({
   products = dailyDiscoverProducts,
   showMoreLink = "/products"
 }: DailyDiscoverProps) {
+  const { t } = useTranslation()
   const [showAll, setShowAll] = useState(false)
   const initialProducts = 12 // Show 3 rows of 4 products each
   const displayedProducts = showAll ? products : products.slice(0, initialProducts)
@@ -204,7 +206,7 @@ export default function DailyDiscover({
               href={showMoreLink}
               className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-bold text-lg transition-colors duration-300 hover:scale-105"
             >
-              <span>View All Products</span>
+              <span>{t('home.featuredProducts.viewAll')}</span>
               <TrendingUp className="w-5 h-5" />
             </Link>
           </div>
@@ -218,7 +220,7 @@ export default function DailyDiscover({
               className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
             >
               <Sparkles className="w-4 h-4" />
-              View All Products
+              {t('home.featuredProducts.viewAll')}
             </Link>
           </div>
         )}

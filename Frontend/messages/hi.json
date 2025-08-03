@@ -1,0 +1,82 @@
+{
+  "navigation": {
+    "discoverProducts": "उत्पाद खोजें",
+    "categories": "श्रेणियां",
+    "brands": "ब्रांड्स",
+    "hotDeals": "हॉट डील्स",
+    "trackOrder": "ऑर्डर ट्रैक करें",
+    "faq": "सामान्य प्रश्न",
+    "help": "सहायता",
+    "contactUs": "संपर्क करें"
+  },
+  "header": {
+    "searchPlaceholder": "उत्पादों की खोज करें...",
+    "login": "लॉगिन",
+    "register": "रजिस्टर",
+    "seller": "विक्रेता बनें",
+    "account": "खाता",
+    "cart": "कार्ट"
+  },
+  "footer": {
+    "about": "हमारे बारे में",
+    "services": "सेवाएं",
+    "payment": "भुगतान विधियां",
+    "social": "हमें फॉलो करें",
+    "newsletter": "न्यूजलेटर सब्सक्राइब करें",
+    "newsletterPlaceholder": "अपना ईमेल दर्ज करें",
+    "newsletterButton": "सब्सक्राइब"
+  },
+  "home": {
+    "hero": {
+      "title": "टेकपोटली में आपका स्वागत है",
+      "subtitle": "सभी तकनीकी चीजों के लिए आपकी वन-स्टॉप शॉप",
+      "cta": "अभी खरीदें"
+    },
+    "categories": {
+      "title": "श्रेणी के अनुसार खरीदें",
+      "viewAll": "सभी देखें"
+    },
+    "featuredProducts": {
+      "title": "विशेष उत्पाद",
+      "viewAll": "सभी देखें"
+    },
+    "flashSale": {
+      "title": "फ्लैश सेल",
+      "endingSoon": "जल्द समाप्त",
+      "viewAll": "सभी देखें"
+    },
+    "dailyDeals": {
+      "title": "दैनिक डील्स",
+      "viewAll": "सभी देखें"
+    },
+    "topSelling": {
+      "title": "सर्वाधिक बिकने वाले उत्पाद",
+      "viewAll": "सभी देखें"
+    }
+  },
+  "product": {
+    "addToCart": "कार्ट में जोड़ें",
+    "buyNow": "अभी खरीदें",
+    "outOfStock": "स्टॉक में नहीं",
+    "inStock": "स्टॉक में उपलब्ध",
+    "freeShipping": "मुफ्त शिपिंग",
+    "fastDelivery": "तेज डिलीवरी",
+    "securePayment": "सुरक्षित भुगतान"
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "कुछ गलत हो गया",
+    "noResults": "कोई परिणाम नहीं मिला",
+    "viewMore": "और देखें",
+    "viewLess": "कम देखें",
+    "close": "बंद करें",
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "submit": "सबमिट करें",
+    "back": "वापस",
+    "next": "अगला",
+    "previous": "पिछला"
+  }
+} 

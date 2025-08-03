@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { useTranslation } from "../../../hooks/useTranslation"
 
 interface FlashSaleProduct {
   id: string
@@ -15,6 +16,7 @@ interface SaleProductsProps {
 }
 
 export default function SaleProducts({ products }: SaleProductsProps) {
+  const { t } = useTranslation()
   return (
     <div className="overflow-x-auto">
       <div className="flex space-x-4 pb-4" style={{ width: "max-content" }}>
@@ -39,9 +41,9 @@ export default function SaleProducts({ products }: SaleProductsProps) {
               <span className="text-lg font-bold text-orange-500">₹{product.price.toLocaleString()}</span>
               <span className="text-sm text-gray-500 line-through">₹{product.originalPrice.toLocaleString()}</span>
             </div>
-            <div className="text-xs text-gray-500 mb-3">Only {product.stock} left in stock</div>
+            <div className="text-xs text-gray-500 mb-3">{t('product.inStock')}: {product.stock}</div>
             <button className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors text-sm font-medium">
-              Add to Cart
+              {t('product.addToCart')}
             </button>
           </div>
         ))}

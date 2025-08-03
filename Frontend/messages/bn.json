@@ -1,0 +1,82 @@
+{
+  "navigation": {
+    "discoverProducts": "পণ্য আবিষ্কার করুন",
+    "categories": "বিভাগসমূহ",
+    "brands": "ব্র্যান্ডসমূহ",
+    "hotDeals": "হট ডিল",
+    "trackOrder": "অর্ডার ট্র্যাক করুন",
+    "faq": "সাধারণ প্রশ্ন",
+    "help": "সাহায্য",
+    "contactUs": "যোগাযোগ করুন"
+  },
+  "header": {
+    "searchPlaceholder": "পণ্যের সন্ধান করুন...",
+    "login": "লগইন",
+    "register": "নিবন্ধন",
+    "seller": "বিক্রেতা হন",
+    "account": "অ্যাকাউন্ট",
+    "cart": "কার্ট"
+  },
+  "footer": {
+    "about": "আমাদের সম্পর্কে",
+    "services": "সেবাসমূহ",
+    "payment": "পেমেন্ট পদ্ধতি",
+    "social": "আমাদের অনুসরণ করুন",
+    "newsletter": "নিউজলেটার সাবস্ক্রাইব করুন",
+    "newsletterPlaceholder": "আপনার ইমেইল দিন",
+    "newsletterButton": "সাবস্ক্রাইব"
+  },
+  "home": {
+    "hero": {
+      "title": "টেকপোতলিতে স্বাগতম",
+      "subtitle": "সব প্রযুক্তি পণ্যের জন্য আপনার একমাত্র দোকান",
+      "cta": "এখনই কিনুন"
+    },
+    "categories": {
+      "title": "বিভাগ অনুযায়ী কেনাকাটা করুন",
+      "viewAll": "সব দেখুন"
+    },
+    "featuredProducts": {
+      "title": "বৈশিষ্ট্যযুক্ত পণ্য",
+      "viewAll": "সব দেখুন"
+    },
+    "flashSale": {
+      "title": "ফ্ল্যাশ সেল",
+      "endingSoon": "শীঘ্রই শেষ",
+      "viewAll": "সব দেখুন"
+    },
+    "dailyDeals": {
+      "title": "দৈনিক ডিল",
+      "viewAll": "সব দেখুন"
+    },
+    "topSelling": {
+      "title": "সর্বাধিক বিক্রিত পণ্য",
+      "viewAll": "সব দেখুন"
+    }
+  },
+  "product": {
+    "addToCart": "কার্টে যোগ করুন",
+    "buyNow": "এখনই কিনুন",
+    "outOfStock": "স্টক নেই",
+    "inStock": "স্টকে আছে",
+    "freeShipping": "বিনামূল্যে শিপিং",
+    "fastDelivery": "দ্রুত ডেলিভারি",
+    "securePayment": "নিরাপদ পেমেন্ট"
+  },
+  "common": {
+    "loading": "লোড হচ্ছে...",
+    "error": "কিছু ভুল হয়েছে",
+    "noResults": "কোন ফলাফল পাওয়া যায়নি",
+    "viewMore": "আরও দেখুন",
+    "viewLess": "কম দেখুন",
+    "close": "বন্ধ করুন",
+    "save": "সংরক্ষণ করুন",
+    "cancel": "বাতিল করুন",
+    "delete": "মুছুন",
+    "edit": "সম্পাদনা করুন",
+    "submit": "জমা দিন",
+    "back": "পিছনে",
+    "next": "পরবর্তী",
+    "previous": "পূর্ববর্তী"
+  }
+} 
