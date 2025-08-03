@@ -1,6 +1,6 @@
 "use client"
 
-import React, { createContext, useContext, useState, ReactNode } from 'react'
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
 interface Language {
   code: string
@@ -12,6 +12,7 @@ interface LanguageContextType {
   currentLanguage: Language
   setLanguage: (language: Language) => void
   languages: Language[]
+  isHydrated: boolean
 }
 
 const languages: Language[] = [
@@ -33,28 +34,36 @@ const languages: Language[] = [
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [currentLanguage, setCurrentLanguage] = useState<Language>(() => {
-    // Try to get saved language from localStorage
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('techpotli-language')
-      if (saved) {
+  const [currentLanguage, setCurrentLanguage] = useState<Language>(languages[0])
+  const [isHydrated, setIsHydrated] = useState(false)
+
+  useEffect(() => {
+    // This runs only on the client after hydration
+    const saved = localStorage.getItem('techpotli-language')
+    if (saved) {
+      try {
         const parsed = JSON.parse(saved)
-        return languages.find(lang => lang.code === parsed.code) || languages[0]
+        const savedLanguage = languages.find(lang => lang.code === parsed.code)
+        if (savedLanguage) {
+          setCurrentLanguage(savedLanguage)
+        }
+      } catch (error) {
+        console.error('Failed to parse saved language:', error)
       }
     }
-    return languages[0]
-  })
+    setIsHydrated(true)
+  }, [])
 
   const setLanguage = (language: Language) => {
     setCurrentLanguage(language)
-    // Save to localStorage
+    // Save to localStorage only on client
     if (typeof window !== 'undefined') {
       localStorage.setItem('techpotli-language', JSON.stringify(language))
     }
   }
 
   return (
-    <LanguageContext.Provider value={{ currentLanguage, setLanguage, languages }}>
+    <LanguageContext.Provider value={{ currentLanguage, setLanguage, languages, isHydrated }}>
       {children}
     </LanguageContext.Provider>
   )
