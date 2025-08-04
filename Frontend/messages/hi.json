@@ -15,7 +15,18 @@
     "register": "रजिस्टर",
     "seller": "विक्रेता बनें",
     "account": "खाता",
-    "cart": "कार्ट"
+    "cart": "कार्ट",
+    "orders": "ऑर्डर",
+    "wishList": "इच्छा सूची",
+    "comparedList": "तुलना सूची",
+    "vouchers": "वाउचर",
+    "newCustomer": "नया ग्राहक?",
+    "signUp": "साइन अप",
+    "myProfile": "मेरा प्रोफाइल",
+    "ishopPlusZone": "ishop प्लस जोन",
+    "rewards": "रिवॉर्ड्स",
+    "giftCards": "गिफ्ट कार्ड",
+    "logout": "लॉगआउट"
   },
   "footer": {
     "about": "हमारे बारे में",

@@ -19,7 +19,14 @@
     "orders": "Orders",
     "wishList": "Wish List",
     "comparedList": "Compared List",
-    "vouchers": "Vouchers"
+    "vouchers": "Vouchers",
+    "newCustomer": "New customer?",
+    "signUp": "Sign Up",
+    "myProfile": "My Profile",
+    "ishopPlusZone": "ishop Plus Zone",
+    "rewards": "Rewards",
+    "giftCards": "Gift Cards",
+    "logout": "Logout"
   },
   "footer": {
     "about": "About Us",
