@@ -1,75 +1,112 @@
 "use client"
 
-import { useState } from "react"
-import { ArrowRight, ChevronDown, User, Star, Package, Heart, Gift, CreditCard } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { ArrowRight, ChevronDown } from "lucide-react"
 import { useTranslation } from "../../../hooks/useTranslation"
+import {
+  NewCustomerSection,
+  ProfileSection,
+  PlusZoneSection,
+  OrdersSection,
+  WishlistSection,
+  RewardsSection,
+  GiftCardsSection,
+  SettingsSection,
+  LogoutSection
+} from "./LoginDropdown"
 
 export default function LoginButton() {
   const [isOpen, setIsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const { t } = useTranslation()
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen])
+
+  // Close dropdown on escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape)
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+    }
+  }, [isOpen])
 
   const handleClick = () => {
     setIsOpen(!isOpen)
   }
 
+  const handleClose = () => {
+    setIsOpen(false)
+  }
+
+  const handleLogout = () => {
+    // Add your logout logic here
+    console.log('Logout functionality')
+  }
+
   return (
-    <div className="relative">
-      <div 
-        className="flex items-center space-x-1 cursor-pointer hover:text-purple-600 transition-colors"
+    <div className="relative" ref={dropdownRef}>
+      <button
+        className="flex items-center space-x-1 cursor-pointer hover:text-purple-600 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 rounded-md px-2 py-1"
         onClick={handleClick}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        aria-label="Login menu"
       >
         <ArrowRight className="w-4 h-4" />
-        <span>{t('header.login')}</span>
-        <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-      </div>
+        <span className="hidden sm:inline">{t('header.login')}</span>
+        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
       
       {/* Login Dropdown */}
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 w-72 bg-white rounded-lg border border-gray-200 shadow-lg z-50">
+        <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl border border-gray-200 shadow-xl z-50 overflow-hidden">
           {/* Caret */}
           <div className="absolute -top-2 right-8 w-4 h-4 bg-white border-t border-l border-gray-200 transform rotate-45"></div>
           
           {/* New Customer Section */}
-          <div className="p-4 border-b border-gray-100">
-            <div className="flex items-center justify-between">
-              <span className="text-gray-900 text-sm">New customer?</span>
-              <button className="text-blue-600 font-medium hover:text-blue-700 transition-colors text-sm">
-                Sign Up
-              </button>
-            </div>
-          </div>
+          <NewCustomerSection onClose={handleClose} />
 
           {/* Menu Items */}
+          <div className="py-2 max-h-96 overflow-y-auto">
+            <ProfileSection onClose={handleClose} />
+            <PlusZoneSection onClose={handleClose} />
+            <OrdersSection onClose={handleClose} />
+            <WishlistSection onClose={handleClose} />
+            <RewardsSection onClose={handleClose} />
+            <GiftCardsSection onClose={handleClose} />
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-gray-100"></div>
+
+          {/* Settings and Logout */}
           <div className="py-2">
-            <div className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 cursor-pointer">
-              <User className="w-5 h-5 text-gray-600" />
-              <span className="text-gray-900 text-sm">My Profile</span>
-            </div>
-            
-            <div className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 cursor-pointer">
-              <Star className="w-5 h-5 text-gray-600" />
-              <span className="text-gray-900 text-sm">ishop Plus Zone</span>
-            </div>
-            
-            <div className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 cursor-pointer">
-              <Package className="w-5 h-5 text-gray-600" />
-              <span className="text-gray-900 text-sm">Orders</span>
-            </div>
-            
-            <div className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 cursor-pointer">
-              <Heart className="w-5 h-5 text-gray-600" />
-              <span className="text-gray-900 text-sm">Wishlist</span>
-            </div>
-            
-            <div className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 cursor-pointer">
-              <Gift className="w-5 h-5 text-gray-600" />
-              <span className="text-gray-900 text-sm">Rewards</span>
-            </div>
-            
-            <div className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 cursor-pointer">
-              <CreditCard className="w-5 h-5 text-gray-600" />
-              <span className="text-gray-900 text-sm">Gift Cards</span>
-            </div>
+            <SettingsSection onClose={handleClose} />
+            <LogoutSection onClose={handleClose} onLogout={handleLogout} />
           </div>
         </div>
       )}
