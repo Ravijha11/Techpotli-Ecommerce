@@ -26,14 +26,14 @@ export default function TopSellingProducts({
           <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
           <Link 
             href={showAllLink} 
-            className="text-gray-600 hover:text-purple-600 font-medium underline"
+            className="text-gray-600 hover:text-purple-600 font-medium underline min-w-[80px] text-center"
           >
             Show all
           </Link>
         </div>
 
         {/* Products Grid - 3x3 Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 lg:gap-6">
           {products.slice(0, 9).map((product) => (
             <Link 
               key={product.id} 
