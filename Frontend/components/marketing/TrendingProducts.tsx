@@ -127,16 +127,16 @@ export default function TrendingProducts() {
           <h2 className="text-2xl font-bold text-gray-900">Trending products</h2>
           <Link
             href="/trending-products"
-            className="text-gray-600 hover:text-purple-600 font-medium underline"
+            className="text-gray-600 hover:text-purple-600 font-medium underline min-w-[80px] text-center"
           >
             Show all
           </Link>
         </div>
 
         <div className="relative overflow-hidden">
-          <div className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {trendingProducts.map((product) => (
-              <div key={product.id} className="flex-shrink-0 w-1/6 px-2">
+              <div key={product.id} className="w-full">
                 <Link
                   href={product.href}
                   className="block group"

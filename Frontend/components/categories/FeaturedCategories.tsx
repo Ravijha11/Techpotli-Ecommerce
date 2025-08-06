@@ -128,7 +128,7 @@ export default function FeaturedCategories() {
             </div>
             <Link 
               href="/categories" 
-              className="text-gray-900 underline hover:text-gray-700 transition-colors duration-200 text-sm"
+              className="text-gray-900 underline hover:text-gray-700 transition-colors duration-200 text-sm font-medium min-w-[80px] text-center"
             >
               Show all
             </Link>
@@ -136,21 +136,21 @@ export default function FeaturedCategories() {
         </div>
 
         <div className="relative overflow-hidden">
-          <div className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}>
+          <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-4">
             {categoryItems.map((category) => {
               const IconComponent = category.icon
               return (
-                <div key={category.id} className="flex-shrink-0 w-1/9 px-1">
+                <div key={category.id} className="w-full">
                   <Link 
                     href={category.href}
                     className="block text-center group"
                     title={category.name}
                   >
-                    <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-3 border border-gray-200 w-full">
-                      <div className="w-10 h-10 mx-auto mb-2 flex items-center justify-center">
+                    <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-3 border border-gray-200 w-full h-full min-h-[100px] flex flex-col items-center justify-center">
+                      <div className="w-10 h-10 mb-2 flex items-center justify-center">
                         <IconComponent className="w-6 h-6 text-gray-900" />
                       </div>
-                      <h5 className="text-xs font-medium text-gray-900 truncate group-hover:text-gray-700 transition-colors duration-200">
+                      <h5 className="text-xs font-medium text-gray-900 truncate group-hover:text-gray-700 transition-colors duration-200 leading-tight">
                         {category.name}
                       </h5>
                     </div>

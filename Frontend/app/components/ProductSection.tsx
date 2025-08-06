@@ -33,19 +33,17 @@ export default function ProductSection({ title, subtitle, products }: ProductSec
           </div>
           <Link
             href="/products"
-            className="text-orange-500 hover:text-orange-600 font-medium flex items-center space-x-1"
+            className="text-orange-500 hover:text-orange-600 font-medium flex items-center space-x-1 min-w-[100px] justify-center"
           >
             <span>{t('home.featuredProducts.viewAll')}</span>
             <span>→</span>
           </Link>
         </div>
 
-        <div className="overflow-x-auto">
-          <div className="flex space-x-6 pb-4" style={{ width: "max-content" }}>
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
       </div>
     </section>
@@ -54,7 +52,7 @@ export default function ProductSection({ title, subtitle, products }: ProductSec
 
 function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-4 min-w-[280px] group border border-gray-100">
+    <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-4 w-full group border border-gray-100">
       {product.badge && (
         <div className="absolute top-2 left-2 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold z-10">
           {product.badge}
