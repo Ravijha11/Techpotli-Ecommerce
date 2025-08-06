@@ -3,58 +3,295 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { RefreshCw, Star, Sparkles, TrendingUp, Zap } from "lucide-react"
-import { Product, dailyDiscoverProducts } from "@/data/dailyDiscoverProducts"
-import { useTranslation } from "../../hooks/useTranslation"
+import { Star } from "lucide-react"
 
-interface DailyDiscoverProps {
-  title?: string
-  products?: Product[]
-  showMoreLink?: string
+interface Product {
+  id: string
+  name: string
+  price: number
+  originalPrice?: number
+  discount?: number
+  rating: number
+  reviews: number
+  image: string
+  badge?: "New" | "Featured" | "Trending"
+  href: string
 }
 
-/**
- * DailyDiscover Component
- * 
- * A modern, high-tech product grid section with advanced animations and professional styling.
- * Features:
- * - Responsive grid layout with glassmorphism effects
- * - Advanced hover animations and micro-interactions
- * - Gradient backgrounds and modern typography
- * - Product badges with animated icons
- * - Star ratings with smooth animations
- * - Price display with modern styling
- * - Compare button with hover effects
- * - Show more functionality with smooth transitions
- * 
- * @example
- * ```tsx
- * <DailyDiscover 
- *   title="Daily Discover"
- *   products={products}
- *   showMoreLink="/products"
- * />
- * ```
- */
-export default function DailyDiscover({
-  title = "Daily discover",
-  products = dailyDiscoverProducts,
-  showMoreLink = "/products"
-}: DailyDiscoverProps) {
-  const { t } = useTranslation()
-  const [showAll, setShowAll] = useState(false)
-  const initialProducts = 12 // Show 3 rows of 4 products each
-  const displayedProducts = showAll ? products : products.slice(0, initialProducts)
-  const hasMoreProducts = products.length > initialProducts
+const dailyDiscoverProducts: Product[] = [
+  {
+    id: "1",
+    name: "Vagisil Anti-Itch Medicated Feminine Vaginal Wipes...",
+    price: 92,
+    originalPrice: 100,
+    discount: 8,
+    rating: 5,
+    reviews: 3,
+    image: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=300&h=300&fit=crop",
+    href: "/product/1"
+  },
+  {
+    id: "2",
+    name: "Goodthreads Men's Slim-Fit Long-Sleeve Plaid...",
+    price: 110,
+    rating: 5,
+    reviews: 3,
+    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300&h=300&fit=crop",
+    badge: "Featured",
+    href: "/product/2"
+  },
+  {
+    id: "3",
+    name: "Non-Stick Sauté Pan, Rapid Noodles Cooker...",
+    price: 100,
+    originalPrice: 110,
+    discount: 10,
+    rating: 5,
+    reviews: 0,
+    image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&h=300&fit=crop",
+    href: "/product/3"
+  },
+  {
+    id: "4",
+    name: "LYANER Women's Tunic Round Neck Ruffle Loos...",
+    price: 86,
+    originalPrice: 100,
+    discount: 14,
+    rating: 5,
+    reviews: 4,
+    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&h=300&fit=crop",
+    badge: "New",
+    href: "/product/4"
+  },
+  {
+    id: "5",
+    name: "Anna by Anuschka Satchel Handbag I...",
+    price: 104,
+    originalPrice: 170,
+    discount: 39,
+    rating: 5,
+    reviews: 1,
+    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=300&h=300&fit=crop",
+    href: "/product/5"
+  },
+  {
+    id: "6",
+    name: "Milky Chic Gift Box for New Moms-10 Unique...",
+    price: 100,
+    originalPrice: 110,
+    discount: 10,
+    rating: 5,
+    reviews: 0,
+    image: "https://images.unsplash.com/photo-1515543904379-3d757afe72e3?w=300&h=300&fit=crop",
+    href: "/product/6"
+  },
+  {
+    id: "7",
+    name: "Carhartt Legacy Deluxe Work Backpack with 17-...",
+    price: 117,
+    originalPrice: 170,
+    discount: 32,
+    rating: 5,
+    reviews: 4,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+    href: "/product/7"
+  },
+  {
+    id: "8",
+    name: "Women's Ruffle Sleeve Tops Summer Casual...",
+    price: 80,
+    originalPrice: 100,
+    discount: 20,
+    rating: 5,
+    reviews: 1,
+    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&h=300&fit=crop",
+    badge: "Featured",
+    href: "/product/8"
+  },
+  {
+    id: "9",
+    name: "Jet Set Hydration Kit, Travel Friendly Skincare...",
+    price: 93,
+    originalPrice: 100,
+    discount: 7,
+    rating: 5,
+    reviews: 4,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+    badge: "New",
+    href: "/product/9"
+  },
+  {
+    id: "10",
+    name: "Dickies Men's Sanded Duck Sherpa Lined...",
+    price: 111,
+    rating: 5,
+    reviews: 2,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+    badge: "Trending",
+    href: "/product/10"
+  },
+  {
+    id: "11",
+    name: "PUMA Kids' 6 Pack Low Cut Socks",
+    price: 87,
+    originalPrice: 100,
+    discount: 13,
+    rating: 5,
+    reviews: 3,
+    image: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=300&h=300&fit=crop",
+    href: "/product/11"
+  },
+  {
+    id: "12",
+    name: "Self Retractable ID Badge Holder Key Reel, Heavy...",
+    price: 105,
+    originalPrice: 200,
+    discount: 48,
+    rating: 5,
+    reviews: 2,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+    href: "/product/12"
+  },
+  {
+    id: "13",
+    name: "Stride Rite Unisex-Child Made2play Xander...",
+    price: 100,
+    originalPrice: 110,
+    discount: 10,
+    rating: 5,
+    reviews: 0,
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=300&fit=crop",
+    badge: "New",
+    href: "/product/13"
+  },
+  {
+    id: "14",
+    name: "Herschel Classic Backpack, Ash Rose, Mi...",
+    price: 118,
+    rating: 5,
+    reviews: 5,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+    badge: "Trending",
+    href: "/product/14"
+  },
+  {
+    id: "15",
+    name: "Women's Floral Tunic Tops Casual Blouse V...",
+    price: 81,
+    originalPrice: 100,
+    discount: 19,
+    rating: 5,
+    reviews: 1,
+    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&h=300&fit=crop",
+    href: "/product/15"
+  },
+  {
+    id: "16",
+    name: "Magic | Skin-renewing Microdermabrasion Scr...",
+    price: 99,
+    originalPrice: 100,
+    discount: 1,
+    rating: 5,
+    reviews: 5,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+    href: "/product/16"
+  },
+  {
+    id: "17",
+    name: "Solo New York Region Laptop Backpack, Grey",
+    price: 100,
+    originalPrice: 110,
+    discount: 10,
+    rating: 5,
+    reviews: 0,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+    href: "/product/17"
+  },
+  {
+    id: "18",
+    name: "Carhartt Men's Thermal Lined Duck Active Jack...",
+    price: 112,
+    originalPrice: 100,
+    discount: 42,
+    rating: 5,
+    reviews: 2,
+    image: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=300&h=300&fit=crop",
+    href: "/product/18"
+  },
+  {
+    id: "19",
+    name: "3 Pairs Triple Stripe Over the Knee Socks Extra...",
+    price: 88,
+    originalPrice: 100,
+    discount: 12,
+    rating: 5,
+    reviews: 2,
+    image: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=300&h=300&fit=crop",
+    href: "/product/19"
+  },
+  {
+    id: "20",
+    name: "Airanes Anti Fog Safety Glasses for Women Men",
+    price: 106,
+    originalPrice: 170,
+    discount: 38,
+    rating: 5,
+    reviews: 3,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+    href: "/product/20"
+  },
+  {
+    id: "21",
+    name: "PUMA Women's Carina Sneaker",
+    price: 100,
+    originalPrice: 110,
+    discount: 10,
+    rating: 5,
+    reviews: 0,
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=300&fit=crop",
+    href: "/product/21"
+  },
+  {
+    id: "22",
+    name: "Vera Bradley Women's Cotton Campus Backpack",
+    price: 119,
+    rating: 5,
+    reviews: 4,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+    href: "/product/22"
+  },
+  {
+    id: "23",
+    name: "Andongnywell Women's Casual Tops Leopard Pr...",
+    price: 82,
+    originalPrice: 100,
+    discount: 18,
+    rating: 5,
+    reviews: 2,
+    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&h=300&fit=crop",
+    href: "/product/23"
+  },
+  {
+    id: "24",
+    name: "'Daily Hydrating' Duo Skin Care Starter Kit (Bio-...",
+    price: 100,
+    rating: 5,
+    reviews: 4,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+    badge: "New",
+    href: "/product/24"
+  }
+]
 
+export default function DailyDiscover() {
   const renderStars = (rating: number) => {
     const stars = []
     for (let i = 1; i <= 5; i++) {
       stars.push(
         <Star
           key={i}
-          className={`w-3 h-3 transition-all duration-300 ${
-            i <= rating ? "text-yellow-400 fill-current scale-110" : "text-gray-300"
+          className={`w-3 h-3 ${
+            i <= rating ? "text-yellow-400 fill-current" : "text-gray-300"
           }`}
         />
       )
@@ -62,115 +299,86 @@ export default function DailyDiscover({
     return stars
   }
 
-  const getBadgeIcon = (badge: string) => {
-    switch (badge) {
-      case "New":
-        return <Sparkles className="w-3 h-3" />
-      case "Trending":
-        return <TrendingUp className="w-3 h-3" />
-      case "Featured":
-        return <Zap className="w-3 h-3" />
-      default:
-        return null
-    }
-  }
-
   return (
-    <section className="w-full bg-gradient-to-br from-slate-50 via-white to-blue-50 py-16 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-blue-500/5"></div>
-      <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-300/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
-      
-      <div className="w-full px-4 md:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-            {title}
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl">
-            Discover handpicked products tailored just for you, powered by advanced algorithms
-          </p>
+    <section className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Daily discover</h2>
+          <Link 
+            href="/products" 
+            className="text-gray-600 hover:text-purple-600 font-medium underline"
+          >
+            Show all
+          </Link>
         </div>
 
-        {/* Products Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
-          {displayedProducts.map((product, index) => (
-            <div 
-              key={product.id} 
-              className="group relative daily-discover-card hover-lift"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="p-tile glass-card rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 overflow-hidden">
-                <Link href={product.href} className="page-link block" title={product.name}>
+          {dailyDiscoverProducts.map((product) => (
+            <div key={product.id} className="group">
+              <Link 
+                href={product.href}
+                className="block"
+                title={product.name}
+              >
+                <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100">
                   {/* Product Image */}
-                  <div className="img-wrapper relative mb-4 overflow-hidden">
+                  <div className="relative h-48 bg-gray-50 overflow-hidden">
                     {product.badge && (
-                      <div className={`badge absolute top-3 left-3 z-10 px-3 py-1.5 text-xs font-bold text-white rounded-full flex items-center gap-1.5 shadow-lg backdrop-blur-sm border border-white/20 pulse-badge ${
-                        product.badge === "New" ? "bg-gradient-to-r from-blue-500 to-cyan-500" :
-                        product.badge === "Trending" ? "bg-gradient-to-r from-purple-500 to-pink-500" :
-                        "bg-gradient-to-r from-orange-500 to-red-500"
+                      <div className={`absolute top-3 left-3 px-2 py-1 rounded-full text-xs font-bold text-white z-10 ${
+                        product.badge === "New" ? "bg-purple-500" : 
+                        product.badge === "Featured" ? "bg-red-500" : "bg-green-500"
                       }`}>
-                        {getBadgeIcon(product.badge)}
                         {product.badge}
                       </div>
                     )}
                     
-                    <button 
-                      className="compare-btn absolute top-3 right-3 z-10 w-8 h-8 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg backdrop-blur-sm border border-white/20 group-hover:rotate-12"
-                      title="Compare"
-                      aria-label="Compare product"
-                    >
-                      <RefreshCw className="w-4 h-4 text-gray-600" />
-                    </button>
-                    
-                    <div className="relative overflow-hidden rounded-xl">
                       <Image
                         src={product.image}
                         alt={product.name}
-                        width={200}
-                        height={200}
-                        className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "/placeholder.jpg";
+                      }}
+                    />
                   </div>
 
                   {/* Product Info */}
-                  <div className="item-title p-4">
-                    <h5 className="ellipsis ellipsis-2 text-sm font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-purple-700 transition-colors duration-300">
+                  <div className="p-4">
+                    <h3 className="text-sm font-medium text-gray-900 mb-2 line-clamp-2 group-hover:text-gray-700 transition-colors duration-200">
                       {product.name}
-                    </h5>
+                    </h3>
                     
                     {/* Rating and Reviews */}
                     <div className="flex items-center mb-3">
-                      <div className="flex items-center mr-2 group">
+                      <div className="flex items-center mr-2">
                         {renderStars(product.rating)}
                       </div>
-                      <span className="text-xs text-gray-500 font-medium">
+                      <span className="text-xs text-gray-500">
                         {product.reviews} Reviews
                       </span>
                     </div>
                     
                     {/* Price */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center">
+                    <div className="flex items-center justify-center space-x-2">
                         {product.originalPrice && product.originalPrice > product.price ? (
                           <>
-                            <span className="strike-through text-xs text-gray-400 mr-2 font-medium">
+                          <span className="text-sm text-gray-500 line-through">
                               ${product.originalPrice}
                             </span>
-                            <span className="price text-lg font-bold text-gray-900">
+                          <span className="text-lg font-bold text-gray-900">
                               ${product.price}
                             </span>
                             {product.discount && (
-                              <span className="discount text-xs font-bold text-green-600 ml-2 bg-green-100 px-2 py-1 rounded-full">
+                            <span className="text-xs font-bold text-purple-600">
                                 -{product.discount}%
                               </span>
                             )}
                           </>
                         ) : (
-                          <span className="price text-lg font-bold text-gray-900">
+                        <span className="text-lg font-bold text-gray-900">
                             ${product.price}
                           </span>
                         )}
@@ -178,52 +386,9 @@ export default function DailyDiscover({
                     </div>
                   </div>
                 </Link>
-              </div>
-              
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
             </div>
           ))}
         </div>
-
-        {/* Show More Button - Always visible if there are more products */}
-        {hasMoreProducts && !showAll && (
-          <div className="text-center mt-12">
-            <button
-              onClick={() => setShowAll(true)}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto"
-            >
-              <Sparkles className="w-4 h-4" />
-              Show More ({products.length - initialProducts} more)
-            </button>
-          </div>
-        )}
-
-        {/* View All Link - Show when all products are displayed */}
-        {showAll && (
-          <div className="text-center mt-12">
-            <Link
-              href={showMoreLink}
-              className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-bold text-lg transition-colors duration-300 hover:scale-105"
-            >
-              <span>{t('home.featuredProducts.viewAll')}</span>
-              <TrendingUp className="w-5 h-5" />
-            </Link>
-          </div>
-        )}
-
-        {/* Fallback Button - Always show a button if no other conditions are met */}
-        {!hasMoreProducts && !showAll && (
-          <div className="text-center mt-12">
-            <Link
-              href={showMoreLink}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              <Sparkles className="w-4 h-4" />
-              {t('home.featuredProducts.viewAll')}
-            </Link>
-          </div>
-        )}
       </div>
     </section>
   )

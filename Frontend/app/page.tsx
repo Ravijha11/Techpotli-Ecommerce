@@ -2,16 +2,19 @@ import type { Metadata } from "next"
 import Header from "@/components/layout/Header"
 import { HeroSection } from "@/components/hero"
 import ServiceFeatures from "@/components/common/ServiceFeatures"
+import FeaturedCategories from "@/components/categories/FeaturedCategories"
 import FlashSale from "@/components/marketing/FlashSale"
-import DailyDeals from "@/components/marketing/DailyDeals"
 import NewsletterSubscription from "@/components/marketing/NewsletterSubscription"
 import PromotionalBanner from "@/components/marketing/PromotionalBanner"
 import DailyDiscover from "@/components/marketing/DailyDiscover"
+import TopSellingProducts from "@/components/marketing/TopSellingProducts"
+import TrendingProducts from "@/components/marketing/TrendingProducts"
 import Footer from "@/components/layout/Footer"
 import CategorySitemap from "@/components/layout/Footer/CategorySitemap"
 
 // Keep page-specific components in app/components
 import NewYearSale from "./components/NewYearSale"
+import FeatureSection from "./components/FeatureSection"
 import PromoBanners from "./components/PromoBanners"
 import SimpleBanner from "./components/SimpleBanner"
 
@@ -35,7 +38,10 @@ export default function HomePage() {
         <HeroSection />
         <ServiceFeatures />
         <NewYearSale />
-        <DailyDeals />
+        <FeatureSection />
+        <TrendingProducts />
+        <FeaturedCategories />
+        <TopSellingProducts />
         <PromotionalBanner />
         <DailyDiscover />
         <SimpleBanner 
