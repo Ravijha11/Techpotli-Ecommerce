@@ -1,0 +1,6 @@
+export { default as CategoryFilter } from './CategoryFilter'
+export { default as PriceRangeFilter } from './PriceRangeFilter'
+export { default as CustomerReviewsFilter } from './CustomerReviewsFilter'
+export { default as BrandFilter } from './BrandFilter'
+export { default as CollectionFilter } from './CollectionFilter'
+export { default as ShippingFilter } from './ShippingFilter' 
