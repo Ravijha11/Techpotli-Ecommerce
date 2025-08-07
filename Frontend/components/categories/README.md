@@ -1,60 +1,66 @@
 # Categories Components
 
-This directory contains category-related components for the e-commerce application.
+This directory contains components for displaying product categories in a clean, organized layout.
 
-## FeaturedCategories
+## Components
 
-The `FeaturedCategories` component displays a horizontal scrollable list of featured product categories with icons and navigation controls.
+### CategoriesGrid
+The main component that displays all product categories in a responsive grid layout.
 
-### Features
+**Features:**
+- 2-column grid layout matching the screenshot
+- 14 main categories with Lucide React icons
+- Hover effects with smooth transitions
+- Responsive design
+- Additional categories section
 
-- **Responsive Design**: Adapts to different screen sizes
-- **Carousel Navigation**: Left/right arrow buttons for scrolling through categories
-- **Icon-based Categories**: Uses Lucide React icons for consistent styling
-- **Hover Effects**: Smooth transitions and hover states
-- **Accessibility**: Proper ARIA labels and keyboard navigation
+**Categories included:**
+- Men's Wear
+- Women Apparel
+- Beauty & Personal Care
+- Tops
+- Jewellery & Accessories
+- Women's Bags
+- Travel & Luggage
+- Dresses
+- Sling Bags
+- Men's Shoes
+- Home Appliances
+- Home & Living
+- Socks & Tights
+- Clutches & Mini Bags
 
-### Usage
-
-```tsx
-import FeaturedCategories from "@/components/categories/FeaturedCategories"
-
-// In your component or page
-<FeaturedCategories />
-```
-
-### Props
-
-Currently, the component doesn't accept any props and uses predefined category data. Future versions may support:
-
-- `categories`: Custom category data
-- `title`: Custom section title
-- `itemsPerView`: Number of items visible at once
-- `showNavigation`: Toggle navigation arrows
-- `showViewAll`: Toggle "Show all" link
-
-### Category Data Structure
+## Usage
 
 ```tsx
-interface CategoryItem {
-  id: string
-  name: string
-  icon: React.ComponentType<{ className?: string }>
-  href: string
+import { CategoriesGrid } from '@/components/categories'
+
+// In your page component
+export default function CategoriesPage() {
+  return (
+    <div>
+      <Header />
+      <CategoriesGrid />
+      <Footer />
+    </div>
+  )
 }
 ```
 
-### Styling
+## Styling
 
-The component uses Tailwind CSS classes and follows the design system:
-- Background: `bg-gray-50`
-- Cards: White background with subtle shadows
-- Icons: Black line art style using Lucide React
-- Typography: Consistent font weights and sizes
-- Spacing: Responsive padding and margins
+- Clean, minimalist design
+- Consistent spacing and typography
+- Purple accent color on hover
+- Smooth transitions for better UX
+- Responsive grid layout
 
-### Dependencies
+## Future Enhancements
 
-- `lucide-react`: For category icons
-- `next/link`: For navigation
-- `react`: For state management and hooks 
+- Category-specific pages
+- Category descriptions
+- Product count per category
+- Category images
+- Subcategories
+- Category search/filter
+- Category analytics 
