@@ -4,16 +4,23 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 
 const brands = [
-  { name: "Apple", logo: "https://placehold.co/120x60/333/FFF?text=Apple" },
-  { name: "Samsung", logo: "https://placehold.co/120x60/333/FFF?text=Samsung" },
-  { name: "Xiaomi", logo: "https://placehold.co/120x60/333/FFF?text=Xiaomi" },
-  { name: "OnePlus", logo: "https://placehold.co/120x60/333/FFF?text=OnePlus" },
-  { name: "Sony", logo: "https://placehold.co/120x60/333/FFF?text=Sony" },
-  { name: "Dell", logo: "https://placehold.co/120x60/333/FFF?text=Dell" },
-  { name: "HP", logo: "https://placehold.co/120x60/333/FFF?text=HP" },
-  { name: "Lenovo", logo: "https://placehold.co/120x60/333/FFF?text=Lenovo" },
-  { name: "Asus", logo: "https://placehold.co/120x60/333/FFF?text=Asus" },
-  { name: "JBL", logo: "https://placehold.co/120x60/333/FFF?text=JBL" },
+  { name: "Apple", logo: "/Apple.jpg" },
+  { name: "Samsung", logo: "/Samsung.jpg" },
+  { name: "Sony", logo: "/Sony.jpg" },
+  { name: "LG", logo: "/LG.jpg" },
+  { name: "Panasonic", logo: "/Panasonic.jpg" },
+  { name: "Philips", logo: "/Philips.jpg" },
+  { name: "Nike", logo: "/Nike.jpg" },
+  { name: "Adidas", logo: "/Adidas Logo.jpg" },
+  { name: "Levi's", logo: "/Levis Logo.jpg" },
+  { name: "H&M", logo: "/H&M.jpg" },
+  { name: "Zara", logo: "/Zara.jpg" },
+  { name: "Gucci", logo: "/Gucci.jpg" },
+  { name: "Rolex", logo: "/Rolex.jpg" },
+  { name: "Gillette", logo: "/Gillette.jpg" },
+  { name: "L'Oréal", logo: "/Loreal.jpg" },
+  { name: "Nescafe", logo: "/Nescafe.jpg" },
+  { name: "Accenture", logo: "/Accenture.jpg" },
 ]
 
 export default function BrandShowcase() {
