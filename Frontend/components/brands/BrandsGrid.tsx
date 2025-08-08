@@ -158,11 +158,11 @@ export default function BrandsGrid() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {[
             { id: "gucci", name: "Gucci", logo: "/Gucci.jpg", href: "/brands/gucci" },
-            { id: "samsung", name: "Samsung", logo: "", href: "/brands/samsung" },
-            { id: "sony", name: "Sony", logo: "", href: "/brands/sony" },
-            { id: "lg", name: "LG", logo: "", href: "/brands/lg" },
-            { id: "panasonic", name: "Panasonic", logo: "", href: "/brands/panasonic" },
-            { id: "philips", name: "Philips", logo: "", href: "/brands/philips" }
+            { id: "samsung", name: "Samsung", logo: "/Samsung.jpg", href: "/brands/samsung" },
+            { id: "sony", name: "Sony", logo: "/Sony.jpg", href: "/brands/sony" },
+            { id: "lg", name: "LG", logo: "/LG.jpg", href: "/brands/lg" },
+            { id: "panasonic", name: "Panasonic", logo: "/Panasonic.jpg", href: "/brands/panasonic" },
+            { id: "philips", name: "Philips", logo: "/Philips.jpg", href: "/brands/philips" }
           ].map((brand) => (
             <BrandCard 
               key={brand.id} 

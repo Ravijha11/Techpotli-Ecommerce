@@ -4,12 +4,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import BrandCard from "./BrandCard"
 
 const brands = [
-  { name: "Adidas", logo: "https://placehold.co/120x80/FFF/333?text=adidas" },
-  { name: "Rolex", logo: "https://placehold.co/120x80/FFF/333?text=ROLEX" },
-  { name: "Gucci", logo: "https://placehold.co/120x80/FFF/333?text=GUCCI" },
-  { name: "H&M", logo: "https://placehold.co/120x80/FFF/E60026?text=H%26M" },
-  { name: "Apple", logo: "https://placehold.co/120x80/FFF/333?text=Apple" },
-  { name: "Schnell", logo: "https://placehold.co/120x80/FFF/333?text=CHANEL" },
+  { name: "Adidas", logo: "/Adidas Logo.jpg" },
+  { name: "Rolex", logo: "/Rolex.jpg" },
+  { name: "Gucci", logo: "/Gucci.jpg" },
+  { name: "H&M", logo: "/H&M.jpg" },
+  { name: "Apple", logo: "/Apple.jpg" },
+  { name: "Schnell", logo: "/Schnell.jpg" },
 ]
 
 export default function FeaturedBrands() {
@@ -20,10 +20,18 @@ export default function FeaturedBrands() {
           <div className="flex items-center space-x-4">
             <h2 className="text-2xl font-bold text-gray-800">Featured Brands</h2>
             <div className="flex space-x-2">
-              <button className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">
+              <button 
+                className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors"
+                aria-label="Previous brands"
+                title="Previous brands"
+              >
                 <ChevronLeft className="w-4 h-4 text-gray-600" />
               </button>
-              <button className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">
+              <button 
+                className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors"
+                aria-label="Next brands"
+                title="Next brands"
+              >
                 <ChevronRight className="w-4 h-4 text-gray-600" />
               </button>
             </div>
