@@ -21,7 +21,7 @@ export default function BottomNavigation() {
             <Link href="/brands" className={styles.link}>
               <span>{t('navigation.brands')}</span>
             </Link>
-            <Link href="/flash-sale" className={styles.link}>
+            <Link href="/hot-deals" className={styles.link}>
               <span>{t('navigation.hotDeals')}</span>
             </Link>
           </div>
