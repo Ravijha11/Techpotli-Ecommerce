@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Package } from "lucide-react"
 import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
@@ -71,53 +72,73 @@ export default function TrackOrderPage() {
         {/* Track Your Order Section */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto text-center">
-              {/* Title */}
-              <h1 className="text-4xl md:text-5xl font-bold text-purple-600 mb-4">
-                Track Your Order
-              </h1>
-              <p className="text-xl text-gray-600 mb-12">
-                Have an order? Want to know where your order is now?
-              </p>
+            <div className="max-w-6xl mx-auto">
+              {/* Two Column Layout */}
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                {/* Left Column - Form */}
+                <div className="text-left">
+                  {/* Title */}
+                  <h1 className="text-4xl md:text-5xl font-bold text-purple-600 mb-4">
+                    Track Your Order
+                  </h1>
+                  <p className="text-xl text-gray-600 mb-12">
+                    Have an order? Want to know where your order is now?
+                  </p>
 
-              {/* Tracking Form */}
-              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                  Enter the track code of your order
-                </h2>
-                
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="text-left">
-                    <label htmlFor="trackingCode" className="block text-sm font-medium text-gray-700 mb-2">
-                      Order
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Package className="h-5 w-5 text-gray-400" />
+                  {/* Tracking Form */}
+                  <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                      Enter the track code of your order
+                    </h2>
+                    
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div>
+                        <label htmlFor="trackingCode" className="block text-sm font-medium text-gray-700 mb-2">
+                          Order
+                        </label>
+                        <div className="relative">
+                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <Package className="h-5 w-5 text-gray-400" />
+                          </div>
+                          <Input
+                            id="trackingCode"
+                            type="text"
+                            value={trackingCode}
+                            onChange={(e) => setTrackingCode(e.target.value)}
+                            placeholder="Your Order, eg. 20230704N2H5X2"
+                            className="pl-10 h-12 text-base border-gray-300 focus:border-purple-500 focus:ring-purple-500"
+                            required
+                          />
+                        </div>
+                        <p className="text-sm text-gray-500 mt-2">
+                          Know the progress of your product delivery.
+                        </p>
                       </div>
-                      <Input
-                        id="trackingCode"
-                        type="text"
-                        value={trackingCode}
-                        onChange={(e) => setTrackingCode(e.target.value)}
-                        placeholder="Your Order, eg. 20230704N2H5X2"
-                        className="pl-10 h-12 text-base border-gray-300 focus:border-purple-500 focus:ring-purple-500"
-                        required
-                      />
-                    </div>
-                    <p className="text-sm text-gray-500 mt-2">
-                      Know the progress of your product delivery.
-                    </p>
-                  </div>
 
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-medium text-base h-12 transition-colors"
-                  >
-                    {isSubmitting ? "Tracking..." : "Submit"}
-                  </Button>
-                </form>
+                      <Button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-medium text-base h-12 transition-colors"
+                      >
+                        {isSubmitting ? "Tracking..." : "Submit"}
+                      </Button>
+                    </form>
+                  </div>
+                </div>
+
+                {/* Right Column - Illustration */}
+                <div className="flex justify-center lg:justify-end">
+                  <div className="relative">
+                    <Image
+                      src="/Track Order.jpg"
+                      alt="Delivery person with packages"
+                      width={500}
+                      height={400}
+                      className="rounded-lg shadow-lg"
+                      priority
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
