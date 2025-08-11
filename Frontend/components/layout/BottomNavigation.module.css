@@ -8,7 +8,7 @@
 .containerFluid {
   max-width: 100%;
   margin: 0;
-  padding: 0 24px;
+  padding: 0 16px;
 }
 
 .flexSided {
@@ -16,13 +16,17 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .leftLinks,
 .rightLinks {
   display: flex;
-  gap: 32px;
+  gap: 16px;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .link {
@@ -34,15 +38,22 @@
   letter-spacing: 0.3px;
   transition: color 0.2s ease;
   white-space: nowrap;
-  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+  padding: 8px 12px;
+  border-radius: 6px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .link:hover {
   color: #2874f0;
+  background-color: #f3f4f6;
 }
 
 .link span {
-  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
   font-weight: 500;
 }
 
@@ -55,16 +66,53 @@
   
   .leftLinks,
   .rightLinks {
-    gap: 20px;
+    gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
   }
   
   .link {
     font-size: 12px;
+    padding: 6px 10px;
+    min-height: 40px;
   }
   
   .containerFluid {
     padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leftLinks,
+  .rightLinks {
+    gap: 8px;
+  }
+  
+  .link {
+    font-size: 11px;
+    padding: 5px 8px;
+    min-height: 36px;
+  }
+  
+  .containerFluid {
+    padding: 0 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .containerFluid {
+    padding: 0 24px;
+  }
+  
+  .leftLinks,
+  .rightLinks {
+    gap: 32px;
+  }
+  
+  .link {
+    font-size: 14px;
+    padding: 8px 12px;
+    min-height: 44px;
   }
 } 

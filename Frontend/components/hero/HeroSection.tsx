@@ -85,7 +85,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section className={styles.mainSlider}>
+    <section className={`${styles.mainSlider} responsive-hero`}>
       <div className={styles.h100}>
         <div className={`${styles.sliderWrapper} ${styles.hasRight}`}>
           {/* Left Side - Main Slider */}
@@ -108,20 +108,20 @@ export default function HeroSection() {
                       >
                         <Link href={image.href} className={`${styles.sliderContent} block`}>
                           <div className={styles.sliderContentInner}>
-                                                                    <Image
-                                          id={`home-hero-${index}`}
-                                          className={`${styles.fullDimen} ${isLoading ? styles.opacity0 : ''}`}
-                                          alt={image.alt}
-                                          src={image.src}
-                                          width={800}
-                                          height={500}
-                                          priority={index === 0}
-                                          style={{ opacity: isLoading ? 0 : 1 }}
-                                          onError={(e) => {
-                                            console.error(`Failed to load image: ${image.src}`);
-                                            e.currentTarget.style.display = 'none';
-                                          }}
-                                        />
+                            <Image
+                              id={`home-hero-${index}`}
+                              className={`${styles.fullDimen} ${isLoading ? styles.opacity0 : ''} responsive-image`}
+                              alt={image.alt}
+                              src={image.src}
+                              width={800}
+                              height={500}
+                              priority={index === 0}
+                              style={{ opacity: isLoading ? 0 : 1 }}
+                              onError={(e) => {
+                                console.error(`Failed to load image: ${image.src}`);
+                                e.currentTarget.style.display = 'none';
+                              }}
+                            />
                           </div>
                         </Link>
                       </li>
@@ -131,10 +131,18 @@ export default function HeroSection() {
 
                 {/* Navigation Buttons */}
                 <div className={`${styles.emblaButtons} ${styles.glideNav}`}>
-                  <button className={styles.prevBtn} onClick={prevSlide}>
+                  <button 
+                    className={`${styles.prevBtn} responsive-button`} 
+                    onClick={prevSlide}
+                    aria-label="Previous slide"
+                  >
                     <ChevronLeft className={`m-0 ${styles.icon} arrow-left`} />
                   </button>
-                  <button className={styles.nextBtn} onClick={nextSlide}>
+                  <button 
+                    className={`${styles.nextBtn} responsive-button`} 
+                    onClick={nextSlide}
+                    aria-label="Next slide"
+                  >
                     <ChevronRight className={`m-0 ${styles.icon} arrow-right`} />
                   </button>
                 </div>
@@ -148,6 +156,9 @@ export default function HeroSection() {
                           key={index}
                           className={`${styles.emblaThumbsSlide} ${index === currentSlide ? styles.active : ''}`}
                           onClick={() => goToSlide(index)}
+                          role="button"
+                          tabIndex={0}
+                          aria-label={`Go to slide ${index + 1}`}
                         />
                       ))}
                     </div>
@@ -157,7 +168,7 @@ export default function HeroSection() {
 
               {/* Placeholder Image */}
               <Image
-                className={`${styles.fullDimen} ${styles.placeholderImg} ${styles.imgLoaded}`}
+                className={`${styles.fullDimen} ${styles.placeholderImg} ${styles.imgLoaded} responsive-image`}
                 alt="Slider image"
                 src={sliderImages[currentSlide].src}
                 width={800}
@@ -170,17 +181,18 @@ export default function HeroSection() {
           <div className={styles.right}>
             {promotionalImages.map((image) => (
               <Link key={image.id} href={image.href} className={`${styles.imgWrap} block`}>
-                                            <Image
-                              src={image.src}
-                              width={400}
-                              height={250}
-                              alt={image.alt}
-                              priority={image.id === 4}
-                              onError={(e) => {
-                                console.error(`Failed to load promotional image: ${image.src}`);
-                                e.currentTarget.style.display = 'none';
-                              }}
-                            />
+                <Image
+                  src={image.src}
+                  width={400}
+                  height={250}
+                  alt={image.alt}
+                  priority={image.id === 4}
+                  className="responsive-image"
+                  onError={(e) => {
+                    console.error(`Failed to load promotional image: ${image.src}`);
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
               </Link>
             ))}
           </div>

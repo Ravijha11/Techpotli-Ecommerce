@@ -71,6 +71,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
+        serif: ["Georgia", "Cambria", "Times New Roman", "Times", "serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",
@@ -93,7 +94,13 @@ module.exports = {
       },
       container: {
         center: true,
-        padding: "1rem",
+        padding: {
+          DEFAULT: "1rem",
+          sm: "1.5rem",
+          md: "2rem",
+          lg: "2.5rem",
+          xl: "3rem",
+        },
         screens: {
           sm: "640px",
           md: "768px",
@@ -101,6 +108,31 @@ module.exports = {
           xl: "1280px",
           "2xl": "1400px",
         },
+      },
+      screens: {
+        'xs': '475px',
+        '3xl': '1600px',
+        '4xl': '1920px',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
+      },
+      minHeight: {
+        'screen-75': '75vh',
+        'screen-50': '50vh',
+      },
+      maxWidth: {
+        '8xl': '88rem',
+        '9xl': '96rem',
+      },
+      zIndex: {
+        '60': '60',
+        '70': '70',
+        '80': '80',
+        '90': '90',
+        '100': '100',
       },
     },
   },

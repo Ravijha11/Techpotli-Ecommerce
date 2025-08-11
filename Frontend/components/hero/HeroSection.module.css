@@ -39,11 +39,12 @@
   gap: 0;
   width: 100%;
   margin: 0 auto;
-  padding: 0 24px;
-  height: 550px;
+  padding: 0 16px;
+  height: 300px;
   max-width: 100%;
   position: relative;
   z-index: 2;
+  flex-direction: column;
 }
 
 .hasRight {
@@ -51,10 +52,10 @@
 }
 
 .left {
-  flex: 2.7;
+  flex: 1;
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 16px;
   height: 100%;
   backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.1);
@@ -75,10 +76,10 @@
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
   background: transparent;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(20px);
 }
@@ -135,14 +136,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 16px;
   transition: transform 0.3s ease;
   filter: brightness(1.1) contrast(1.1);
 }
 
 .fullDimen:hover {
-  transform: scale(1.05);
-  filter: brightness(1.2) contrast(1.2);
+  transform: scale(1.02);
+  filter: brightness(1.15) contrast(1.15);
 }
 
 .placeholderImg {
@@ -165,7 +166,7 @@
   transform: translateY(-50%);
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   pointer-events: none;
 }
 
@@ -175,8 +176,8 @@
 
 .prevBtn,
 .nextBtn {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -187,21 +188,22 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: auto;
   backdrop-filter: blur(20px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   border: 2px solid rgba(255, 255, 255, 0.3);
+  min-height: 44px;
 }
 
 .prevBtn:hover,
 .nextBtn:hover {
   background: rgba(255, 255, 255, 1);
-  transform: scale(1.1);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   border-color: rgba(255, 255, 255, 0.8);
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   color: #374151;
   transition: all 0.3s ease;
 }
@@ -209,13 +211,13 @@
 .prevBtn:hover .icon,
 .nextBtn:hover .icon {
   color: #1f2937;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* Pagination Dots */
 .emblaThumbs {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -223,7 +225,7 @@
 
 .thumbWrapper {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .emblaThumbsViewport {
@@ -232,7 +234,7 @@
 
 .emblaThumbsContainer {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
   transition: transform 0.3s ease;
 }
 
@@ -249,50 +251,52 @@
 }
 
 .emblaThumbsSlide {
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid transparent;
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .emblaThumbsSlide.active {
   background: rgba(255, 255, 255, 1);
-  transform: scale(1.4);
+  transform: scale(1.2);
   border-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Right Side Promotional Images */
 .right {
-  flex: 0.7;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
   height: 100%;
 }
 
 .imgWrap {
   display: block;
   width: 100%;
-  height: calc(50% - 0.5rem);
-  border-radius: 20px;
+  height: calc(50% - 0.375rem);
+  border-radius: 16px;
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
 }
 
 .imgWrap:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   border-color: rgba(255, 255, 255, 0.4);
 }
 
@@ -300,79 +304,116 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 16px;
   display: block;
   transition: transform 0.3s ease;
   filter: brightness(1.05) contrast(1.05);
 }
 
 .imgWrap:hover img {
-  transform: scale(1.08);
-  filter: brightness(1.15) contrast(1.15);
+  transform: scale(1.05);
+  filter: brightness(1.1) contrast(1.1);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (min-width: 640px) {
   .sliderWrapper {
-    flex-direction: column;
-    gap: 1rem;
-    height: auto;
-    padding: 0 16px;
-    width: 100%;
-  }
-
-  .left {
-    flex: 1;
     height: 350px;
+    padding: 0 20px;
   }
-
-  .right {
-    flex-direction: row;
-    gap: 1rem;
-    height: 250px;
-  }
-
-  .imgWrap {
-    height: 100%;
-    flex: 1;
-  }
-
-  .posRel {
-    height: 100%;
-  }
-
-  .emblaButtons {
-    padding: 0 0.5rem;
-  }
-
+  
   .prevBtn,
   .nextBtn {
     width: 45px;
     height: 45px;
   }
-
+  
   .icon {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
+  }
+  
+  .emblaThumbsSlide {
+    width: 14px;
+    height: 14px;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 768px) {
   .sliderWrapper {
-    padding: 0 16px;
-    height: auto;
-    width: 100%;
+    flex-direction: row;
+    gap: 1rem;
+    height: 400px;
+    padding: 0 24px;
   }
-
+  
   .left {
-    height: 300px;
+    flex: 2.7;
   }
-
+  
   .right {
-    height: 200px;
+    flex: 0.7;
   }
+  
+  .prevBtn,
+  .nextBtn {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .emblaThumbsSlide {
+    width: 16px;
+    height: 16px;
+  }
+}
 
-  .imgWrap {
-    height: 100%;
+@media (min-width: 1024px) {
+  .sliderWrapper {
+    height: 500px;
+    padding: 0 24px;
+  }
+  
+  .prevBtn,
+  .nextBtn {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .icon {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .emblaThumbsSlide {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .sliderWrapper {
+    height: 550px;
+    padding: 0 24px;
+  }
+  
+  .prevBtn,
+  .nextBtn {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .emblaThumbsSlide {
+    width: 20px;
+    height: 20px;
   }
 } 

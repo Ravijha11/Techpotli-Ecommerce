@@ -96,7 +96,7 @@ export default function FeaturedCategories() {
 
   return (
     <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="w-full px-6 md:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Featured Categories</h2>
           <div className="flex items-center space-x-4">

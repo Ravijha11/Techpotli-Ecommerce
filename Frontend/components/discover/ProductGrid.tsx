@@ -224,16 +224,17 @@ export default function ProductGrid({ currentPage, onPageChange }: ProductGridPr
   return (
     <div>
       {/* Product Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 mb-6 md:mb-8 responsive-product-grid">
         {currentProducts.map((product) => (
-          <div key={product.id} className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+          <div key={product.id} className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden responsive-card">
             {/* Product Image */}
             <div className="relative aspect-square">
               <Image
                 src={product.image}
                 alt={product.name}
                 fill
-                className="object-cover"
+                className="object-cover responsive-image"
+                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
               />
               {/* Tags */}
               <div className="absolute top-2 left-2">
@@ -251,8 +252,8 @@ export default function ProductGrid({ currentPage, onPageChange }: ProductGridPr
             </div>
 
             {/* Product Info */}
-            <div className="p-3">
-              <h3 className="text-sm font-medium text-gray-900 mb-1 line-clamp-2">
+            <div className="p-2 sm:p-3">
+              <h3 className="text-xs sm:text-sm font-medium text-gray-900 mb-1 line-clamp-2 responsive-text">
                 {product.name}
               </h3>
               
@@ -262,17 +263,17 @@ export default function ProductGrid({ currentPage, onPageChange }: ProductGridPr
                   {"★".repeat(product.rating)}
                   <span className="text-gray-400 ml-1">{"★".repeat(5 - product.rating)}</span>
                 </div>
-                <span className="text-xs text-gray-500 ml-1">
+                <span className="text-xs text-gray-500 ml-1 hidden sm:inline">
                   ({product.reviews} Reviews)
                 </span>
               </div>
 
               {/* Price */}
               <div className="flex items-center space-x-2">
-                <span className="text-lg font-semibold text-gray-900">
+                <span className="text-sm sm:text-lg font-semibold text-gray-900">
                   ₹{product.discountedPrice.toLocaleString()}
                 </span>
-                <span className="text-sm text-gray-500 line-through">
+                <span className="text-xs sm:text-sm text-gray-500 line-through">
                   ₹{product.originalPrice.toLocaleString()}
                 </span>
               </div>
@@ -288,6 +289,7 @@ export default function ProductGrid({ currentPage, onPageChange }: ProductGridPr
           size="sm"
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
+          className="responsive-button"
         >
           <ChevronLeft className="h-4 w-4" />
         </Button>
@@ -296,6 +298,7 @@ export default function ProductGrid({ currentPage, onPageChange }: ProductGridPr
           variant={currentPage === 1 ? "default" : "outline"}
           size="sm"
           onClick={() => onPageChange(1)}
+          className="responsive-button"
         >
           1
         </Button>
@@ -305,6 +308,7 @@ export default function ProductGrid({ currentPage, onPageChange }: ProductGridPr
           size="sm"
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
+          className="responsive-button"
         >
           <ChevronRight className="h-4 w-4" />
         </Button>

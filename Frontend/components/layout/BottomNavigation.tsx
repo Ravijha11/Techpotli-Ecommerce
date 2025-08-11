@@ -8,35 +8,35 @@ export default function BottomNavigation() {
   const { t } = useTranslation()
 
   return (
-    <div className={styles.bottomArea}>
-      <div className={styles.containerFluid}>
-        <div className={styles.flexSided}>
-          <div className={styles.leftLinks}>
-            <Link href="/discover/products" className={styles.link}>
-              <span>{t('navigation.discoverProducts')}</span>
+    <div className={`${styles.bottomArea} responsive-section`}>
+      <div className={`${styles.containerFluid} responsive-container`}>
+        <div className={`${styles.flexSided} responsive-nav`}>
+          <div className={`${styles.leftLinks} responsive-nav`}>
+            <Link href="/discover/products" className={`${styles.link} responsive-button`}>
+              <span className="responsive-text">{t('navigation.discoverProducts')}</span>
             </Link>
-            <Link href="/categories" className={styles.link}>
-              <span>{t('navigation.categories')}</span>
+            <Link href="/categories" className={`${styles.link} responsive-button`}>
+              <span className="responsive-text">{t('navigation.categories')}</span>
             </Link>
-            <Link href="/brands" className={styles.link}>
-              <span>{t('navigation.brands')}</span>
+            <Link href="/brands" className={`${styles.link} responsive-button`}>
+              <span className="responsive-text">{t('navigation.brands')}</span>
             </Link>
-            <Link href="/hot-deals" className={styles.link}>
-              <span>{t('navigation.hotDeals')}</span>
+            <Link href="/hot-deals" className={`${styles.link} responsive-button`}>
+              <span className="responsive-text">{t('navigation.hotDeals')}</span>
             </Link>
           </div>
-          <div className={styles.rightLinks}>
-            <Link href="/track-order" className={styles.link}>
-              <span>{t('navigation.trackOrder')}</span>
+          <div className={`${styles.rightLinks} responsive-nav`}>
+            <Link href="/track-order" className={`${styles.link} responsive-button`}>
+              <span className="responsive-text">{t('navigation.trackOrder')}</span>
             </Link>
-            <Link href="/page/faq" className={styles.link}>
-              <span>{t('navigation.faq')}</span>
+            <Link href="/page/faq" className={`${styles.link} responsive-button`}>
+              <span className="responsive-text">{t('navigation.faq')}</span>
             </Link>
-            <Link href="/page/help" className={styles.link}>
-              <span>{t('navigation.help')}</span>
+            <Link href="/page/help" className={`${styles.link} responsive-button`}>
+              <span className="responsive-text">{t('navigation.help')}</span>
             </Link>
-            <Link href="/page/contact" className={styles.link}>
-              <span>{t('navigation.contactUs')}</span>
+            <Link href="/page/contact" className={`${styles.link} responsive-button`}>
+              <span className="responsive-text">{t('navigation.contactUs')}</span>
             </Link>
           </div>
         </div>

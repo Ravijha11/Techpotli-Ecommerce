@@ -122,7 +122,7 @@ export default function TrendingProducts() {
 
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="w-full px-6 md:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold text-gray-900">Trending products</h2>
           <Link

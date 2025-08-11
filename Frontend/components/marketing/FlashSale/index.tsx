@@ -65,14 +65,14 @@ export default function FlashSale() {
   const { t } = useTranslation()
   
   return (
-    <section className="py-12 bg-gradient-to-r from-red-50 to-orange-50">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between mb-8">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">⚡ {t('home.flashSale.title')}</h2>
-            <p className="text-gray-600">{t('home.flashSale.endingSoon')}</p>
+    <section className="py-8 md:py-12 bg-gradient-to-r from-red-50 to-orange-50 responsive-section">
+      <div className="w-full px-4 md:px-6 lg:px-8 responsive-container">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 md:mb-8 gap-4 md:gap-0">
+          <div className="text-center md:text-left">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-2 responsive-heading">⚡ {t('home.flashSale.title')}</h2>
+            <p className="text-gray-600 responsive-text">{t('home.flashSale.endingSoon')}</p>
           </div>
-          <SaleTimer className="mt-4 md:mt-0" />
+          <SaleTimer className="mt-4 md:mt-0 w-full md:w-auto" />
         </div>
 
         <SaleProducts products={flashSaleProducts} />
