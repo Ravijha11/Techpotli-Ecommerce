@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { ArrowRight, ChevronDown } from "lucide-react"
+import { ArrowRight, ChevronDown, LogIn } from "lucide-react"
 import { useTranslation } from "../../../hooks/useTranslation"
 import {
   NewCustomerSection,
@@ -69,21 +69,42 @@ export default function LoginButton() {
 
   return (
     <div className="relative" ref={dropdownRef}>
+      {/* Desktop Version - Only visible on large screens */}
       <button
-        className="flex items-center space-x-1 cursor-pointer hover:text-purple-600 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 rounded-md px-2 py-1"
+        className="hidden lg:flex items-center space-x-2 cursor-pointer hover:text-sky-600 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 rounded-lg px-3 py-2 hover:bg-sky-50 font-serif"
         onClick={handleClick}
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label="Login menu"
       >
         <ArrowRight className="w-4 h-4" />
-        <span className="hidden sm:inline">{t('header.login')}</span>
+        <span>{t('header.login')}</span>
         <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
+
+      {/* Tablet Version - Only visible on medium screens (768px-1024px) */}
+      <button
+        className="hidden md:flex lg:hidden items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-600 transition-all duration-200 text-sm font-medium font-serif focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+        onClick={handleClick}
+        aria-label="Login"
+      >
+        <LogIn className="w-4 h-4" />
+        <span>Login</span>
+      </button>
+
+      {/* Mobile Version - Only visible on small screens (below 768px) */}
+      <button
+        className="flex md:hidden items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-600 transition-all duration-200 text-sm font-medium font-serif focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+        onClick={handleClick}
+        aria-label="Login"
+      >
+        <LogIn className="w-4 h-4" />
+        <span>Login</span>
+      </button>
       
-      {/* Login Dropdown */}
+      {/* Login Dropdown - Desktop Only */}
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl border border-gray-200 shadow-xl z-50 overflow-hidden">
+        <div className="hidden lg:block absolute top-full right-0 mt-2 w-80 bg-white rounded-xl border border-gray-200 shadow-xl z-50 overflow-hidden">
           {/* Caret */}
           <div className="absolute -top-2 right-8 w-4 h-4 bg-white border-t border-l border-gray-200 transform rotate-45"></div>
           

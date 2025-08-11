@@ -25,7 +25,7 @@ export default function ProductSection({ title, subtitle, products }: ProductSec
   
   return (
     <section className="py-12 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="w-full px-6 md:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">{title}</h2>

@@ -18,7 +18,7 @@ interface ProductGridItemProps {
 
 export default function ProductGridItem({ product }: ProductGridItemProps) {
   return (
-    <div className="flex-shrink-0 w-64">
+    <div className="w-full responsive-card">
       <ProductCard product={product} />
     </div>
   )

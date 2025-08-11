@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Globe } from "lucide-react"
 import { useLanguage } from "../../../contexts/LanguageContext"
 
 export default function LanguageSelector() {
@@ -19,26 +19,29 @@ export default function LanguageSelector() {
 
   return (
     <div className="relative">
-      <div 
-        className="flex items-center space-x-1 cursor-pointer hover:text-purple-600 transition-colors"
+      <button 
+        className="flex items-center space-x-2 px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-600 transition-all duration-200 text-sm font-medium font-serif focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transform hover:scale-105"
         onClick={handleClick}
+        aria-label="Select language"
       >
-        <span className="text-gray-700">{currentLanguage.nativeName}</span>
-        <ChevronDown className={`w-3 h-3 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-      </div>
+        <Globe className="w-4 h-4 text-sky-600" />
+        <span className="hidden sm:inline">{currentLanguage.nativeName}</span>
+        <span className="sm:hidden">{currentLanguage.code.toUpperCase()}</span>
+        <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
       
       {/* Language Dropdown */}
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg border border-gray-200 shadow-lg py-1 z-50 max-h-64 overflow-y-auto">
+        <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg border border-gray-200 shadow-lg py-1 z-50 max-h-64 overflow-y-auto">
           {languages.map((language) => (
-            <div
+            <button
               key={language.code}
-              className="px-3 py-2 text-gray-700 hover:bg-gray-50 cursor-pointer text-sm flex items-center justify-between"
+              className="w-full px-3 py-2 text-left text-gray-700 hover:bg-sky-50 cursor-pointer text-sm flex items-center justify-between hover:text-sky-600 transition-all duration-200 font-serif"
               onClick={() => handleLanguageSelect(language)}
             >
               <span>{language.nativeName}</span>
               <span className="text-xs text-gray-400">({language.name})</span>
-            </div>
+            </button>
           ))}
         </div>
       )}
