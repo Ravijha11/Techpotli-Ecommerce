@@ -1,0 +1,313 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+  namespace: techpotli
+  labels:
+    app: payment-service
+    version: v1.0.0
+    tier: backend
+    service: payment
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: payment-service
+  template:
+    metadata:
+      labels:
+        app: payment-service
+        version: v1.0.0
+        tier: backend
+        service: payment
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "3003"
+        prometheus.io/path: "/metrics"
+    spec:
+      serviceAccountName: payment-service-sa
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1001
+        runAsGroup: 1001
+        fsGroup: 1001
+      containers:
+      - name: payment-service
+        image: techpotli/payment-service:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3003
+          name: http
+          protocol: TCP
+        - containerPort: 3004
+          name: metrics
+          protocol: TCP
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: PORT
+          value: "3003"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: payment-service-secrets
+              key: database-url
+        - name: DATABASE_READ_REPLICA_1_URL
+          valueFrom:
+            secretKeyRef:
+              name: payment-service-secrets
+              key: database-read-replica-1-url
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              name: payment-service-secrets
+              key: redis-url
+        - name: KAFKA_BROKERS
+          valueFrom:
+            secretKeyRef:
+              name: payment-service-secrets
+              key: kafka-brokers
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: payment-service-secrets
+              key: jwt-secret
+        - name: STRIPE_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: payment-service-secrets
+              key: stripe-secret-key
+        - name: STRIPE_WEBHOOK_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: payment-service-secrets
+              key: stripe-webhook-secret
+        - name: RAZORPAY_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: payment-service-secrets
+              key: razorpay-key-id
+        - name: RAZORPAY_KEY_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: payment-service-secrets
+              key: razorpay-key-secret
+        - name: PAYTM_MERCHANT_ID
+          valueFrom:
+            secretKeyRef:
+              name: payment-service-secrets
+              key: paytm-merchant-id
+        - name: PAYTM_MERCHANT_KEY
+          valueFrom:
+            secretKeyRef:
+              name: payment-service-secrets
+              key: paytm-merchant-key
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 3003
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 3003
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        startupProbe:
+          httpGet:
+            path: /health
+            port: 3003
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 30
+        volumeMounts:
+        - name: payment-service-config
+          mountPath: /app/config
+          readOnly: true
+        - name: payment-service-logs
+          mountPath: /app/logs
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+          capabilities:
+            drop:
+            - ALL
+      volumes:
+      - name: payment-service-config
+        configMap:
+          name: payment-service-config
+      - name: payment-service-logs
+        emptyDir: {}
+      imagePullSecrets:
+      - name: techpotli-registry-secret
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+  namespace: techpotli
+  labels:
+    app: payment-service
+    tier: backend
+    service: payment
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3003
+    targetPort: 3003
+    protocol: TCP
+    name: http
+  - port: 3004
+    targetPort: 3004
+    protocol: TCP
+    name: metrics
+  selector:
+    app: payment-service
+  sessionAffinity: None
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 10800
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payment-service-config
+  namespace: techpotli
+  labels:
+    app: payment-service
+    tier: backend
+    service: payment
+data:
+  app.config.json: |
+    {
+      "logging": {
+        "level": "info",
+        "format": "json"
+      },
+      "security": {
+        "rateLimit": {
+          "windowMs": 60000,
+          "max": 100
+        }
+      },
+      "payment": {
+        "timeout": 30000,
+        "retryAttempts": 3
+      }
+    }
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: payment-service-sa
+  namespace: techpotli
+  labels:
+    app: payment-service
+    tier: backend
+    service: payment
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: payment-service-role
+  namespace: techpotli
+  labels:
+    app: payment-service
+    tier: backend
+    service: payment
+rules:
+- apiGroups: [""]
+  resources: ["configmaps", "secrets"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources: ["pods", "services"]
+  verbs: ["get", "list", "watch"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: payment-service-rolebinding
+  namespace: techpotli
+  labels:
+    app: payment-service
+    tier: backend
+    service: payment
+subjects:
+- kind: ServiceAccount
+  name: payment-service-sa
+  namespace: techpotli
+roleRef:
+  kind: Role
+  name: payment-service-role
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: payment-service-hpa
+  namespace: techpotli
+  labels:
+    app: payment-service
+    tier: backend
+    service: payment
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: payment-service
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 10
+        periodSeconds: 60
