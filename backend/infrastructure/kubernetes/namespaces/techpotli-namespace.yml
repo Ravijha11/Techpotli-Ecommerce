@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: techpotli
+  labels:
+    name: techpotli
+    environment: production
+    app: techpotli-ecommerce
+  annotations:
+    description: "TechPotli E-commerce Platform Namespace"
+    owner: "techpotli-engineering-team"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: techpotli-monitoring
+  labels:
+    name: techpotli-monitoring
+    environment: production
+    app: techpotli-monitoring
+  annotations:
+    description: "TechPotli Monitoring and Observability Namespace"
+    owner: "techpotli-engineering-team"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: techpotli-logging
+  labels:
+    name: techpotli-logging
+    environment: production
+    app: techpotli-logging
+  annotations:
+    description: "TechPotli Logging and Analytics Namespace"
+    owner: "techpotli-engineering-team"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: techpotli-ingress
+  labels:
+    name: techpotli-ingress
+    environment: production
+    app: techpotli-ingress
+  annotations:
+    description: "TechPotli Ingress and Load Balancer Namespace"
+    owner: "techpotli-engineering-team"
