@@ -69,7 +69,7 @@ const dailyProducts = [
 export default function DailyDeals() {
   return (
     <section className="py-8 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="w-full px-6 md:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-800">Daily discover</h2>
         </div>

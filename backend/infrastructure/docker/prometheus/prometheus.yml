@@ -1,0 +1,337 @@
+# =============================================================================
+# TechPotli Prometheus Configuration
+# =============================================================================
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'techpotli-cluster'
+    environment: 'production'
+
+# Alerting rules
+rule_files:
+  - "rules/*.yml"
+
+# Alert manager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - alertmanager:9093
+
+# Scrape configurations
+scrape_configs:
+  # =============================================================================
+  # Prometheus itself
+  # =============================================================================
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+    scrape_interval: 15s
+    metrics_path: /metrics
+
+  # =============================================================================
+  # Node Exporter (if running)
+  # =============================================================================
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+    scrape_interval: 15s
+    metrics_path: /metrics
+
+  # =============================================================================
+  # MySQL Exporter
+  # =============================================================================
+  - job_name: 'mysql-exporter'
+    static_configs:
+      - targets: ['mysql-exporter:9104']
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+
+  # =============================================================================
+  # Redis Exporter
+  # =============================================================================
+  - job_name: 'redis-exporter'
+    static_configs:
+      - targets: ['redis-exporter:9121']
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+
+  # =============================================================================
+  # Kafka Exporter
+  # =============================================================================
+  - job_name: 'kafka-exporter'
+    static_configs:
+      - targets: ['kafka-exporter:9308']
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+
+  # =============================================================================
+  # Elasticsearch Exporter
+  # =============================================================================
+  - job_name: 'elasticsearch-exporter'
+    static_configs:
+      - targets: ['elasticsearch-exporter:9114']
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+
+  # =============================================================================
+  # HAProxy Exporter
+  # =============================================================================
+  - job_name: 'haproxy-exporter'
+    static_configs:
+      - targets: ['haproxy-exporter:9101']
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+
+  # =============================================================================
+  # User Service
+  # =============================================================================
+  - job_name: 'user-service'
+    static_configs:
+      - targets: 
+        - 'user-service:3001'
+        - 'user-service:3002'
+        - 'user-service:3003'
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+
+  # =============================================================================
+  # Product Service
+  # =============================================================================
+  - job_name: 'product-service'
+    static_configs:
+      - targets: 
+        - 'product-service:3001'
+        - 'product-service:3002'
+        - 'product-service:3003'
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+
+  # =============================================================================
+  # Order Service
+  # =============================================================================
+  - job_name: 'order-service'
+    static_configs:
+      - targets: 
+        - 'order-service:3001'
+        - 'order-service:3002'
+        - 'order-service:3003'
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+
+  # =============================================================================
+  # Cart Service
+  # =============================================================================
+  - job_name: 'cart-service'
+    static_configs:
+      - targets: 
+        - 'cart-service:3001'
+        - 'cart-service:3002'
+        - 'cart-service:3003'
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+
+  # =============================================================================
+  # Payment Service
+  # =============================================================================
+  - job_name: 'payment-service'
+    static_configs:
+      - targets: 
+        - 'payment-service:3001'
+        - 'payment-service:3002'
+        - 'payment-service:3003'
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+
+  # =============================================================================
+  # Inventory Service
+  # =============================================================================
+  - job_name: 'inventory-service'
+    static_configs:
+      - targets: 
+        - 'inventory-service:3001'
+        - 'inventory-service:3002'
+        - 'inventory-service:3003'
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+
+  # =============================================================================
+  # Notification Service
+  # =============================================================================
+  - job_name: 'notification-service'
+    static_configs:
+      - targets: 
+        - 'notification-service:3001'
+        - 'notification-service:3002'
+        - 'notification-service:3003'
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+
+  # =============================================================================
+  # Search Service
+  # =============================================================================
+  - job_name: 'search-service'
+    static_configs:
+      - targets: 
+        - 'search-service:3001'
+        - 'search-service:3002'
+        - 'search-service:3003'
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+
+  # =============================================================================
+  # API Gateway
+  # =============================================================================
+  - job_name: 'api-gateway'
+    static_configs:
+      - targets: 
+        - 'api-gateway:3000'
+        - 'api-gateway:3001'
+        - 'api-gateway:3002'
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+
+  # =============================================================================
+  # Kong API Gateway
+  # =============================================================================
+  - job_name: 'kong'
+    static_configs:
+      - targets: ['kong:8001']
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+
+  # =============================================================================
+  # Keycloak
+  # =============================================================================
+  - job_name: 'keycloak'
+    static_configs:
+      - targets: ['keycloak:8080']
+    scrape_interval: 15s
+    metrics_path: /metrics
+    scrape_timeout: 10s
+
+  # =============================================================================
+  # Blackbox Exporter (for HTTP health checks)
+  # =============================================================================
+  - job_name: 'blackbox'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - 'http://user-service:3001/health'
+        - 'http://product-service:3001/health'
+        - 'http://order-service:3001/health'
+        - 'http://cart-service:3001/health'
+        - 'http://payment-service:3001/health'
+        - 'http://inventory-service:3001/health'
+        - 'http://notification-service:3001/health'
+        - 'http://search-service:3001/health'
+        - 'http://api-gateway:3000/health'
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 'blackbox-exporter:9115'
+
+# =============================================================================
+# Recording Rules
+# =============================================================================
+rule_files:
+  - "rules/recording_rules.yml"
+  - "rules/alerting_rules.yml"
+
+# =============================================================================
+# Storage Configuration
+# =============================================================================
+storage:
+  tsdb:
+    path: /prometheus
+    retention.time: 30d
+    retention.size: 50GB
+    wal_compression: true
+    out_of_order_time_window: 10m
+
+# =============================================================================
+# Remote Write Configuration (for long-term storage)
+# =============================================================================
+remote_write:
+  - url: "http://remote-storage:9201/write"
+    remote_timeout: 30s
+    write_relabel_configs:
+      - source_labels: [__name__]
+        regex: '.*'
+        action: keep
+
+# =============================================================================
+# Remote Read Configuration
+# =============================================================================
+remote_read:
+  - url: "http://remote-storage:9201/read"
+    read_timeout: 30s
+    required_matchers:
+      __name__: ".*"

@@ -6,6 +6,8 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Removed output: 'export' to fix webpack runtime errors
+  // Removed trailingSlash: true for better compatibility
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -22,6 +24,10 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  // Add experimental features for better Next.js 15 compatibility
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
   },
 }
 

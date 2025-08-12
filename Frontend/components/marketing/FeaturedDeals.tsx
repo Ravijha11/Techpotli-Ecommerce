@@ -54,7 +54,7 @@ const featuredDeals: FeaturedDeal[] = [
 export default function FeaturedDeals() {
   return (
     <section className="py-8 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="w-full px-6 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredDeals.map((deal) => (
             <div key={deal.id} className={`${deal.bgColor} rounded-xl p-6 flex items-center space-x-4 hover:shadow-lg transition-shadow duration-300`}>

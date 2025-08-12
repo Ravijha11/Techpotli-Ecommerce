@@ -13,12 +13,13 @@ export default function RegisterButton() {
   }
   
   return (
-    <div 
+    <button 
       onClick={handleRegisterClick}
-      className="flex items-center space-x-1 cursor-pointer hover:text-purple-600 transition-colors"
+      className="flex items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-600 transition-all duration-200 text-sm font-medium font-serif focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transform hover:scale-105"
     >
-      <UserPlus className="w-4 h-4" />
-      <span>{t('header.register')}</span>
-    </div>
+      <UserPlus className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
+      <span className="hidden sm:inline">{t('header.register')}</span>
+      <span className="sm:hidden">Register</span>
+    </button>
   )
 } 

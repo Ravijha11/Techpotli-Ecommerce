@@ -20,7 +20,7 @@ export default function TopSellingProducts({
 }: TopSellingProductsProps) {
   return (
     <section className={`py-16 bg-white ${className}`}>
-      <div className="container mx-auto px-4">
+      <div className="w-full px-6 md:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
