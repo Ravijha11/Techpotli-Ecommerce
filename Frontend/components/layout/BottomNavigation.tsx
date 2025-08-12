@@ -35,9 +35,6 @@ export default function BottomNavigation() {
             <Link href="/page/help" className={styles.link}>
               <span>{t('navigation.help')}</span>
             </Link>
-            <Link href="/page/contact" className={styles.link}>
-              <span>{t('navigation.contactUs')}</span>
-            </Link>
           </div>
         </div>
       </div>
