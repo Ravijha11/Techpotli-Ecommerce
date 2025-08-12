@@ -25,9 +25,6 @@ export default function Navigation() {
             <Link href="/track-order" className="text-gray-700 hover:text-purple-600">
               TRACK ORDER
             </Link>
-            <Link href="/faq" className="text-gray-700 hover:text-purple-600">
-              FAQ
-            </Link>
             <Link href="/help" className="text-gray-700 hover:text-purple-600">
               HELP
             </Link>
