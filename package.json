@@ -1,0 +1,19 @@
+{
+  "name": "techpotli-ecommerce",
+  "version": "1.0.0",
+  "description": "Techpotli E-commerce Platform",
+  "private": true,
+  "scripts": {
+    "build": "cd Frontend && npm run build",
+    "dev": "cd Frontend && npm run dev",
+    "start": "cd Frontend && npm run start",
+    "install-deps": "cd Frontend && npm install",
+    "vercel-build": "cd Frontend && npm run build"
+  },
+  "workspaces": [
+    "Frontend"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
