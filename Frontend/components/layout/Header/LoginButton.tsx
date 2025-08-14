@@ -71,7 +71,7 @@ export default function LoginButton() {
     <div className="relative" ref={dropdownRef}>
       {/* Desktop Version - Only visible on large screens */}
       <button
-        className="hidden lg:flex items-center space-x-2 cursor-pointer hover:text-sky-600 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 rounded-lg px-3 py-2 hover:bg-sky-50 font-serif"
+        className="hidden lg:flex items-center space-x-2 cursor-pointer hover:text-gray-900 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 rounded-lg px-3 py-2 hover:bg-gray-50"
         onClick={handleClick}
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -84,7 +84,7 @@ export default function LoginButton() {
 
       {/* Tablet Version - Only visible on medium screens (768px-1024px) */}
       <button
-        className="hidden md:flex lg:hidden items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-600 transition-all duration-200 text-sm font-medium font-serif focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+        className="hidden md:flex lg:hidden items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 hover:text-gray-900 transition-all duration-200 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
         onClick={handleClick}
         aria-label="Login"
       >
@@ -94,7 +94,7 @@ export default function LoginButton() {
 
       {/* Mobile Version - Only visible on small screens (below 768px) */}
       <button
-        className="flex md:hidden items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-600 transition-all duration-200 text-sm font-medium font-serif focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+        className="flex md:hidden items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 hover:text-gray-900 transition-all duration-200 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
         onClick={handleClick}
         aria-label="Login"
       >
