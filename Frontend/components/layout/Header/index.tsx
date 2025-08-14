@@ -41,39 +41,18 @@ export default function Header() {
 
   return (
     <header className={`sticky top-0 z-50 bg-white transition-all duration-300 w-full ${isHydrated && isScrolled ? "shadow-lg" : ""}`}>
-      {/* Top Bar - Completely Redesigned & Responsive */}
-      <div className="bg-gradient-to-r from-sky-50 via-blue-50 to-indigo-50 border-b border-sky-100">
+      {/* Top Bar - Clean White Design */}
+      <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Desktop Top Bar */}
           <div className="hidden lg:flex items-center justify-between py-4">
             {/* Left Side - Contact Info & Language */}
             <div className="flex items-center space-x-8">
-              {/* Language Selector */}
-              <div className="flex items-center space-x-2">
-                <Globe className="w-4 h-4 text-sky-600" />
-                <LanguageSelector />
-              </div>
+                             {/* Language Selector */}
+               <LanguageSelector />
               
-              {/* Contact Info */}
-              <div className="flex items-center space-x-6">
-                <a 
-                  href="mailto:info@allitexpert.com" 
-                  className="group flex items-center space-x-2 text-sm text-gray-700 hover:text-sky-600 transition-all duration-200 font-serif"
-                >
-                  <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span className="hidden xl:inline">info@allitexpert.com</span>
-                  <span className="xl:hidden">info@allitexpert.com</span>
-                </a>
-                <span className="text-gray-300">|</span>
-                <a 
-                  href="tel:+1-888-404-6710" 
-                  className="group flex items-center space-x-2 text-sm text-gray-700 hover:text-sky-600 transition-all duration-200 font-serif"
-                >
-                  <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span className="hidden xl:inline">+1 (888) 404-6710</span>
-                  <span className="xl:hidden">+1 (888) 404-6710</span>
-                </a>
-              </div>
+                             {/* Contact Info */}
+               <ContactInfo />
             </div>
 
             {/* Right Side - Seller & Auth */}
@@ -91,29 +70,10 @@ export default function Header() {
             {/* Top Row - Language & Contact */}
             <div className="flex items-center justify-between mb-3">
               {/* Language */}
-              <div className="flex items-center space-x-2">
-                <Globe className="w-4 h-4 text-sky-600" />
-                <LanguageSelector />
-              </div>
+              <LanguageSelector />
               
               {/* Contact Info */}
-              <div className="flex items-center space-x-4">
-                <a 
-                  href="mailto:info@allitexpert.com" 
-                  className="flex items-center space-x-2 text-sm text-gray-700 hover:text-sky-600 transition-colors font-serif"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>info@allitexpert.com</span>
-                </a>
-                <span className="text-gray-300">|</span>
-                <a 
-                  href="tel:+1-888-404-6710" 
-                  className="flex items-center space-x-2 text-sm text-gray-700 hover:text-sky-600 transition-colors font-serif"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>+1 (888) 404-6710</span>
-                </a>
-              </div>
+              <ContactInfo />
             </div>
 
             {/* Bottom Row - Seller & Auth */}
@@ -131,28 +91,25 @@ export default function Header() {
             {/* Mobile Top Row - Language & Contact */}
             <div className="flex items-center justify-between mb-3">
               {/* Language */}
-              <div className="flex items-center space-x-2">
-                <Globe className="w-4 h-4 text-sky-600" />
-                <LanguageSelector />
-              </div>
+              <LanguageSelector />
               
               {/* Contact Icons */}
               <div className="flex items-center space-x-3">
-                <a 
-                  href="mailto:info@allitexpert.com" 
-                  className="p-2 text-gray-700 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-all duration-200"
-                  aria-label="Email us at info@allitexpert.com"
-                >
-                  <Mail className="w-4 h-4" />
-                </a>
-                <a 
-                  href="tel:+1-888-404-6710" 
-                  className="p-2 text-gray-700 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-all duration-200"
-                  aria-label="Call us at +1 (888) 404-6710"
-                >
-                  <Phone className="w-4 h-4" />
-                </a>
-              </div>
+                 <a 
+                   href="mailto:info@techpotli.com" 
+                   className="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-full transition-all duration-200"
+                   aria-label="Email us at info@techpotli.com"
+                 >
+                   <Mail className="w-4 h-4" />
+                 </a>
+                 <a 
+                   href="tel:01147200987" 
+                   className="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-full transition-all duration-200"
+                   aria-label="Call us at 01147200987"
+                 >
+                   <Phone className="w-4 h-4" />
+                 </a>
+               </div>
             </div>
 
             {/* Mobile Bottom Row - Seller & Auth */}
@@ -173,7 +130,7 @@ export default function Header() {
           <div className="flex items-center justify-between w-full">
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
               onClick={toggleMobileMenu}
               aria-label="Toggle mobile menu"
               aria-expanded={isMobileMenuOpen}
@@ -223,7 +180,7 @@ export default function Header() {
             <div className="flex flex-col space-y-3">
               <Link 
                 href="/discover/products" 
-                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 font-serif"
+                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200"
                 onClick={closeMobileMenu}
               >
                 <Search className="w-5 h-5 text-gray-600" />
@@ -231,49 +188,49 @@ export default function Header() {
               </Link>
               <Link 
                 href="/categories" 
-                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 font-serif"
+                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200"
                 onClick={closeMobileMenu}
               >
                 <span className="font-medium">Categories</span>
               </Link>
               <Link 
                 href="/brands" 
-                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 font-serif"
+                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200"
                 onClick={closeMobileMenu}
               >
                 <span className="font-medium">Brands</span>
               </Link>
               <Link 
                 href="/hot-deals" 
-                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 font-serif"
+                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200"
                 onClick={closeMobileMenu}
               >
                 <span className="font-medium">Hot Deals</span>
               </Link>
               <Link 
                 href="/track-order" 
-                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 font-serif"
+                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200"
                 onClick={closeMobileMenu}
               >
                 <span className="font-medium">Track Order</span>
               </Link>
               <Link 
                 href="/page/faq" 
-                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 font-serif"
+                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200"
                 onClick={closeMobileMenu}
               >
                 <span className="font-medium">FAQ</span>
               </Link>
               <Link 
                 href="/page/help" 
-                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 font-serif"
+                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200"
                 onClick={closeMobileMenu}
               >
                 <span className="font-medium">Help</span>
               </Link>
               <Link 
                 href="/page/contact" 
-                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 font-serif"
+                className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200"
                 onClick={closeMobileMenu}
               >
                 <span className="font-medium">Contact Us</span>

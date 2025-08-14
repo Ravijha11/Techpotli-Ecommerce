@@ -4,16 +4,22 @@ import { Mail, Phone } from "lucide-react"
 
 export default function ContactInfo() {
   return (
-    <div className="flex items-center space-x-4">
-      <span className="flex items-center space-x-1">
-        <Mail className="w-4 h-4" />
+    <div className="flex items-center space-x-6">
+      <a 
+        href="mailto:info@techpotli.com" 
+        className="group flex items-center space-x-2 text-sm text-gray-700 hover:text-gray-900 transition-all duration-200"
+      >
+        <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
         <span>Mail info@techpotli.com</span>
-      </span>
-      <span className="text-gray-400">|</span>
-      <span className="flex items-center space-x-1">
-        <Phone className="w-4 h-4" />
+      </a>
+      <span className="text-gray-300">|</span>
+      <a 
+        href="tel:01147200987" 
+        className="group flex items-center space-x-2 text-sm text-gray-700 hover:text-gray-900 transition-all duration-200"
+      >
+        <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
         <span>Helpline 01147200987</span>
-      </span>
+      </a>
     </div>
   )
 } 
