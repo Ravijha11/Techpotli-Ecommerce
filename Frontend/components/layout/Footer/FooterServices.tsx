@@ -3,8 +3,6 @@ import Link from "next/link"
 export default function FooterServices() {
   const servicesLinks = [
     { href: "/page/about", label: "About" },
-    { href: "/page/faq", label: "Faq" },
-    { href: "/page/contact", label: "Contact" },
   ]
 
   return (

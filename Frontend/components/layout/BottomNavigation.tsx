@@ -35,9 +35,6 @@ export default function BottomNavigation() {
             <Link href="/page/help" className={`${styles.link} responsive-button`}>
               <span className="responsive-text">{t('navigation.help')}</span>
             </Link>
-            <Link href="/page/contact" className={`${styles.link} responsive-button`}>
-              <span className="responsive-text">{t('navigation.contactUs')}</span>
-            </Link>
           </div>
         </div>
       </div>
