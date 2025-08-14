@@ -84,7 +84,7 @@ export const newYearSaleProducts: Product[] = [
         id: "1", 
         user: "John Doe", 
         rating: 5, 
-        comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
+        comment: "I really like this product.", 
         date: "23 Jun, 25",
         time: "04:39 am",
         productImage: "https://cdn.ishop.cholobangla.com/uploads/thumb-product-1-1.webp"
