@@ -14,6 +14,7 @@ interface Product {
   reviews: number
   image: string
   badge?: string
+  slug: string
 }
 
 interface ProductGridProps {

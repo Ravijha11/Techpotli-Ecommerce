@@ -10,6 +10,7 @@ const topSellingProducts = [
     rating: 4,
     reviews: 12,
     image: "https://placehold.co/200x200/FF8C42/FFF?text=Floral+Top",
+    slug: "1",
   },
   {
     id: "2",
@@ -20,6 +21,7 @@ const topSellingProducts = [
     rating: 5,
     reviews: 8,
     image: "https://placehold.co/200x200/8B4513/FFF?text=Skincare",
+    slug: "2",
   },
   {
     id: "3",
@@ -30,6 +32,7 @@ const topSellingProducts = [
     rating: 4,
     reviews: 15,
     image: "https://placehold.co/200x200/FFD700/333?text=Socks",
+    slug: "3",
   },
   {
     id: "4",
@@ -40,6 +43,7 @@ const topSellingProducts = [
     rating: 4,
     reviews: 6,
     image: "https://placehold.co/200x200/8B4513/FFF?text=Bag",
+    slug: "4",
   },
   {
     id: "5",
@@ -50,6 +54,7 @@ const topSellingProducts = [
     rating: 5,
     reviews: 9,
     image: "https://placehold.co/200x200/654321/FFF?text=Wallet",
+    slug: "5",
   },
   {
     id: "6",
@@ -60,6 +65,7 @@ const topSellingProducts = [
     rating: 4,
     reviews: 11,
     image: "https://placehold.co/200x200/000/FFF?text=Kit",
+    slug: "6",
   },
 ]
 

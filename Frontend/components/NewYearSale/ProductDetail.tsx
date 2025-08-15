@@ -331,30 +331,30 @@ export default function ProductDetail({ product, onClose }: ProductDetailProps) 
                   <div className="text-center">
                     <div className="text-4xl font-bold text-gray-800 mb-2">{product.rating}</div>
                     <div className="text-sm text-gray-600 mb-2">out of 5</div>
-                    <StarRating rating={product.rating} size="md" />
-                  </div>
+                <StarRating rating={product.rating} size="md" />
+              </div>
                   <div className="flex-1">
                     <div className="text-sm text-gray-600 mb-3">{product.reviewCount} people reviewed this product</div>
-                    
+
                     {/* Enhanced Star Rating Breakdown */}
                     <div className="space-y-2">
-                      {[5, 4, 3, 2, 1].map((stars) => {
-                        const count = product.reviews.filter(r => r.rating === stars).length
-                        const percentage = product.reviewCount > 0 ? (count / product.reviewCount) * 100 : 0
-                        return (
+                {[5, 4, 3, 2, 1].map((stars) => {
+                  const count = product.reviews.filter(r => r.rating === stars).length
+                  const percentage = product.reviewCount > 0 ? (count / product.reviewCount) * 100 : 0
+                  return (
                           <div key={stars} className="flex items-center space-x-3">
                             <span className="text-sm text-gray-600 w-8">{stars}★</span>
-                            <div className="flex-1 bg-gray-200 rounded-full h-2">
-                              <div 
+                      <div className="flex-1 bg-gray-200 rounded-full h-2">
+                        <div 
                                 className="bg-orange-500 h-2 rounded-full transition-all duration-300" 
-                                style={{ width: `${percentage}%` }}
-                              ></div>
-                            </div>
+                          style={{ width: `${percentage}%` }}
+                        ></div>
+                      </div>
                             <span className="text-sm text-gray-600 w-20">{percentage.toFixed(0)}%</span>
                             <span className="text-sm text-gray-500 w-12">({count})</span>
-                          </div>
-                        )
-                      })}
+                    </div>
+                  )
+                })}
                     </div>
                   </div>
                 </div>
@@ -589,14 +589,14 @@ export default function ProductDetail({ product, onClose }: ProductDetailProps) 
              {/* Newsletter Form */}
              <div className="max-w-md mx-auto">
                <div className="flex flex-col sm:flex-row gap-3 p-1 bg-white rounded-xl shadow-lg border border-gray-200">
-                 <input
-                   type="email"
+            <input
+              type="email"
                    placeholder="Enter your email address"
                    className="flex-1 px-4 py-3 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent rounded-lg"
-                 />
+            />
                  <button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
-                   Subscribe
-                 </button>
+              Subscribe
+            </button>
                </div>
                
                {/* Trust Indicators */}
@@ -635,9 +635,9 @@ export default function ProductDetail({ product, onClose }: ProductDetailProps) 
                  <h4 className="font-semibold text-gray-800 mb-2">Pro Tips</h4>
                  <p className="text-sm text-gray-600">Shopping guides and product recommendations</p>
                </div>
-             </div>
-           </div>
-         </div>
+          </div>
+        </div>
+      </div>
       </div>
 
       {/* Footer */}
