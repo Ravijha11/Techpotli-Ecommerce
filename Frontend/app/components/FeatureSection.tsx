@@ -4,85 +4,21 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { featuredProducts } from "@/data/featuredProducts"
 
 interface FeatureProduct {
   id: string
   name: string
   price: number
-  originalPrice: number
-  discount: number
+  originalPrice?: number | null
+  discount?: number | null
   image: string
-  badge?: "New" | "Featured"
-  href: string
+  badge?: string
+  slug: string
 }
 
-const featureProducts: FeatureProduct[] = [
-  {
-    id: "1",
-    name: "Premium Almonds",
-    price: 76,
-    originalPrice: 130,
-    discount: 42,
-    image: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=300&h=300&fit=crop",
-    badge: "New",
-    href: "/product/1"
-  },
-  {
-    id: "2",
-    name: "Fresh Pancake Mix",
-    price: 77,
-    originalPrice: 100,
-    discount: 23,
-    image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&h=300&fit=crop",
-    href: "/product/2"
-  },
-  {
-    id: "3",
-    name: "Leather Crossbody Bag",
-    price: 78,
-    originalPrice: 100,
-    discount: 22,
-    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=300&h=300&fit=crop",
-    href: "/product/3"
-  },
-  {
-    id: "4",
-    name: "Fresh Lemon Tea",
-    price: 79,
-    originalPrice: 100,
-    discount: 21,
-    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&h=300&fit=crop",
-    href: "/product/4"
-  },
-  {
-    id: "5",
-    name: "Women's Flat Shoes",
-    price: 80,
-    originalPrice: 100,
-    discount: 20,
-    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=300&fit=crop",
-    badge: "Featured",
-    href: "/product/5"
-  },
-  {
-    id: "6",
-    name: "Organic Lentils",
-    price: 81,
-    originalPrice: 100,
-    discount: 19,
-    image: "https://images.unsplash.com/photo-1515543904379-3d757afe72e3?w=300&h=300&fit=crop",
-    href: "/product/6"
-  },
-  {
-    id: "7",
-    name: "Grey Sweatpants",
-    price: 82,
-    originalPrice: 100,
-    discount: 18,
-    image: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=300&h=300&fit=crop",
-    href: "/product/7"
-  }
-]
+// Use the imported featuredProducts data
+const featureProducts: FeatureProduct[] = featuredProducts
 
 export default function FeatureSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -145,7 +81,7 @@ export default function FeatureSection() {
             {featureProducts.map((product) => (
               <div key={product.id} className="flex-shrink-0 w-full md:w-1/6 px-2">
                 <Link 
-                  href={product.href}
+                  href={`/featured-product/${product.slug}`}
                   className="block group"
                   title={product.name}
                 >
@@ -184,12 +120,18 @@ export default function FeatureSection() {
                         <span className="text-lg font-bold text-gray-900">
                           ${product.price}
                         </span>
-                        <span className="text-sm text-gray-500 line-through">
-                          ${product.originalPrice}
-                        </span>
-                        <span className="text-sm font-bold text-purple-600">
-                          {product.discount}% off
-                        </span>
+                        {product.originalPrice && product.originalPrice > product.price && (
+                          <>
+                            <span className="text-sm text-gray-500 line-through">
+                              ${product.originalPrice}
+                            </span>
+                            {product.discount && (
+                              <span className="text-sm font-bold text-purple-600">
+                                {product.discount}% off
+                              </span>
+                            )}
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>

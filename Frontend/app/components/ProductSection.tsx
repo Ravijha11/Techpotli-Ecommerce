@@ -12,6 +12,7 @@ interface Product {
   rating: number
   image: string
   badge?: string
+  slug: string
 }
 
 interface ProductSectionProps {
@@ -52,7 +53,8 @@ export default function ProductSection({ title, subtitle, products }: ProductSec
 
 function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-4 w-full group border border-gray-100">
+    <Link href={`/featured-product/${product.slug || product.id}`} className="block">
+      <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-4 w-full group border border-gray-100">
       {product.badge && (
         <div className="absolute top-2 left-2 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold z-10">
           {product.badge}
@@ -109,9 +111,10 @@ function ProductCard({ product }: { product: Product }) {
 
         <button className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors font-medium flex items-center justify-center space-x-2">
           <ShoppingCart className="w-4 h-4" />
-          <span>{t('product.addToCart')}</span>
+          <span>Add to Cart</span>
         </button>
       </div>
-    </div>
+      </div>
+    </Link>
   )
 }
