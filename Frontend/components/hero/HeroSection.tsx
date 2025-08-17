@@ -11,19 +11,19 @@ const sliderImages = [
     id: 1,
     src: "https://cdn.ishop.cholobangla.com/uploads/slider-1.webp",
     alt: "11.11 SUPER SALE",
-    href: "/winter-sale/products?home_spm=1"
+    href: "/discover/products?category=sale&home_spm=1"
   },
   {
     id: 2,
     src: "https://cdn.ishop.cholobangla.com/uploads/slider-2.webp",
     alt: "Flash Sale",
-    href: "/flash-50-off/products?home_spm=2"
+    href: "/discover/products?category=flash-sale&home_spm=2"
   },
   {
     id: 3,
     src: "https://cdn.ishop.cholobangla.com/uploads/slider-3.webp",
     alt: "Black Friday",
-    href: "/black-friday-discount/products?home_spm=3"
+    href: "/discover/products?category=black-friday&home_spm=3"
   }
 ]
 
@@ -32,13 +32,13 @@ const promotionalImages = [
     id: 4,
     src: "https://cdn.ishop.cholobangla.com/uploads/slider-4.webp",
     alt: "Backpack for Men",
-    href: "/backpack-for-men/products?home_spm=4"
+    href: "/discover/products?category=backpacks&home_spm=4"
   },
   {
     id: 5,
     src: "https://cdn.ishop.cholobangla.com/uploads/slider-5.webp",
     alt: "Puma Stylist Shoes",
-    href: "/puma-stylist-shoes/products?home_spm=5"
+    href: "/discover/products?brand=Puma&home_spm=5"
   }
 ]
 
