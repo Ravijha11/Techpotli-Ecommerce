@@ -17,21 +17,21 @@ const bannerItems: BannerItem[] = [
     title: "Voucher",
     image: "https://cdn.ishop.cholobangla.com/uploads/banner-2.webp",
     alt: "Voucher",
-    href: "/homesick-new-home-reed-diffuser/product/88630161"
+    href: "/discover/products?category=vouchers&banner=1"
   },
   {
     id: "2",
     title: "Discount",
     image: "https://cdn.ishop.cholobangla.com/uploads/banner-3.webp",
     alt: "Discount",
-    href: "/discount/products?banner=3"
+    href: "/discover/products?category=discounts&banner=3"
   },
   {
     id: "3",
     title: "Black Friday",
     image: "https://cdn.ishop.cholobangla.com/uploads/banner-4.webp",
     alt: "Black friday",
-    href: "/black-friday/products?banner=4"
+    href: "/discover/products?category=black-friday&banner=4"
   }
 ]
 

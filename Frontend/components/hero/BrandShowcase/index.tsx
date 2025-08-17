@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 const brands = [
   { name: "Apple", logo: "/Apple.jpg" },
@@ -39,6 +40,9 @@ export default function BrandShowcase() {
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-800">Our Trusted Brands</h2>
 
         <div className="overflow-hidden">
+          <div className="text-center mb-4">
+            <p className="text-sm text-gray-600">Click on any brand to view related products</p>
+          </div>
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{
@@ -47,18 +51,23 @@ export default function BrandShowcase() {
             }}
           >
             {brands.concat(brands).map((brand, index) => (
-              <div
+              <Link
                 key={`${brand.name}-${index}`}
-                className="flex-shrink-0 w-[120px] h-[80px] mx-4 bg-white rounded-lg border border-gray-200 flex items-center justify-center hover:shadow-md transition-shadow"
+                href={`/discover/products?brand=${encodeURIComponent(brand.name)}`}
+                className="flex-shrink-0 w-[120px] h-[80px] mx-4 bg-white rounded-lg border border-gray-200 flex flex-col items-center justify-center hover:shadow-lg hover:shadow-blue-100 transition-all duration-200 hover:border-blue-500 hover:scale-105 group"
+                title={`Click to view ${brand.name} products`}
               >
                 <Image
                   src={brand.logo || "/placeholder.svg"}
                   alt={brand.name}
-                  width={100}
-                  height={50}
-                  className="object-contain filter grayscale hover:grayscale-0 transition-all"
+                  width={80}
+                  height={40}
+                  className="object-contain filter grayscale group-hover:grayscale-0 transition-all cursor-pointer mb-1"
                 />
-              </div>
+                <span className="text-xs text-gray-500 group-hover:text-blue-600 transition-colors">
+                  View Products
+                </span>
+              </Link>
             ))}
           </div>
         </div>
