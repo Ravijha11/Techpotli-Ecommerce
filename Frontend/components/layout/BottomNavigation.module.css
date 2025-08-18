@@ -1,14 +1,14 @@
 .bottomArea {
   background-color: white;
   border-bottom: 1px solid #e5e7eb;
-  padding: 16px 0;
+  padding: 8px 0; /* Reduced from 16px */
   width: 100%;
 }
 
 .containerFluid {
   max-width: 100%;
   margin: 0;
-  padding: 0 16px;
+  padding: 0 12px; /* Reduced from 16px */
 }
 
 .flexSided {
@@ -17,13 +17,13 @@
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px; /* Reduced from 16px */
 }
 
 .leftLinks,
 .rightLinks {
   display: flex;
-  gap: 16px;
+  gap: 12px; /* Reduced from 16px */
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
@@ -33,15 +33,15 @@
   text-decoration: none;
   color: #212121;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px; /* Reduced from 14px */
   text-transform: uppercase;
   letter-spacing: 0.3px;
   transition: color 0.2s ease;
   white-space: nowrap;
   font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
-  padding: 8px 12px;
+  padding: 6px 10px; /* Reduced from 8px 12px */
   border-radius: 6px;
-  min-height: 44px;
+  min-height: 36px; /* Reduced from 44px */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,58 +61,58 @@
 @media (max-width: 768px) {
   .flexSided {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px; /* Reduced from 16px */
   }
   
   .leftLinks,
   .rightLinks {
-    gap: 12px;
+    gap: 8px; /* Reduced from 12px */
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
   }
   
   .link {
-    font-size: 12px;
-    padding: 6px 10px;
-    min-height: 40px;
+    font-size: 11px; /* Reduced from 12px */
+    padding: 4px 8px; /* Reduced from 6px 10px */
+    min-height: 32px; /* Reduced from 40px */
   }
   
   .containerFluid {
-    padding: 0 16px;
+    padding: 0 12px; /* Reduced from 16px */
   }
 }
 
 @media (max-width: 480px) {
   .leftLinks,
   .rightLinks {
-    gap: 8px;
+    gap: 6px; /* Reduced from 8px */
   }
   
   .link {
-    font-size: 11px;
-    padding: 5px 8px;
-    min-height: 36px;
+    font-size: 10px; /* Reduced from 11px */
+    padding: 3px 6px; /* Reduced from 5px 8px */
+    min-height: 28px; /* Reduced from 36px */
   }
   
   .containerFluid {
-    padding: 0 12px;
+    padding: 0 8px; /* Reduced from 12px */
   }
 }
 
 @media (min-width: 1024px) {
   .containerFluid {
-    padding: 0 24px;
+    padding: 0 16px; /* Reduced from 24px */
   }
   
   .leftLinks,
   .rightLinks {
-    gap: 32px;
+    gap: 20px; /* Reduced from 32px */
   }
   
   .link {
-    font-size: 14px;
-    padding: 8px 12px;
-    min-height: 44px;
+    font-size: 12px; /* Reduced from 14px */
+    padding: 6px 10px; /* Reduced from 8px 12px */
+    min-height: 36px; /* Reduced from 44px */
   }
 } 
