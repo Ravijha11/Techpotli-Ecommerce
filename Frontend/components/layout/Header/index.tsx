@@ -3,15 +3,12 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, Search, Mail, Phone, Globe, User, ShoppingCart, Store, LogIn, UserPlus } from "lucide-react"
+import { Menu, X, Search, Globe, User, ShoppingCart, Store, LogIn, UserPlus } from "lucide-react"
 import SearchBar from "./SearchBar"
-import AccountDropdown from "./AccountDropdown"
 import LoginButton from "./LoginButton"
 import RegisterButton from "./RegisterButton"
 import SellerButton from "./SellerButton"
-import LanguageSelector from "./LanguageSelector"
-import ContactInfo from "./ContactInfo"
-import CartIcon from "./CartIcon"
+import MoreOptions from "./MoreOptions"
 import BottomNavigation from "../BottomNavigation"
 
 export default function Header() {
@@ -41,137 +38,131 @@ export default function Header() {
 
   return (
     <header className={`sticky top-0 z-50 bg-white transition-all duration-300 w-full ${isHydrated && isScrolled ? "shadow-lg" : ""}`}>
-      {/* Top Bar - Clean White Design */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Desktop Top Bar */}
-          <div className="hidden lg:flex items-center justify-between py-4">
-            {/* Left Side - Contact Info & Language */}
-            <div className="flex items-center space-x-8">
-                             {/* Language Selector */}
-               <LanguageSelector />
-              
-                             {/* Contact Info */}
-               <ContactInfo />
-            </div>
+             {/* Top Bar - Clean White Design */}
+       <div className="bg-white border-b border-gray-200">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           {/* Desktop Top Bar */}
+           <div className="hidden lg:flex items-center justify-between py-4">
+             {/* Left Side - Logo */}
+             <div className="flex items-center space-x-8">
+               <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
+                 <Image
+                   src="/New_Techpotli_Logo.png"
+                   alt="Techpotli Logo"
+                   width={180}
+                   height={60}
+                   className="h-12 w-auto md:h-16 responsive-logo"
+                   priority
+                 />
+               </Link>
+             </div>
 
-            {/* Right Side - Seller & Auth */}
-            <div className="flex items-center space-x-6">
-              <SellerButton />
-              <span className="text-gray-300">|</span>
-              <LoginButton />
-              <span className="text-gray-300">|</span>
-              <RegisterButton />
-            </div>
-          </div>
+             {/* Center - Search Bar */}
+             <div className="flex-1 max-w-2xl mx-8">
+               <SearchBar />
+             </div>
 
-          {/* Tablet Top Bar */}
-          <div className="hidden md:block lg:hidden py-3">
-            {/* Top Row - Language & Contact */}
-            <div className="flex items-center justify-between mb-3">
-              {/* Language */}
-              <LanguageSelector />
-              
-              {/* Contact Info */}
-              <ContactInfo />
-            </div>
+             {/* Right Side - Seller, Auth & Three Dots (3-dots last) */}
+             <div className="flex items-center space-x-6">
+               <SellerButton />
+               <span className="text-gray-300">|</span>
+               <LoginButton />
+               <span className="text-gray-300">|</span>
+               <RegisterButton />
+               <span className="text-gray-300">|</span>
+               <MoreOptions />
+             </div>
+           </div>
 
-            {/* Bottom Row - Seller & Auth */}
-            <div className="flex items-center justify-between">
-              <SellerButton />
-              <div className="flex items-center space-x-4">
-                <LoginButton />
-                <RegisterButton />
-              </div>
-            </div>
-          </div>
+                     {/* Tablet Top Bar */}
+           <div className="hidden md:block lg:hidden py-3">
+             {/* Top Row - Logo, Search & Three Dots */}
+             <div className="flex items-center justify-between mb-3">
+               {/* Logo */}
+               <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
+                 <Image
+                   src="/New_Techpotli_Logo.png"
+                   alt="Techpotli Logo"
+                   width={160}
+                   height={50}
+                   className="h-10 w-auto responsive-logo"
+                   priority
+                 />
+               </Link>
 
-          {/* Mobile Top Bar */}
-          <div className="md:hidden py-3">
-            {/* Mobile Top Row - Language & Contact */}
-            <div className="flex items-center justify-between mb-3">
-              {/* Language */}
-              <LanguageSelector />
-              
-              {/* Contact Icons */}
-              <div className="flex items-center space-x-3">
-                 <a 
-                   href="mailto:info@techpotli.com" 
-                   className="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-full transition-all duration-200"
-                   aria-label="Email us at info@techpotli.com"
-                 >
-                   <Mail className="w-4 h-4" />
-                 </a>
-                 <a 
-                   href="tel:01147200987" 
-                   className="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-full transition-all duration-200"
-                   aria-label="Call us at 01147200987"
-                 >
-                   <Phone className="w-4 h-4" />
-                 </a>
+               {/* Search Bar */}
+               <div className="flex-1 max-w-xl mx-6">
+                 <SearchBar />
                </div>
-            </div>
 
-            {/* Mobile Bottom Row - Seller & Auth */}
-            <div className="flex items-center justify-between">
-              <SellerButton />
-              <div className="flex items-center space-x-3">
-                <LoginButton />
-                <RegisterButton />
-              </div>
-            </div>
-          </div>
+               {/* Three Dots */}
+               <MoreOptions />
+             </div>
+
+             {/* Bottom Row - Seller & Auth */}
+             <div className="flex items-center justify-between">
+               <SellerButton />
+               <div className="flex items-center space-x-4">
+                 <LoginButton />
+                 <RegisterButton />
+               </div>
+             </div>
+           </div>
+
+                     {/* Mobile Top Bar */}
+           <div className="md:hidden py-3">
+             {/* Mobile Top Row - Logo, Search & Three Dots */}
+             <div className="flex items-center justify-between mb-3">
+               {/* Logo */}
+               <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
+                 <Image
+                   src="/New_Techpotli_Logo.png"
+                   alt="Techpotli Logo"
+                   width={140}
+                   height={45}
+                   className="h-9 w-auto responsive-logo"
+                   priority
+                 />
+               </Link>
+
+               {/* Search Bar */}
+               <div className="flex-1 max-w-xs mx-4">
+                 <SearchBar />
+               </div>
+
+               {/* Three Dots */}
+               <MoreOptions />
+             </div>
+
+             {/* Mobile Bottom Row - Seller & Auth */}
+             <div className="flex items-center justify-between">
+               <SellerButton />
+               <div className="flex items-center space-x-3">
+                 <LoginButton />
+                 <RegisterButton />
+               </div>
+             </div>
+           </div>
         </div>
       </div>
 
-      {/* Main Header */}
-      <div className="w-full py-4 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between w-full">
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-              onClick={toggleMobileMenu}
-              aria-label="Toggle mobile menu"
-              aria-expanded={isMobileMenuOpen}
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
-              <Image
-                src="/New_Techpotli_Logo.png"
-                alt="Techpotli Logo"
-                width={180}
-                height={60}
-                className="h-12 w-auto md:h-16 responsive-logo"
-                priority
-              />
-            </Link>
-
-            {/* Search Bar - Desktop */}
-            <div className="hidden md:flex flex-1 max-w-2xl mx-8">
-              <SearchBar />
-            </div>
-
-            {/* Right Icons */}
-            <div className="flex items-center space-x-4 md:space-x-6 flex-shrink-0">
-              <AccountDropdown />
-              <CartIcon />
-            </div>
-          </div>
-
-          {/* Mobile Search */}
-          <div className="md:hidden mt-4">
-            <SearchBar />
-          </div>
-        </div>
-      </div>
+             {/* Mobile Menu Button - Only for mobile navigation */}
+       <div className="md:hidden w-full py-2 bg-white border-b border-gray-200">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <button
+             className="p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+             onClick={toggleMobileMenu}
+             aria-label="Toggle mobile menu"
+             aria-expanded={isMobileMenuOpen.toString()}
+           >
+             {isMobileMenuOpen ? (
+               <X className="w-6 h-6" />
+             ) : (
+               <Menu className="w-6 h-6" />
+             )}
+           </button>
+         </div>
+       </div>
 
       {/* Mobile Navigation Menu */}
       <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
