@@ -149,6 +149,16 @@ export default function RegisterForm() {
         </p>
       </div>
 
+      {/* My Account Button */}
+      <div className="mt-4 text-center">
+        <Link 
+          href="/profile" 
+          className="inline-flex items-center px-4 py-2 border border-purple-600 text-purple-600 rounded-lg font-medium hover:bg-purple-50 transition-colors text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+        >
+          My Account
+        </Link>
+      </div>
+
       {/* Divider */}
       <div className="mt-6">
         <div className="relative">

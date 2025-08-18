@@ -6,8 +6,8 @@ import Image from "next/image"
 import { Menu, X, Search, Globe, User, ShoppingCart, Store, LogIn, UserPlus } from "lucide-react"
 import SearchBar from "./SearchBar"
 import LoginButton from "./LoginButton"
-import RegisterButton from "./RegisterButton"
 import SellerButton from "./SellerButton"
+import CartIcon from "./CartIcon"
 import MoreOptions from "./MoreOptions"
 import BottomNavigation from "../BottomNavigation"
 
@@ -62,16 +62,16 @@ export default function Header() {
                <SearchBar />
              </div>
 
-             {/* Right Side - Seller, Auth & Three Dots (3-dots last) */}
-             <div className="flex items-center space-x-6">
-               <SellerButton />
-               <span className="text-gray-300">|</span>
-               <LoginButton />
-               <span className="text-gray-300">|</span>
-               <RegisterButton />
-               <span className="text-gray-300">|</span>
-               <MoreOptions />
-             </div>
+                         {/* Right Side - Seller, Cart, Login & Three Dots */}
+            <div className="flex items-center space-x-6">
+              <SellerButton />
+              <span className="text-gray-300">|</span>
+              <CartIcon />
+              <span className="text-gray-300">|</span>
+              <LoginButton />
+              <span className="text-gray-300">|</span>
+              <MoreOptions />
+            </div>
            </div>
 
                      {/* Tablet Top Bar */}
@@ -99,14 +99,15 @@ export default function Header() {
                <MoreOptions />
              </div>
 
-             {/* Bottom Row - Seller & Auth */}
-             <div className="flex items-center justify-between">
-               <SellerButton />
-               <div className="flex items-center space-x-4">
-                 <LoginButton />
-                 <RegisterButton />
-               </div>
-             </div>
+                         {/* Bottom Row - Seller, Cart & Login */}
+            <div className="flex items-center justify-between">
+              <SellerButton />
+              <div className="flex items-center space-x-4">
+                <CartIcon />
+                <span className="text-gray-300">|</span>
+                <LoginButton />
+              </div>
+            </div>
            </div>
 
                      {/* Mobile Top Bar */}
@@ -134,14 +135,15 @@ export default function Header() {
                <MoreOptions />
              </div>
 
-             {/* Mobile Bottom Row - Seller & Auth */}
-             <div className="flex items-center justify-between">
-               <SellerButton />
-               <div className="flex items-center space-x-3">
-                 <LoginButton />
-                 <RegisterButton />
-               </div>
-             </div>
+                         {/* Mobile Bottom Row - Seller, Cart & Login */}
+            <div className="flex items-center justify-between">
+              <SellerButton />
+              <div className="flex items-center space-x-3">
+                <CartIcon />
+                <span className="text-gray-300">|</span>
+                <LoginButton />
+              </div>
+            </div>
            </div>
         </div>
       </div>

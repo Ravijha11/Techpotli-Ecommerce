@@ -1,5 +1,6 @@
 import RegisterForm from "@/components/auth/RegisterForm"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function RegisterPage() {
   return (
@@ -16,6 +17,16 @@ export default function RegisterPage() {
             />
             <span className="text-2xl font-bold text-purple-600">Techpotli</span>
           </div>
+        </div>
+        
+        {/* My Account Button */}
+        <div className="text-center mb-6">
+          <Link 
+            href="/profile" 
+            className="inline-flex items-center px-4 py-2 border border-purple-600 text-purple-600 rounded-lg font-medium hover:bg-purple-50 transition-colors text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+          >
+            My Account
+          </Link>
         </div>
       </div>
       

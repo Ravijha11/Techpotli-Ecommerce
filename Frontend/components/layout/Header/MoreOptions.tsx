@@ -69,14 +69,7 @@ export default function MoreOptions() {
       action: () => window.location.href = 'tel:01147200987',
       isLink: false
     },
-    {
-      icon: ShoppingCart,
-      label: 'Cart',
-      description: 'View your shopping cart',
-      action: () => {},
-      isLink: true,
-      href: '/cart'
-    },
+
     {
       icon: User,
       label: 'My Account',
