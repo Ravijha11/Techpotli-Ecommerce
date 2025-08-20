@@ -32,54 +32,50 @@ const features = [
 export default function ServiceFeatures() {
   return (
     <section className="relative bg-transparent overflow-hidden">
-      {/* Background Pattern - Removed */}
-      
-      {/* Subtle Glow Effect - Removed */}
-      
       <div className="w-full px-4 md:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-wrap mb-20 mb-sm-15">
+        <div className="flex flex-wrap">
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="static-area flex-1 min-w-[250px] p-6 group"
+              className="static-area flex-1 min-w-[200px] p-4 group"
             >
               <div className="relative">
                 {/* Card Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgGradient} rounded-2xl opacity-90 backdrop-blur-xl border border-gray-200/50 shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-105`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgGradient} rounded-xl opacity-90 backdrop-blur-xl border border-gray-200/50 shadow-md group-hover:shadow-lg transition-all duration-500 group-hover:scale-105`}></div>
                 
                 {/* Content */}
-                <div className="relative flex items-center space-x-6 p-6">
+                <div className="relative flex items-center space-x-4 p-4">
                   <div className="img-wrap relative">
                     {/* Icon Background Glow */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-full blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-full blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
                     
-                    {/* Icon Container */}
-                    <div className="relative w-16 h-16 bg-white/95 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-md border border-gray-200/50 group-hover:shadow-lg transition-all duration-500 group-hover:scale-110">
+                    {/* Icon Container - Reduced size */}
+                    <div className="relative w-12 h-12 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-sm border border-gray-200/50 group-hover:shadow-md transition-all duration-500 group-hover:scale-110">
                       <img 
                         alt="Feature Image" 
                         title="Feature Image" 
-                        height="50" 
-                        width="50" 
+                        height="32" 
+                        width="32" 
                         style={{ opacity: 1 }} 
                         src={feature.image}
-                        className="w-10 h-10 object-contain filter drop-shadow-sm"
+                        className="w-8 h-8 object-contain filter drop-shadow-sm"
                       />
                     </div>
                   </div>
                   
                   <div className="detail flex-1">
-                    <h4 className="font-bold text-gray-800 text-lg mb-2 group-hover:text-gray-900 transition-colors duration-300">
+                    <h4 className="font-bold text-gray-800 text-base mb-1 group-hover:text-gray-900 transition-colors duration-300">
                       <strong>{feature.title}</strong>
                     </h4>
-                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                    <p className="text-xs text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
                       {feature.description}
                     </p>
                   </div>
                   
-                  {/* Hover Effect Arrow */}
-                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-500">
-                    <div className={`w-8 h-8 bg-gradient-to-r ${feature.gradient} rounded-full flex items-center justify-center shadow-md`}>
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {/* Hover Effect Arrow - Reduced size */}
+                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-500">
+                    <div className={`w-6 h-6 bg-gradient-to-r ${feature.gradient} rounded-full flex items-center justify-center shadow-sm`}>
+                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>

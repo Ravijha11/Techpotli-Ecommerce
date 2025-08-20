@@ -14,7 +14,7 @@ export default function PromoBanners() {
               {t('common.shopNowMessage')}
             </p>
             <Link
-              href="/products"
+              href="/discover/products"
               className="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               {t('home.hero.cta')}
@@ -37,7 +37,7 @@ export default function PromoBanners() {
               Protect your purchase with our comprehensive warranty plans starting from just ₹99
             </p>
             <Link
-              href="/warranty"
+              href="/discover/products?category=electronics"
               className="inline-block bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Learn More

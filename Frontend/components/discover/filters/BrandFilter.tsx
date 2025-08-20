@@ -9,14 +9,23 @@ interface BrandFilterProps {
 }
 
 const brands = [
-  "Adidas",
-  "Puma", 
+  "Apple",
+  "Samsung",
+  "Sony",
+  "LG",
+  "Panasonic",
+  "Philips",
   "Nike",
-  "Reebok",
-  "Crocs",
-  "Vans",
+  "Adidas",
+  "Levi's",
+  "H&M",
+  "Zara",
   "Gucci",
-  "Apple"
+  "Rolex",
+  "Gillette",
+  "L'Oréal",
+  "Nescafe",
+  "Accenture"
 ]
 
 export default function BrandFilter({ selectedBrands, onBrandChange }: BrandFilterProps) {

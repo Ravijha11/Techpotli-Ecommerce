@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react"
 import { notFound } from "next/navigation"
-import { newYearSaleProducts } from "@/components/NewYearSale/products/productsData"
-import ProductDetail from "@/components/NewYearSale/ProductDetail"
+import { featuredProducts } from "@/data/featuredProducts"
+import ProductDetail from "@/components/FeaturedProducts/ProductDetail"
 import Header from "@/components/layout/Header"
 
 interface ProductPageProps {
@@ -12,13 +12,13 @@ interface ProductPageProps {
   }
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
+export default function FeaturedProductPage({ params }: ProductPageProps) {
   const [product, setProduct] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     // Find the product by slug
-    const foundProduct = newYearSaleProducts.find(p => p.slug === params.slug)
+    const foundProduct = featuredProducts.find(p => p.slug === params.slug)
     
     if (foundProduct) {
       setProduct(foundProduct)

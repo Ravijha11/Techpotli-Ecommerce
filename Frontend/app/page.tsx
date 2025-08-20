@@ -11,6 +11,7 @@ import TopSellingProducts from "@/components/marketing/TopSellingProducts"
 import TrendingProducts from "@/components/marketing/TrendingProducts"
 import Footer from "@/components/layout/Footer"
 import CategorySitemap from "@/components/layout/Footer/CategorySitemap"
+import BrandShowcase from "@/components/hero/BrandShowcase"
 
 // Keep page-specific components in app/components
 import NewYearSale from "./components/NewYearSale"
@@ -36,6 +37,7 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
+        <BrandShowcase />
         <ServiceFeatures />
         <NewYearSale />
         <FeatureSection />
@@ -46,7 +48,7 @@ export default function HomePage() {
         <DailyDiscover />
         <SimpleBanner 
           imageUrl="https://cdn.ishop.cholobangla.com/uploads/banner-6.webp"
-          linkUrl="/autumn-offer/products?banner=6"
+          linkUrl="/discover/products?category=autumn-offers&banner=6"
           altText="Autumn Special Offers"
           height={100}
           width={500}

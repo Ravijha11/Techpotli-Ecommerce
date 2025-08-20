@@ -4,6 +4,7 @@ import { useState } from "react"
 import { ChevronLeft, ChevronRight, Star, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react"
 import { newYearSaleProducts } from "./products/productsData"
 import ProductCard from "./ProductCard"
+import ProductBanner from "./ProductBanner"
 
 export default function NewYearSale() {
   const [currentPage, setCurrentPage] = useState(1)
@@ -89,6 +90,9 @@ export default function NewYearSale() {
           </div>
         </div>
       </section>
+
+      {/* Product Banner Section */}
+      <ProductBanner />
     </div>
   )
 }

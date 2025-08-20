@@ -7,81 +7,68 @@ interface BrandItem {
   id: string
   name: string
   logo: string
-  href: string
 }
 
 const brands: BrandItem[] = [
   {
     id: "levis",
     name: "Levi's",
-    logo: "/Levis Logo.jpg",
-    href: "/brands/levis"
+    logo: "/Levis Logo.jpg"
   },
   {
     id: "adidas",
     name: "Adidas",
-    logo: "/Adidas Logo.jpg",
-    href: "/brands/adidas"
+    logo: "/Adidas Logo.jpg"
   },
   {
     id: "hm",
     name: "H&M",
-    logo: "/H&M.jpg",
-    href: "/brands/hm"
+    logo: "/H&M.jpg"
   },
   {
     id: "rolex",
     name: "Rolex",
-    logo: "/Rolex.jpg",
-    href: "/brands/rolex"
+    logo: "/Rolex.jpg"
   },
   {
     id: "apple",
     name: "Apple",
-    logo: "/Apple.jpg",
-    href: "/brands/apple"
+    logo: "/Apple.jpg"
   },
   {
     id: "chanel",
     name: "Chanel",
-    logo: "/Schnell.jpg",
-    href: "/brands/chanel"
+    logo: "/Schnell.jpg"
   },
   {
     id: "zara",
     name: "Zara",
-    logo: "/Zara.jpg",
-    href: "/brands/zara"
+    logo: "/Zara.jpg"
   },
   {
     id: "nike",
     name: "Nike",
-    logo: "/Nike.jpg",
-    href: "/brands/nike"
+    logo: "/Nike.jpg"
   },
   {
     id: "gillette",
     name: "Gillette",
-    logo: "/Gillette.jpg",
-    href: "/brands/gillette"
+    logo: "/Gillette.jpg"
   },
   {
     id: "accenture",
     name: "Accenture",
-    logo: "/Accenture.jpg",
-    href: "/brands/accenture"
+    logo: "/Accenture.jpg"
   },
   {
     id: "nescafe",
     name: "Nescafe",
-    logo: "/Nescafe.jpg",
-    href: "/brands/nescafe"
+    logo: "/Nescafe.jpg"
   },
   {
     id: "loreal",
     name: "L'Oréal",
-    logo: "/Loreal.jpg",
-    href: "/brands/loreal"
+    logo: "/Loreal.jpg"
   }
 ]
 
@@ -107,8 +94,9 @@ function BrandCard({ brand, size = "large" }: BrandCardProps) {
 
   return (
     <Link
-      href={brand.href}
+      href={`/discover/products?brand=${encodeURIComponent(brand.name)}`}
       className="group flex flex-col items-center justify-center p-6 bg-white rounded-lg border border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all duration-200"
+      title={`Click to view ${brand.name} products`}
     >
       <div className={`${containerClass} ${shouldShowText ? 'bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border border-gray-200 shadow-sm' : ''}`}>
         {!shouldShowText ? (
@@ -157,12 +145,12 @@ export default function BrandsGrid() {
         <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">More Brands</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {[
-            { id: "gucci", name: "Gucci", logo: "/Gucci.jpg", href: "/brands/gucci" },
-            { id: "samsung", name: "Samsung", logo: "/Samsung.jpg", href: "/brands/samsung" },
-            { id: "sony", name: "Sony", logo: "/Sony.jpg", href: "/brands/sony" },
-            { id: "lg", name: "LG", logo: "/LG.jpg", href: "/brands/lg" },
-            { id: "panasonic", name: "Panasonic", logo: "/Panasonic.jpg", href: "/brands/panasonic" },
-            { id: "philips", name: "Philips", logo: "/Philips.jpg", href: "/brands/philips" }
+            { id: "gucci", name: "Gucci", logo: "/Gucci.jpg" },
+            { id: "samsung", name: "Samsung", logo: "/Samsung.jpg" },
+            { id: "sony", name: "Sony", logo: "/Sony.jpg" },
+            { id: "lg", name: "LG", logo: "/LG.jpg" },
+            { id: "panasonic", name: "Panasonic", logo: "/Panasonic.jpg" },
+            { id: "philips", name: "Philips", logo: "/Philips.jpg" }
           ].map((brand) => (
             <BrandCard 
               key={brand.id} 
