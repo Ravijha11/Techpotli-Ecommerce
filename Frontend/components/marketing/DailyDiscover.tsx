@@ -440,7 +440,7 @@ export default function DailyDiscover() {
       stars.push(
         <Star
           key={i}
-          className={`w-3 h-3 ${
+          className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${
             i <= rating ? "text-yellow-400 fill-current" : "text-gray-300"
           }`}
         />
@@ -450,19 +450,19 @@ export default function DailyDiscover() {
   }
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="w-full px-6 md:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Daily discover</h2>
-          <Link 
-            href="/products" 
-            className="text-gray-600 hover:text-purple-600 font-medium underline"
-          >
-            Show all
-          </Link>
+         <section className="py-8 sm:py-12 md:py-16 bg-gray-50">
+       <div className="w-full px-4 sm:px-6 md:px-6 lg:px-8">
+         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0 mb-6 sm:mb-8">
+           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 text-center sm:text-left">Daily discover</h2>
+                     <Link 
+             href="/products" 
+             className="text-gray-600 hover:text-purple-600 font-medium underline text-center sm:text-left"
+           >
+             Show all
+           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
           {extendedProducts.map((product) => (
             <div key={product.id} className="group">
               <Link 
@@ -471,8 +471,8 @@ export default function DailyDiscover() {
                 title={product.name}
               >
                 <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100">
-                  {/* Product Image */}
-                  <div className="relative h-48 bg-gray-50 overflow-hidden">
+                                     {/* Product Image */}
+                   <div className="relative h-32 sm:h-40 md:h-48 bg-gray-50 overflow-hidden">
                     {product.badge && (
                       <div className={`absolute top-3 left-3 px-2 py-1 rounded-full text-xs font-bold text-white z-10 ${
                         product.badge === "New" ? "bg-purple-500" : 
@@ -495,44 +495,44 @@ export default function DailyDiscover() {
                     />
                   </div>
 
-                  {/* Product Info */}
-                  <div className="p-4">
-                    <h3 className="text-sm font-medium text-gray-900 mb-2 line-clamp-2 group-hover:text-gray-700 transition-colors duration-200">
-                      {product.name}
-                    </h3>
+                                     {/* Product Info */}
+                   <div className="p-2 sm:p-3 md:p-4">
+                                         <h3 className="text-xs sm:text-sm font-medium text-gray-900 mb-1 sm:mb-2 line-clamp-2 group-hover:text-gray-700 transition-colors duration-200">
+                       {product.name}
+                     </h3>
                     
-                    {/* Rating and Reviews */}
-                    <div className="flex items-center mb-3">
-                      <div className="flex items-center mr-2">
-                        {renderStars(product.rating)}
-                      </div>
-                      <span className="text-xs text-gray-500">
-                        {product.reviews} Reviews
-                      </span>
-                    </div>
+                                         {/* Rating and Reviews */}
+                     <div className="flex items-center mb-2 sm:mb-3">
+                       <div className="flex items-center mr-1 sm:mr-2">
+                         {renderStars(product.rating)}
+                       </div>
+                       <span className="text-xs text-gray-500 hidden sm:block">
+                         {product.reviews} Reviews
+                       </span>
+                     </div>
                     
-                    {/* Price */}
-                    <div className="flex items-center justify-center space-x-2">
-                      {product.originalPrice && product.originalPrice > product.price ? (
-                        <>
-                          <span className="text-sm text-gray-500 line-through">
-                            ${product.originalPrice}
-                          </span>
-                          <span className="text-lg font-bold text-gray-900">
-                            ${product.price}
-                          </span>
-                          {product.discount && (
-                            <span className="text-xs font-bold text-purple-600">
-                              -{product.discount}%
-                            </span>
-                          )}
-                        </>
-                      ) : (
-                        <span className="text-lg font-bold text-gray-900">
-                          ${product.price}
-                        </span>
-                      )}
-                    </div>
+                                         {/* Price */}
+                     <div className="flex items-center justify-center space-x-1 sm:space-x-2">
+                       {product.originalPrice && product.originalPrice > product.price ? (
+                         <>
+                           <span className="text-xs sm:text-sm text-gray-500 line-through">
+                             ${product.originalPrice}
+                           </span>
+                           <span className="text-base sm:text-lg font-bold text-gray-900">
+                             ${product.price}
+                           </span>
+                           {product.discount && (
+                             <span className="text-xs font-bold text-purple-600 hidden sm:block">
+                               -{product.discount}%
+                             </span>
+                           )}
+                         </>
+                       ) : (
+                         <span className="text-base sm:text-lg font-bold text-gray-900">
+                           ${product.price}
+                         </span>
+                       )}
+                     </div>
                   </div>
                 </div>
               </Link>
