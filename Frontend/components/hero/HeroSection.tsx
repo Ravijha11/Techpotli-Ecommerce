@@ -129,8 +129,8 @@ export default function HeroSection() {
                   </ul>
                 </div>
 
-                {/* Navigation Buttons */}
-                <div className={`${styles.emblaButtons} ${styles.glideNav}`}>
+                {/* Navigation Buttons - Hidden on mobile for better UX */}
+                <div className={`${styles.emblaButtons} ${styles.glideNav} hidden sm:flex`}>
                   <button 
                     className={`${styles.prevBtn} responsive-button`} 
                     onClick={prevSlide}

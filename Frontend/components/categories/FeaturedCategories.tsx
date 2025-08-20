@@ -95,40 +95,40 @@ export default function FeaturedCategories() {
   const isNextDisabled = currentIndex >= categoryItems.length - itemsPerView
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="w-full px-6 md:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Featured Categories</h2>
-          <div className="flex items-center space-x-4">
-            <div className="flex space-x-2">
+    <section className="py-8 sm:py-12 md:py-16 bg-gray-50">
+      <div className="w-full px-4 sm:px-6 md:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0 mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 text-center sm:text-left">Featured Categories</h2>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+            <div className="flex justify-center sm:justify-start space-x-2">
               <button
                 onClick={prevSlide}
                 disabled={isPrevDisabled}
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 ${
+                className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-200 ${
                   isPrevDisabled
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
                 }`}
                 aria-label="Previous categories"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
               <button
                 onClick={nextSlide}
                 disabled={isNextDisabled}
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 ${
+                className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-200 ${
                   isNextDisabled
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
                 }`}
                 aria-label="Next categories"
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
             <Link 
               href="/categories" 
-              className="text-gray-900 underline hover:text-gray-700 transition-colors duration-200 text-sm font-medium min-w-[80px] text-center"
+              className="text-gray-900 underline hover:text-gray-700 transition-colors duration-200 text-sm font-medium text-center sm:text-left"
             >
               Show all
             </Link>
@@ -136,7 +136,7 @@ export default function FeaturedCategories() {
         </div>
 
         <div className="relative overflow-hidden">
-          <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-4">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-2 sm:gap-3 md:gap-4">
             {categoryItems.map((category) => {
               const IconComponent = category.icon
               return (
@@ -146,9 +146,9 @@ export default function FeaturedCategories() {
                     className="block text-center group"
                     title={category.name}
                   >
-                    <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-3 border border-gray-200 w-full h-full min-h-[100px] flex flex-col items-center justify-center">
-                      <div className="w-10 h-10 mb-2 flex items-center justify-center">
-                        <IconComponent className="w-6 h-6 text-gray-900" />
+                    <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-2 sm:p-3 border border-gray-200 w-full h-full min-h-[80px] sm:min-h-[100px] flex flex-col items-center justify-center">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2 flex items-center justify-center">
+                        <IconComponent className="w-4 h-4 sm:w-6 sm:h-6 text-gray-900" />
                       </div>
                       <h5 className="text-xs font-medium text-gray-900 truncate group-hover:text-gray-700 transition-colors duration-200 leading-tight">
                         {category.name}
