@@ -79,15 +79,15 @@ export default function NewsletterSubscription() {
   }
 
   return (
-    <section className="w-full bg-gradient-to-r from-purple-50 to-indigo-50 py-16">
+    <section className="w-full bg-gradient-to-r from-purple-50 to-indigo-50 py-8 sm:py-12 md:py-16">
       <div className="w-full px-4 md:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
           {/* Left side - Text content */}
           <div className="flex-1 text-center md:text-left">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2">
               Subscribe to our Newsletter
             </h3>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 text-base sm:text-lg">
               Get our latest update in your email
             </p>
           </div>
@@ -96,13 +96,13 @@ export default function NewsletterSubscription() {
           <div className="flex-1 max-w-md w-full">
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
               <div className="relative flex-1">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
                 <Input
                   type="email"
                   placeholder="Your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 pr-4 py-3 h-12 bg-white border-gray-300 focus:border-purple-500 focus:ring-purple-500 rounded-lg"
+                  className="pl-8 sm:pl-10 pr-4 py-2.5 sm:py-3 h-10 sm:h-12 bg-white border-gray-300 focus:border-purple-500 focus:ring-purple-500 rounded-lg text-sm sm:text-base"
                   disabled={isSubmitting}
                   aria-label="Email address for newsletter subscription"
                 />
@@ -110,7 +110,7 @@ export default function NewsletterSubscription() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 h-12 rounded-lg transition-colors duration-200 whitespace-nowrap"
+                className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-4 sm:px-6 py-2.5 sm:py-3 h-10 sm:h-12 rounded-lg transition-colors duration-200 whitespace-nowrap text-sm sm:text-base"
                 aria-label="Subscribe to newsletter"
               >
                 {isSubmitting ? "Subscribing..." : "Subscribe"}
